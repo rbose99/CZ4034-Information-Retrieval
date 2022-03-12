@@ -14,13 +14,6 @@ solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
 
 tweets = pd.read_csv('sample_data.csv')
 
-# data = [{"id": index, "tweet": row["text"], "user_location": row["user_location"], "link": row["url"],  \
-#     "user_geo": list(map(float, row["user_geo"].strip("()").split(","))), \
-#     "toxicity": row["toxicity"], "subjectivity": row["subjectivity"]} \
-#     for index, row in tweets.iterrows()]
-
-# print(solr.add(data))
-
 results = solr.search("tweet: shit",
                         **{'fl' : "id,tweet"},
                         rows=15)
