@@ -24,7 +24,7 @@ def getAllDataDesc():
 
 @app.route("/")
 def index():
-    return render_template('index.js')
+    return render_template("index.html")
 
 
 @socketio.on("onclick")

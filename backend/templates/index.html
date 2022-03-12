@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AY20/21 S2 Information Retrieval Flask Server</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            color: green;
+        }
+    
+        .multipleSelection {
+            width: 300px;
+            background-color: #BCC2C1;
+        }
+    
+        .selectBox {
+            position: relative;
+        }
+    
+        .selectBox select {
+            width: 100%;
+            /* font-weight: bold; */
+        }
+    
+        .overSelect {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    
+        #filter_by {
+            display: none;
+            border: 1px #8DF5E4 solid;
+        }
+    
+        #filter_by label {
+            display: block;
+        }
+    
+        #filter_by label:hover {
+            background-color: #4F615E;
+        }
+    </style>
+</head>
+<body>
+    <title>Testing page</title>
+    <div>
+        <h2>Query</h2>
+        <input id="search_bar" type="text" value=""></input>
+        <div class="multipleSelection">
+                <div class="selectBox" 
+                    onclick="showCheckboxes()">
+                    <select>
+                        <option>Filter Sources</option>
+                    </select>
+                    <div class="overSelect"></div>
+                </div>
+        
+                <div id="filter_by">
+                    <label for="EliteOptions2"><input type="checkbox" name="filter_source" value="EliteOptions2" id="EliteOptions2"/>EliteOptions2</label>
+                    <label for="WarlusTrades"><input type="checkbox" name="filter_source" value="WarlusTrades" id="WarlusTrades"/>WarlusTrades</label>
+                    <label for="canuck2usa"><input type="checkbox" name="filter_source" value="canuck2usa" id="canuck2usa"/>canuck2usa</label>
+                    <label for="OnlyGreenTrades"><input type="checkbox" name="filter_source" value="OnlyGreenTrades" id="OnlyGreenTrades"/>OnlyGreenTrades</label>
+                    <label for="Ultra_Calls"><input type="checkbox" name="filter_source" value="Ultra_Calls" id="Ultra_Calls"/>Ultra_Calls</label>
+                    <label for="MarketBeatCom"><input type="checkbox" name="filter_source" value="MarketBeatCom" id="MarketBeatCom"/>MarketBeatCom</label>
+                    <label for="stockstobuy"><input type="checkbox" name="filter_source" value="stockstobuy" id="stockstobuy"/>stockstobuy</label>
+                    <label for="TickerReport"><input type="checkbox" name="filter_source" value="TickerReport" id="TickerReport"/>TickerReport</label>
+                    <label for="AmericanBanking"><input type="checkbox" name="filter_source" value="AmericanBanking" id="AmericanBanking"/>AmericanBanking</label>
+                    <label for="SeekingAlpha"><input type="checkbox" name="filter_source" value="SeekingAlpha" id="SeekingAlpha"/>SeekingAlpha</label>
+                    <label for="MarketRebels"><input type="checkbox" name="filter_source" value="MarketRebels" id="MarketRebels"/>MarketRebels</label>
+                    <label for="TradeOnTheWire1"><input type="checkbox" name="filter_source" value="TradeOnTheWire1" id="TradeOnTheWire1"/>TradeOnTheWire1</label>
+                </div>
+            </div> 
+        <div>
+            <label for="sort_by">Sorting By: </label>
+            <select name="sort_by" id="sort_by">
+                <option value="relevance">Relevance</option>
+                <option value="tweetcreatedts">Date</option>
+                <option value="tweetfavcount">Favourite Count</option>
+                <option value="tweetretweetcount">Retweet Count</option>
+            </select>
+        </div>
+        <div id="sort_order_block">
+                <label for="sort_order">Sorting Order: </label>
+                <select name="sort_order" id="sort_order">
+                    <option value="desc">Descending</option>
+                    <option value="asc">Ascending</option>
+                </select>
+            </div>
+        <button id="search">Search</button>
+    </div>
+    <hr>
+    <div id='logs'>
+        <div id="logs-heading"><h3>Console Logs</h3></div>
+        <div id="logs-content">
+        </div>
+    </div>
+    <div>
+        <h2>Results</h2>
+        <button id='new_tweet_btn'>Refresh and clear all preferences</button> <span id="new_tweet_count">No new tweets.</span>
+        <pre id='results'></pre>
+    </div>
+	<script type="text/javascript" src="static/main.js"></script>
+
+</body>
+</html>
