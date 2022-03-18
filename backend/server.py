@@ -27,6 +27,12 @@ SOLR_PATH = 'http://localhost:8889/solr/test_core/'
 solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
 solr.ping()
 
+# [TODO] add preprocessing for model (tokenising, stemming, tf-idf)
+
+# [TODO] load model and perform classification
+def classifier():
+    pass
+
 
 # retreive all data entries from Solr
 def getAll():
@@ -58,7 +64,7 @@ def index():
 def on_join(json):
     room = json['client_id']
     join_room(room)
-    print('Client connected, client_id: ' + str(json['client_id']))
+    print(f'Client {json['client_id']} connected')
     results = getAll()
     socketio.emit('results', {'results': results['response']['docs']}, room = json['client_id']) # emit to specific users
 
@@ -67,7 +73,7 @@ def on_join(json):
 def on_leave(json):
     room = json['client_id']
     leave_room(room)
-    print('Client disconnected, client_id: ' + str(json['client_id']))
+    print(f'Client {json['client_id']} disconnected')
 
 
 @socketio.on('search')
