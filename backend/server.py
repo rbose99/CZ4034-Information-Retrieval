@@ -36,7 +36,7 @@ def classifier():
 
 # retreive all data entries from Solr
 def getAll():
-    results = solr.search('*', sort='tweetcreatedts desc', rows=15) # [TODO] change the column for sorting
+    results = solr.search('*', rows=15) # [TODO] change the column for sorting
     print("Successfully retrieved ", len(results['response']['docs']), "rows of data.")
     return results
 
@@ -44,16 +44,16 @@ def getAll():
 # given a query return the relevant results
 # params = {q:, fq:, sort:}
 def performQuery(params):
+    print(params)
     if len(params) == 0: # no query was given but the submit button was clicked
         results = {}
     # [TODO] add filter criteria
     else:
-        results = solr.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
+        results = solr.search(params['q'], fq=params['fq'], rows=15)  # [TODO] sort
 
     print("Successfully retrieved ", len(results['response']['docs']), "rows of data.")
     
     return results
-
 
 
 @app.route("/")
@@ -64,7 +64,7 @@ def index():
 def on_join(json):
     room = json['client_id']
     join_room(room)
-    print(f'Client {json['client_id']} connected')
+    print(f'Client {json["client_id"]} connected')
     results = getAll()
     socketio.emit('results', {'results': results['response']['docs']}, room = json['client_id']) # emit to specific users
 
@@ -73,15 +73,15 @@ def on_join(json):
 def on_leave(json):
     room = json['client_id']
     leave_room(room)
-    print(f'Client {json['client_id']} disconnected')
+    print(f'Client {json["client_id"]} disconnected')
 
 
-@socketio.on('search')
+@socketio.on('query')
 def query(json):
     print('received json: ' + str(json))
     results = performQuery(json['search_params'])
     socketio.emit('results', {'results': results['response']['docs']}, room = json['client_id']) # emit to specific users
-    socketio.emit('spelling', {'spelling_suggestions': results['response']['spelling_suggestions'], 'hide_spelling_suggestion':results['response']['hide_spelling_suggestion']}, room = json['client_id'])
+    # socketio.emit('spelling', {'spelling_suggestions': results['response']['spelling_suggestions'], 'hide_spelling_suggestion':results['response']['hide_spelling_suggestion']}, room = json['client_id'])
 
 
 if __name__ == "__main__":
