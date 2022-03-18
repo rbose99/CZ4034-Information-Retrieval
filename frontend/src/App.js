@@ -20,6 +20,16 @@ const socket = io.connect('http://localhost:5000');
 
 function App() {
   const [results, setResults] = React.useState([]);
+  const [siteFilter, setSiteFilter] = React.useState('both');
+  const [sortType, setSortType] = React.useState('relevance');
+  const [spellCheck, setSpellCheck] = React.useState([]);
+  const [hideSpellCheck, setHideSpellCheck] = React.useState('true');
+
+  socket.on('spelling', function(msg) {
+    setHideSpellCheck(msg.hide_suggestions);
+    setSpellCheck(msg.spell_suggestions);
+  });
+  
   var searchQuery = React.useRef()
   socket.on('connect', function(msg) {
     socket.emit('join', {data: 'Client connected!', client_id: socket.id});
@@ -46,6 +56,53 @@ function App() {
     console.log(search_grid);
     socket.emit('query', {search_params: search_grid, client_id: socket.id});
     console.log("sent");
+    setHideSpellCheck(true);
+    setSpellCheck([]);
+  };
+
+  const handleCorrectionClick = (event) => {
+    var searchq = event.currentTarget.value;
+    if(searchq==="") return;
+
+    var search_grid = {
+        'q':'',
+        'fq':'',
+    };
+    if(searchq){
+        search_grid['q'] += 'tweet: '+searchq
+    }
+    
+    console.log(search_grid);
+    socket.emit('query', {search_params: search_grid, client_id: socket.id});
+    console.log("sent");
+
+    searchTerm.current.value = searchq;
+    setHideSpellCheck(true);
+    setSpellCheck([]);
+
+  }
+
+  function SpellCheck(props)  {
+    
+    return (
+      <Grid container item lg={12} xs={12} justify="center" hidden={props.show} >
+        <Typography variant="subtitle2" color="textPrimary" hidden={props.show}>Did you mean: </Typography>
+        {
+          props.corrections.map(correction => (
+            <Button variant="contained" onClick={handleCorrectionClick} value={correction} key={correction}>{correction}</Button>
+          ))
+        }
+      </Grid>
+    );
+  }
+
+  SpellCheck.propTypes = {
+    /**
+     * The value of the progress indicator for the determinate variant.
+     * Value between 0 and 100.
+     */
+    show: PropTypes.bool.isRequired,
+    corrections: PropTypes.array.isRequired
   };
   return (
     <div className="A">
@@ -65,11 +122,14 @@ function App() {
       <Grid container item xs={10} spacing={0}>
 
 <Grid container item xs={12}>
-  <Typography variant="caption" color="primary">Search Preferences</Typography>
+  <Typography variant="caption" color="primary">Advanced Settings</Typography>
 </Grid>
-
+<SpellCheck show={hideSpellCheck} corrections={spellCheck}/>
 <Paper>
 <Grid container item xs={12} >
+<Grid container item md={12} xs={12}>
+  <InputLabel></InputLabel>
+  </Grid>
   <Grid container item md={12} xs={12}>
     <FormControl>
       <InputLabel>Sort using</InputLabel>
@@ -79,18 +139,6 @@ function App() {
         <MenuItem value={"relevance"}>Relevance</MenuItem>
         <MenuItem value={"tweetfavcount"}>Favourite Count</MenuItem>
         <MenuItem value={"tweetretweetcount"}>Retweet Count</MenuItem>
-      </Select>
-    </FormControl>
-  </Grid>
-
-  <Grid container item md={10} xs={12}>
-    <FormControl>
-      <InputLabel>Sort by</InputLabel>
-      <Select
-        value="asc" 
-      >
-        <MenuItem value={"asc"}>Ascending</MenuItem>
-        <MenuItem value={"desc"}>Descending</MenuItem>
       </Select>
     </FormControl>
   </Grid>
