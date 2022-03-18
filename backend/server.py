@@ -52,6 +52,28 @@ def performQuery(params):
         results = solr.search(params['q'], fq=params['fq'], rows=15)  # [TODO] sort
 
     print("Successfully retrieved ", len(results['response']['docs']), "rows of data.")
+
+    # initialise the spelling components in the response
+    results['response']['hide_suggestions'] = True
+    results['response']['spell_suggestions'] = []
+
+    # perform slepp checking using Solr
+    response = requests.get(SOLR_PATH + 'spell?q=' + urlencode(params['q']) + '&spellcheck.collate=false&pellcheck.spellcheck.count=5')
+
+    # check the response given by Solr
+    if response.status_code == 200:
+        response_json = response.json()
+        if(response_json['spellcheck']['correctlySpelled'] == False):
+            results['response']['hide_suggestions'] = False
+            suggestions = []
+            for obj in response_json['spellcheck']['spell_suggestions']:
+                if(type(obj) != str):
+                    suggestions.extend(obj['suggestion'])
+
+    sorted_suggestions = sorted(suggestions, key=lambda x: x['freq'], reverse=True)
+    results['response']['spell_suggestions'] = [x['word'] for x in sorted_suggestions]
+
+    print("Spelling suggestions found are", results['response']['spell_suggestions'])
     
     return results
 
@@ -59,6 +81,7 @@ def performQuery(params):
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @socketio.on('join')
 def on_join(json):
@@ -81,7 +104,7 @@ def query(json):
     print('received json: ' + str(json))
     results = performQuery(json['search_params'])
     socketio.emit('results', {'results': results['response']['docs']}, room = json['client_id']) # emit to specific users
-    # socketio.emit('spelling', {'spelling_suggestions': results['response']['spelling_suggestions'], 'hide_spelling_suggestion':results['response']['hide_spelling_suggestion']}, room = json['client_id'])
+    socketio.emit('spelling', {'spell_suggestions': results['response']['spell_suggestions'], 'hide_suggestions':results['response']['hide_suggestions']}, room = json['client_id'])
 
 
 if __name__ == "__main__":
