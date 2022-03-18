@@ -58,18 +58,19 @@ def performQuery(params):
     results['response']['spell_suggestions'] = []
 
     # perform slepp checking using Solr
-    response = requests.get(SOLR_PATH + 'spell?q=' + urlencode(params['q']) + '&spellcheck.collate=false&pellcheck.spellcheck.count=5')
+    response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json'}) + '&spellcheck.collate=false&spellcheck.count=3')
 
     # check the response given by Solr
+    suggestions = []
     if response.status_code == 200:
         response_json = response.json()
         if(response_json['spellcheck']['correctlySpelled'] == False):
             results['response']['hide_suggestions'] = False
-            suggestions = []
-            for obj in response_json['spellcheck']['spell_suggestions']:
+            for obj in response_json['spellcheck']['suggestions']:
                 if(type(obj) != str):
                     suggestions.extend(obj['suggestion'])
 
+    print(suggestions)
     sorted_suggestions = sorted(suggestions, key=lambda x: x['freq'], reverse=True)
     results['response']['spell_suggestions'] = [x['word'] for x in sorted_suggestions]
 

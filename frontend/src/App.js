@@ -76,7 +76,7 @@ function App() {
     socket.emit('query', {search_params: search_grid, client_id: socket.id});
     console.log("sent");
 
-    searchTerm.current.value = searchq;
+    searchQuery.current.value = searchq;
     setHideSpellCheck(true);
     setSpellCheck([]);
 
