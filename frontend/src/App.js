@@ -21,12 +21,16 @@ const socket = io.connect('http://localhost:5000');
 function App() {
   const [results, setResults] = React.useState([]);
   var searchQuery = React.useRef()
-  socket.on('connect', function() {
-    socket.emit('join', {data: 'Client connected!', cid: socket.id});
+  socket.on('connect', function(msg) {
+    socket.emit('join', {data: 'Client connected!', client_id: socket.id});
   });
   socket.on('results', function(msg) {
     setResults(msg.results);
-});
+    console.log(results)
+  });
+  socket.on('disconnect', function(msg) {
+    socket.emit('leave', {data: 'Client disconnected!', client_id: socket.id});
+  });
   const handleSearchClick = (event) => {
     var searchq = searchQuery.current.value;
     if(searchq==="") return;
@@ -40,7 +44,7 @@ function App() {
     }
     
     console.log(search_grid);
-    socket.emit('onclick', {search_params: search_grid, cid: socket.id});
+    socket.emit('query', {search_params: search_grid, client_id: socket.id});
     console.log("sent");
   };
   return (
@@ -111,52 +115,17 @@ function App() {
         <Grid container item lg={6} xs={10}>
         {
           results.map(result => (
-            // <Box py={1}>
+            <Box py={1}>
               <Paper key={result.id}>
                 <Grid container item xs={12}>
-                  <Grid container item xs={3} sm={2} md={1}>
-                  <Link target="_blank" underline="none" href={"http://www.twitter.com/"+ result.username}>
-                    <Avatar alt={result.username[0]} src={result.userpic[0]} />
-                  </Link>
-                  </Grid>
-
-                  <Grid container item xs={9} sm={10} md={11}>
-
-                    <Grid container item xs={12} style={{alignItems: "baseline" }}>
-                      <Box mr={1}>
-                      <Link target="_blank" href={"http://www.twitter.com/"+ result.username}>
-                        <Typography variant="h6" color="textPrimary" >{result.username}</Typography>
-                      </Link>
-                      </Box>
-                      <Typography variant="body2" color="textPrimary">{new Date(result.tweetcreatedts).toLocaleDateString('en-SG', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'})}</Typography>
-                    </Grid>
-
                     <Box my={1}>
                       <Grid container item xs={12} >
-                        <Typography variant="body1" color="textPrimary" align="left">{result.tweettext}</Typography>
+                        <Typography variant="body1" color="textPrimary" align="left">{result.tweet}</Typography>
                       </Grid>
-                    </Box>
-                    
-                    <Grid container item xs={12} style={{alignItems: "center" }}>
-                        <Grid container item xs={11} >
-                          <StarBorderIcon />
-                          <Box mr={2}>
-                            <Typography variant="subtitle2" color="textPrimary">{result.tweetfavcount}</Typography>
-                          </Box>
-                          <RepeatIcon />
-                          <Box mr={2}>
-                            <Typography variant="subtitle2" color="textPrimary">{result.tweetretweetcount}</Typography>
-                          </Box>
-                          
-                        </Grid>
-                   
-                    </Grid>
-
-                  </Grid>
-                  
+                    </Box>                  
                 </Grid>
               </Paper>
-            // </Box>
+            </Box>
           ))
         }
         </Grid>
