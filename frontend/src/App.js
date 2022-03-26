@@ -21,7 +21,8 @@ const socket = io.connect('http://localhost:5000');
 function App() {
   const [results, setResults] = React.useState([]);
   const [siteFilter, setSiteFilter] = React.useState('both');
-  const [sortType, setSortType] = React.useState('relevance');
+  const [sortMethod, setSortMethod] = React.useState('relevance');
+  const [filters, setFilters] = React.useState('none');
   const [spellCheck, setSpellCheck] = React.useState([]);
   const [hideSpellCheck, setHideSpellCheck] = React.useState('true');
 
@@ -45,16 +46,19 @@ function App() {
     var searchq = searchQuery.current.value;
     if(searchq==="") return;
 
-    var search_grid = {
+    var search_params = {
         'q':'',
         'fq':'',
+        'sort':''
     };
     if(searchq){
-        search_grid['q'] += 'tweet: '+searchq
+        search_params['q'] += 'tweet: '+searchq
     }
-    
-    console.log(search_grid);
-    socket.emit('query', {search_params: search_grid, client_id: socket.id});
+    search_params['sort'] = sortMethod + '  desc'
+    search_params['filter'] = filters 
+    search_params['sites'] = siteFilter 
+    console.log(search_params);
+    socket.emit('query', {search_params: search_params, client_id: socket.id});
     console.log("sent");
     setHideSpellCheck(true);
     setSpellCheck([]);
@@ -64,22 +68,37 @@ function App() {
     var searchq = event.currentTarget.value;
     if(searchq==="") return;
 
-    var search_grid = {
+    var search_params = {
         'q':'',
         'fq':'',
     };
     if(searchq){
-        search_grid['q'] += 'tweet: '+searchq
+        search_params['q'] += 'tweet: '+ "\"" + searchq + "\"" 
     }
-    
-    console.log(search_grid);
-    socket.emit('query', {search_params: search_grid, client_id: socket.id});
+    search_params['sort'] = sortMethod + '  desc'
+    search_params['filter'] = filters 
+    search_params['sites'] = siteFilter 
+    console.log(search_params);
+    socket.emit('query', {search_params: search_params, client_id: socket.id});
     console.log("sent");
 
     searchQuery.current.value = searchq;
     setHideSpellCheck(true);
     setSpellCheck([]);
 
+  }
+  
+
+  const handleSortChange = (event) => {
+    setSortMethod();
+  }
+
+  const handleFilterChange = (event) => {
+    setFilters('none'); 
+  }
+
+  const handleSiteChange = (event) => {
+    setSiteFilter('both');
   }
 
   function SpellCheck(props)  {
@@ -127,29 +146,47 @@ function App() {
 <SpellCheck show={hideSpellCheck} corrections={spellCheck}/>
 <Paper>
 <Grid container item xs={12} >
-<Grid container item md={12} xs={12}>
-  <InputLabel></InputLabel>
-  </Grid>
+  <Grid container item md={12} xs={12}>
+    <FormControl>
+      <InputLabel>Sources</InputLabel>
+      <Select
+        value='both'
+        onChange={handleSiteChange}
+      >
+        <MenuItem value={"both"}>Both</MenuItem>
+        <MenuItem value={"twitter"}>Twitter</MenuItem>
+        <MenuItem value={"reddit"}>Reddit</MenuItem>
+      </Select>
+    </FormControl>
+    </Grid>
   <Grid container item md={12} xs={12}>
     <FormControl>
       <InputLabel>Sort using</InputLabel>
       <Select
         value='relevance'
+        onChange={handleSortChange}
       >
         <MenuItem value={"relevance"}>Relevance</MenuItem>
-        <MenuItem value={"tweetfavcount"}>Favourite Count</MenuItem>
-        <MenuItem value={"tweetretweetcount"}>Retweet Count</MenuItem>
+        <MenuItem value={"tweetfavcount"}>Favourite/Like Count</MenuItem>
+        <MenuItem value={"date"}>Date</MenuItem>
+      </Select>
+    </FormControl>
+  </Grid>
+  <Grid container item md={12} xs={12}>
+    <FormControl>
+      <InputLabel>Filters</InputLabel>
+      <Select
+        value='none'
+        onChange={handleFilterChange}
+      >
+        <MenuItem value={"none"}>None</MenuItem>
+        <MenuItem value={"Recent"}>Recent</MenuItem>
+        <MenuItem value={"Popular"}>Popular</MenuItem>
       </Select>
     </FormControl>
   </Grid>
 
-  <Grid container item md={12} xs={12}>
-    <FormControl>
-      <InputLabel>Filter Sources</InputLabel>
-      
 
-    </FormControl>
-  </Grid>
 </Grid>
 </Paper>
 </Grid>
