@@ -52,7 +52,7 @@ function App() {
         'sort':''
     };
     if(searchq){
-        search_params['q'] += 'tweet: '+searchq
+        search_params['q'] += 'tweet: '+ "\"" + searchq + "\""
     }
     search_params['sort'] = sortMethod + '  desc'
     search_params['filter'] = filters 
