@@ -13,6 +13,8 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk import word_tokenize, sent_tokenize
 
+import logging
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # [TODO] add improt for model loading package, either torch or tf or pickle
@@ -21,6 +23,8 @@ nltk.download('stopwords')
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
+
+logging.getLogger('socketio').setLevel(logging.ERROR)
 
 # SOLR_PATH='http://solr:8983/solr/'
 SOLR_PATH = 'http://localhost:8889/solr/test_core/'
@@ -58,7 +62,9 @@ def performQuery(params):
     results['response']['spell_suggestions'] = []
 
     # perform slepp checking using Solr
-    response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json'}) + '&spellcheck.collate=false&spellcheck.count=3')
+    print(params['q'])
+    response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'false', 'spellcheck.count':3}))
+    print(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json'}) + '&spellcheck.collate=false&spellcheck.count=3')
 
     # check the response given by Solr
     suggestions = []
@@ -70,7 +76,7 @@ def performQuery(params):
                 if(type(obj) != str):
                     suggestions.extend(obj['suggestion'])
 
-    print(suggestions)
+    print(response_json)
     sorted_suggestions = sorted(suggestions, key=lambda x: x['freq'], reverse=True)
     results['response']['spell_suggestions'] = [x['word'] for x in sorted_suggestions]
 
