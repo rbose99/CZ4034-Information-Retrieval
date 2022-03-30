@@ -27,7 +27,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 logging.getLogger('socketio').setLevel(logging.ERROR)
 
 # SOLR_PATH='http://solr:8983/solr/'
-SOLR_PATH = 'http://localhost:8889/solr/test_core/'
+SOLR_PATH = 'http://localhost:8888/solr/test_core/'
 solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
 solr.ping()
 
@@ -61,24 +61,37 @@ def performQuery(params):
     results['response']['hide_suggestions'] = True
     results['response']['spell_suggestions'] = []
 
-    # perform slepp checking using Solr
-    print(params['q'])
+    # perform spell checking using Solr
     response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'false', 'spellcheck.count':3}))
-    print(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json'}) + '&spellcheck.collate=false&spellcheck.count=3')
 
     # check the response given by Solr
-    suggestions = []
+    suggestions = {} # dictionary of the word that is being corrected and the suggestions
+    temp = ""
     if response.status_code == 200:
         response_json = response.json()
         if(response_json['spellcheck']['correctlySpelled'] == False):
             results['response']['hide_suggestions'] = False
             for obj in response_json['spellcheck']['suggestions']:
-                if(type(obj) != str):
-                    suggestions.extend(obj['suggestion'])
+                if type(obj) == str: # found a word
+                    temp = obj # this will be the key
+                    suggestions[obj] = []
+                else: # found the suggestions
+                    suggestions[temp].extend(obj['suggestion'])
 
-    print(response_json)
-    sorted_suggestions = sorted(suggestions, key=lambda x: x['freq'], reverse=True)
-    results['response']['spell_suggestions'] = [x['word'] for x in sorted_suggestions]
+
+    sorted_suggestions = {}
+    for key,val in suggestions.items():
+        sorted_suggestions[key] = sorted(val, key=lambda d: d['freq'], reverse=True)
+    
+    final_suggestions = {}
+
+    for key,val in sorted_suggestions.items():
+        words = []
+        for d in val:
+            words.append(d['word'])
+        final_suggestions[key] = words
+
+    results['response']['spell_suggestions']  = final_suggestions #= [x['word'] for x in sorted_suggestions]
 
     print("Spelling suggestions found are", results['response']['spell_suggestions'])
     
