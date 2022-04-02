@@ -51,8 +51,8 @@ def performQuery(params):
     print(params)
     if len(params) == 0: # no query was given but the submit button was clicked
         results = {}
-    # [TODO] add filter criteria
     else:
+        # [TODO] add filter criteria
         results = solr.search(params['q'], fq=params['fq'], rows=15)  # [TODO] sort
 
     print("Successfully retrieved ", len(results['response']['docs']), "rows of data.")
@@ -60,38 +60,38 @@ def performQuery(params):
     # initialise the spelling components in the response
     results['response']['hide_suggestions'] = True
     results['response']['spell_suggestions'] = []
+    results['response']['spell_error_found'] = False
 
     # perform spell checking using Solr
-    response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'false', 'spellcheck.count':3}))
+    response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10}))
 
     # check the response given by Solr
-    suggestions = {} # dictionary of the word that is being corrected and the suggestions
-    temp = ""
     if response.status_code == 200:
-        response_json = response.json()
-        if(response_json['spellcheck']['correctlySpelled'] == False):
-            results['response']['hide_suggestions'] = False
-            for obj in response_json['spellcheck']['suggestions']:
-                if type(obj) == str: # found a word
-                    temp = obj # this will be the key
-                    suggestions[obj] = []
-                else: # found the suggestions
-                    suggestions[temp].extend(obj['suggestion'])
+        json_response = response.json()
+        if(json_response['spellcheck']['correctlySpelled'] == False):
+            results['response']['hide_suggestion'] = False
+            results['response']['spell_error_found'] = True
+            suggestions = []
+            # single word queries should return word suggestions
+            if len(params['q'].split("\"")[1].split(" ")) == 1:  # the tokens will be "tweet: " , "word" , "" so we want to see if the second token has more than one word
+                print("Single word query")
+                for obj in json_response['spellcheck']['suggestions']:
+                    if type(obj) != str:
+                        suggestions.extend(obj['suggestion'])
 
+                sorted_suggestions = sorted(suggestions, key=lambda x: x['freq'], reverse=True)[:3]
+                results['response']['spell_suggestions'] = [x['word'] for x in sorted_suggestions]
 
-    sorted_suggestions = {}
-    for key,val in suggestions.items():
-        sorted_suggestions[key] = sorted(val, key=lambda d: d['freq'], reverse=True)
-    
-    final_suggestions = {}
+            # multi word queries should return collated results
+            else:
+                print("Multi word query")
+                for obj in json_response['spellcheck']['collations']:
+                    if type(obj) != str:
+                        suggestions.append(obj)
 
-    for key,val in sorted_suggestions.items():
-        words = []
-        for d in val:
-            words.append(d['word'])
-        final_suggestions[key] = words
+                sorted_suggestions = sorted(suggestions, key=lambda x: x['hits'], reverse=True)
+                results['response']['spell_suggestions'] = [x['collationQuery'].split("\"")[1] for x in sorted_suggestions]
 
-    results['response']['spell_suggestions']  = final_suggestions #= [x['word'] for x in sorted_suggestions]
 
     print("Spelling suggestions found are", results['response']['spell_suggestions'])
     
@@ -124,7 +124,7 @@ def query(json):
     print('received json: ' + str(json))
     results = performQuery(json['search_params'])
     socketio.emit('results', {'results': results['response']['docs']}, room = json['client_id']) # emit to specific users
-    socketio.emit('spelling', {'spell_suggestions': results['response']['spell_suggestions'], 'hide_suggestions':results['response']['hide_suggestions']}, room = json['client_id'])
+    socketio.emit('spelling', {'spell_suggestions': results['response']['spell_suggestions'], 'hide_suggestions':results['response']['hide_suggestions'], 'spell_error_found':results['response']['spell_error_found']}, room = json['client_id'])
 
 
 if __name__ == "__main__":
