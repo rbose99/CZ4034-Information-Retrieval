@@ -24,11 +24,15 @@ function App() {
   const [sortMethod, setSortMethod] = React.useState('relevance');
   const [filters, setFilters] = React.useState('none');
   const [spellCheck, setSpellCheck] = React.useState([]);
-  const [hideSpellCheck, setHideSpellCheck] = React.useState('true');
+  const [hideSpellCheck, setHideSpellCheck] = React.useState(true);
+  const [spellErrorFound, setSpellErrorFound] = React.useState(false);
 
   socket.on('spelling', function(msg) {
     setHideSpellCheck(msg.hide_suggestions);
+    console.log(msg.hide_suggestions)
+    console.log(hideSpellCheck);
     setSpellCheck(msg.spell_suggestions);
+    setSpellErrorFound(msg.spell_error_found);
   });
   
   var searchQuery = React.useRef()
@@ -60,8 +64,6 @@ function App() {
     console.log(search_params);
     socket.emit('query', {search_params: search_params, client_id: socket.id});
     console.log("sent");
-    setHideSpellCheck(true);
-    setSpellCheck([]);
   };
 
   const handleCorrectionClick = (event) => {
@@ -83,8 +85,6 @@ function App() {
     console.log("sent");
 
     searchQuery.current.value = searchq;
-    setHideSpellCheck(true);
-    setSpellCheck([]);
 
   }
   
@@ -102,16 +102,30 @@ function App() {
   }
 
   function SpellCheck(props)  {
-    
+    console.log(props.corrections.length)
+    console.log(spellErrorFound)
+    console.log(props.show)
     return (
       <Grid container item lg={12} xs={12} justify="center" hidden={props.show} >
-        <Typography variant="subtitle2" color="textPrimary" hidden={props.show}>Did you mean: </Typography>
+        <Grid container item lg={12} xs={12} justify="center" hidden={props.show} >
+        <Typography variant="subtitle2" color="textPrimary" hidden={props.show}>Alternate search suggestions:</Typography>
+        </Grid>
+      <Grid container item lg={12} xs={12} justify="center" hidden={props.show} >
+        {spellErrorFound && props.corrections.length==0 && !props.show &&
+        <Typography variant="subtitle2" color="textPrimary">
+          No suggestions were found. Please re-check your query.
+        </Typography>
+      }
+    </Grid>
+      
+    <Grid container item lg={12} xs={12} justify="center" hidden={props.show} >
         {
           props.corrections.map(correction => (
             <Button variant="contained" onClick={handleCorrectionClick} value={correction} key={correction}>{correction}</Button>
           ))
         }
-      </Grid>
+        </Grid>
+    </Grid>
     );
   }
 

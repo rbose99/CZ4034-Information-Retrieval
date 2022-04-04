@@ -69,7 +69,7 @@ def performQuery(params):
     if response.status_code == 200:
         json_response = response.json()
         if(json_response['spellcheck']['correctlySpelled'] == False):
-            results['response']['hide_suggestion'] = False
+            results['response']['hide_suggestions'] = False
             results['response']['spell_error_found'] = True
             suggestions = []
             # single word queries should return word suggestions
@@ -123,6 +123,7 @@ def on_leave(json):
 def query(json):
     print('received json: ' + str(json))
     results = performQuery(json['search_params'])
+    print(results['response'])
     socketio.emit('results', {'results': results['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('spelling', {'spell_suggestions': results['response']['spell_suggestions'], 'hide_suggestions':results['response']['hide_suggestions'], 'spell_error_found':results['response']['spell_error_found']}, room = json['client_id'])
 
