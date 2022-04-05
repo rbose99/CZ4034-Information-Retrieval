@@ -4,7 +4,19 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, CircularProgress , Link, CssBaseline, Container, AppBar, Toolbar, TextField, IconButton, Input, Box, Grid, Paper, Avatar, Checkbox, FormControl, InputLabel, Select, MenuItem, ListItemText, Button } from '@material-ui/core';
+import { CircularProgress , Link, CssBaseline, Container, AppBar, Toolbar, TextField, IconButton, Input, Box, Grid, Paper, Avatar,  InputLabel, Select, MenuItem, ListItemText, Button } from '@material-ui/core';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormGroup from '@mui/material/FormGroup';
+import Checkbox from '@mui/material/Checkbox';
+import FormLabel from '@mui/material/FormLabel';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import SearchIcon from '@material-ui/icons/Search';
@@ -22,7 +34,7 @@ function App() {
   const [results, setResults] = React.useState([]);
   const [siteFilter, setSiteFilter] = React.useState('both');
   const [sortMethod, setSortMethod] = React.useState('relevance');
-  const [filters, setFilters] = React.useState('none');
+  const [filters, setFilters] = React.useState({'recent':false,'popular':false});
   const [spellCheck, setSpellCheck] = React.useState([]);
   const [hideSpellCheck, setHideSpellCheck] = React.useState(true);
   const [spellErrorFound, setSpellErrorFound] = React.useState(false);
@@ -47,7 +59,10 @@ function App() {
     socket.emit('leave', {data: 'Client disconnected!', client_id: socket.id});
   });
   const handleSearchClick = (event) => {
-    var searchq = searchQuery.current.value;
+    if (event.currentTarget.id==="search")
+      var searchq = searchQuery.current.value;
+    else 
+      var searchq = event.currentTarget.value;
     if(searchq==="") return;
 
     var search_params = {
@@ -64,37 +79,19 @@ function App() {
     console.log(search_params);
     socket.emit('query', {search_params: search_params, client_id: socket.id});
     console.log("sent");
+    searchQuery.current.value = searchq;
   };
 
-  const handleCorrectionClick = (event) => {
-    var searchq = event.currentTarget.value;
-    if(searchq==="") return;
-
-    var search_params = {
-        'q':'',
-        'fq':'',
-    };
-    if(searchq){
-        search_params['q'] += 'tweet: '+ "\"" + searchq + "\"" 
-    }
-    search_params['sort'] = sortMethod + '  desc'
-    search_params['filter'] = filters 
-    search_params['sites'] = siteFilter 
-    console.log(search_params);
-    socket.emit('query', {search_params: search_params, client_id: socket.id});
-    console.log("sent");
-
-    searchQuery.current.value = searchq;
-
-  }
-  
 
   const handleSortChange = (event) => {
     setSortMethod();
   }
 
   const handleFilterChange = (event) => {
-    setFilters('none'); 
+    setFilters({
+      ...filters,
+      [event.target.name]: event.target.checked,
+    });
   }
 
   const handleSiteChange = (event) => {
@@ -121,7 +118,7 @@ function App() {
     <Grid container item lg={12} xs={12} justify="center" hidden={props.show} >
         {
           props.corrections.map(correction => (
-            <Button variant="contained" onClick={handleCorrectionClick} value={correction} key={correction}>{correction}</Button>
+            <Button variant="contained" onClick={handleSearchClick} value={correction} key={correction}>{correction}</Button>
           ))
         }
         </Grid>
@@ -137,85 +134,117 @@ function App() {
     show: PropTypes.bool.isRequired,
     corrections: PropTypes.array.isRequired
   };
+
+  const styles = {
+    root: {
+      flexGrow: 1,
+    },
+    appbar: {
+      alignItems: 'center',
+    }
+  };
   return (
-    <div className="A">
-      <Toolbar align='center'>
-      <CurrencyBitcoinIcon align='center'/> 
-      <Typography color="#9c27b0" align="center" > NFT Twitter and Reddit Feed </Typography>
-      </Toolbar>
-      <Grid container item xs={10} justify='center'> 
-        <Grid container item sm={11} xs={10} justify='center'> 
-          <TextField inputRef={searchQuery} variant="outlined" label="Search for..." fullWidth/>
+     
+      <Container  align='center'>
+      <Grid container xs={12} justify='center' rowSpacing={2}> 
+      <Grid item sm={12} xs={12} justify='center' >
+      <CurrencyBitcoinIcon color="secondary" align='center'/>
+      <Typography  variant="h6" component="div" align="center"> NFT Twitter and Reddit Feed </Typography>
+     
+      </Grid>
+        <Grid item sm={11} xs={11} justify='center'> 
+          <TextField inputRef={searchQuery} color="secondary" variant="outlined" label="Search for..." fullWidth/>
         </Grid>
-        <Grid container item sm={1} xs={2} justify='center'> 
-          <IconButton type="submit" onClick={handleSearchClick} aria-label="search"> <SearchIcon/> </IconButton>
+        <Grid item sm={1} xs={2} justify='center'> 
+          <IconButton id="search" type="submit" onClick={handleSearchClick} aria-label="search"> <SearchIcon/> </IconButton>
         </Grid>
       </Grid>
       <Box py={2} width={"100%"}>
-      <Grid container item xs={10} spacing={0}>
-
-<Grid container item xs={12}>
-  <Typography variant="caption" color="primary">Advanced Settings</Typography>
-</Grid>
+      <Grid container item xs={12} spacing={0}>
+<Grid  item xs={3} justify='center'></Grid>
+<Grid container item xs={6} justify='center'>
+<Accordion>
+<AccordionSummary 
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography sx={{ color: 'text.secondary' }}>Advanced Settings</Typography>
+        </AccordionSummary>
+<AccordionDetails>
 <SpellCheck show={hideSpellCheck} corrections={spellCheck}/>
-<Paper>
-<Grid container item xs={12} >
-  <Grid container item md={12} xs={12}>
+
+<Grid container item xs={12} justify='center' >
+  <Grid container item md={12} xs={12} justify='center'>
     <FormControl>
-      <InputLabel>Sources</InputLabel>
-      <Select
-        value='both'
+      <FormLabel>Sources</FormLabel>
+      <RadioGroup
+      row
+        defaultValue='both'
         onChange={handleSiteChange}
       >
-        <MenuItem value={"both"}>Both</MenuItem>
-        <MenuItem value={"twitter"}>Twitter</MenuItem>
-        <MenuItem value={"reddit"}>Reddit</MenuItem>
-      </Select>
+        <FormControlLabel value={"both"} control={<Radio color="secondary" />}  label="Both" />
+        <FormControlLabel value={"twitter"} control={<Radio color="secondary" />} label="Twitter"/>
+        <FormControlLabel value={"reddit"} control={<Radio color="secondary" />} label="Reddit"/>
+      </RadioGroup>
     </FormControl>
     </Grid>
-  <Grid container item md={12} xs={12}>
+  <Grid container item md={12} xs={12} justify='center'>
     <FormControl>
-      <InputLabel>Sort using</InputLabel>
-      <Select
-        value='relevance'
+      <FormLabel>Sort using</FormLabel>
+      <RadioGroup
+      row
+        defaultValue='relevance'
         onChange={handleSortChange}
       >
-        <MenuItem value={"relevance"}>Relevance</MenuItem>
-        <MenuItem value={"tweetfavcount"}>Favourite/Like Count</MenuItem>
-        <MenuItem value={"date"}>Date</MenuItem>
-      </Select>
+        <FormControlLabel value={"relevance"} control={<Radio color="secondary" />}  label="Relevance"/>
+        <FormControlLabel value={"tweetfavcount"} control={<Radio color="secondary" />}  label="Favourite/Like Count"/>
+        <FormControlLabel value={"date"} control={<Radio color="secondary" />}  label="Date"/>
+      </RadioGroup>
     </FormControl>
   </Grid>
-  <Grid container item md={12} xs={12}>
+  <Grid container item md={12} xs={12} justify="center">
     <FormControl>
-      <InputLabel>Filters</InputLabel>
-      <Select
-        value='none'
-        onChange={handleFilterChange}
-      >
-        <MenuItem value={"none"}>None</MenuItem>
-        <MenuItem value={"Recent"}>Recent</MenuItem>
-        <MenuItem value={"Popular"}>Popular</MenuItem>
-      </Select>
+      <FormLabel component="legend">Filters</FormLabel>
+      <FormGroup row>
+         <FormControlLabel
+            control={
+              <Checkbox checked={filters.recent} color="secondary" onChange={handleFilterChange} name="recent" />
+            }
+            label="Recent"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={filters.popular} color="secondary" onChange={handleFilterChange} name="popular" />
+            }
+            label="Popular"
+          />
+      </FormGroup>
     </FormControl>
   </Grid>
 
 
 </Grid>
-</Paper>
+</AccordionDetails>
+</Accordion>
+</Grid>
+
+
+
 </Grid>
       </Box>
+      
 <Container align='center'>
   <Box py={2}>
   <Grid container item lg={12} xs={12} justify="center">
-          <Typography variant="h4" color="primary" align="center">Results</Typography>
+          <Typography color="secondary" variant="h6" align="center">Results</Typography>
           
         </Grid>
-        <Grid container item lg={6} xs={10}>
+        <Grid container item lg={12} xs={12} >
         {
           results.map(result => (
             <Box py={1}>
-              <Paper key={result.id}>
+    
                 <Grid container item xs={12}>
                     <Box my={1}>
                       <Grid container item xs={12} >
@@ -223,14 +252,14 @@ function App() {
                       </Grid>
                     </Box>                  
                 </Grid>
-              </Paper>
             </Box>
           ))
         }
         </Grid>
   </Box>
 </Container>
-    </div>
+</Container>
+
   );
 }
 
