@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
-
+import { Tweet } from 'react-twitter-widgets'
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { CircularProgress , Link, CssBaseline, Container, AppBar, Toolbar, TextField, IconButton, Input, Box, Grid, Paper, Avatar,  InputLabel, Select, MenuItem, ListItemText, Button } from '@material-ui/core';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -31,8 +33,10 @@ const io = require('socket.io-client');
 const socket = io.connect('http://localhost:5000');
 
 function App() {
-  const [results, setResults] = React.useState([]);
-  const [siteFilter, setSiteFilter] = React.useState('both');
+  const [redditPosts, setRedditPosts] = React.useState([]);
+  const [redditComments,setRedditComments] = React.useState([]);
+  const [tweets, setTweets] = React.useState([]);
+  const [value, setValue] = React.useState(0);
   const [sortMethod, setSortMethod] = React.useState('relevance');
   const [filters, setFilters] = React.useState({'recent':false,'popular':false});
   const [spellCheck, setSpellCheck] = React.useState([]);
@@ -51,8 +55,17 @@ function App() {
   socket.on('connect', function(msg) {
     socket.emit('join', {data: 'Client connected!', client_id: socket.id});
   });
-  socket.on('results', function(msg) {
-    setResults(msg.results);
+  socket.on('results_tw', function(msg) {
+    setTweets(msg.results);
+    console.log(results)
+  });
+  socket.on('results_rp', function(msg) {
+    setRedditPosts(msg.results);
+    console.log(results)
+  });
+  socket.on('results_rc', function(msg) {
+    
+    setRedditComments(msg.results);
     console.log(results)
   });
   socket.on('disconnect', function(msg) {
@@ -67,22 +80,22 @@ function App() {
 
     var search_params = {
         'q':'',
-        'fq':'',
         'sort':''
     };
     if(searchq){
-        search_params['q'] += 'tweet: '+ "\"" + searchq + "\""
+        search_params['q'] += 'text: '+ "\"" + searchq + "\""
     }
-    search_params['sort'] = sortMethod + '  desc'
+    search_params['sort'] = sortMethod + ' desc'
     search_params['filter'] = filters 
-    search_params['sites'] = siteFilter 
     console.log(search_params);
     socket.emit('query', {search_params: search_params, client_id: socket.id});
     console.log("sent");
     searchQuery.current.value = searchq;
   };
 
-
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const handleSortChange = (event) => {
     setSortMethod();
   }
@@ -96,6 +109,37 @@ function App() {
 
   const handleSiteChange = (event) => {
     setSiteFilter('both');
+  }
+
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
   }
 
   function SpellCheck(props)  {
@@ -175,7 +219,7 @@ function App() {
 <SpellCheck show={hideSpellCheck} corrections={spellCheck}/>
 
 <Grid container item xs={12} justify='center' >
-  <Grid container item md={12} xs={12} justify='center'>
+  {/* <Grid container item md={12} xs={12} justify='center'>
     <FormControl>
       <FormLabel>Sources</FormLabel>
       <RadioGroup
@@ -188,17 +232,17 @@ function App() {
         <FormControlLabel value={"reddit"} control={<Radio color="secondary" />} label="Reddit"/>
       </RadioGroup>
     </FormControl>
-    </Grid>
+    </Grid> */}
   <Grid container item md={12} xs={12} justify='center'>
     <FormControl>
       <FormLabel>Sort using</FormLabel>
       <RadioGroup
       row
-        defaultValue='relevance'
+        defaultValue=''
         onChange={handleSortChange}
       >
-        <FormControlLabel value={"relevance"} control={<Radio color="secondary" />}  label="Relevance"/>
-        <FormControlLabel value={"tweetfavcount"} control={<Radio color="secondary" />}  label="Favourite/Like Count"/>
+        <FormControlLabel value={""} control={<Radio color="secondary" />}  label="Relevance"/>
+        <FormControlLabel value={"score"} control={<Radio color="secondary" />}  label="Score/Like Count"/>
         <FormControlLabel value={"date"} control={<Radio color="secondary" />}  label="Date"/>
       </RadioGroup>
     </FormControl>
@@ -240,22 +284,42 @@ function App() {
           <Typography color="secondary" variant="h6" align="center">Results</Typography>
           
         </Grid>
-        <Grid container item lg={12} xs={12} >
-        {
-          results.map(result => (
-            <Box py={1}>
-    
-                <Grid container item xs={12}>
-                    <Box my={1}>
-                      <Grid container item xs={12} >
-                        <Typography variant="body1" color="textPrimary" align="left">{result.tweet}</Typography>
-                      </Grid>
-                    </Box>                  
-                </Grid>
-            </Box>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+  <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+    <Tab label="Tweets" {...a11yProps(0)} />
+    <Tab label="Reddit Posts" {...a11yProps(1)} />
+    <Tab label="Reddit Comments" {...a11yProps(2)} />
+  </Tabs>
+</Box>
+<TabPanel value={value} index={0}>
+
+         {
+          tweets.map(tweet => (
+            <Tweet tweetId={tweet.id} />
           ))
-        }
-        </Grid>
+        } 
+        
+        
+</TabPanel>
+<TabPanel value={value} index={1}>
+{
+          redditPosts.map(redditpost => (
+
+            <Typography>{redditpost.text}</Typography>
+          ))
+}
+
+</TabPanel>
+<TabPanel value={value} index={2}>
+{
+          redditComments.map(redditcomment => (
+
+            <Typography>{redditcomment.text}</Typography>
+          ))
+}
+
+</TabPanel>
+        
   </Box>
 </Container>
 </Container>
