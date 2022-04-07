@@ -8,16 +8,11 @@ solr.ping()
 
 tweets = pd.read_csv('./Twitter crawled/dataset_twitter-scraper_2022-03-31_06-07-23-459.csv')
 
-data = [{"id": index, "tweet": row["full_text"], "created_date":row["created_at"], \
-        "like_count": row["favorite_count"], "reply_count": row["reply_count"], \
+data = [{"id": index, "text": row["full_text"], "created_date":row["created_at"], \
+        "score": row["favorite_count"], "reply_count": row["reply_count"], \
         "retweet_count": row["retweet_count"], 
         "url": row["url"], "tweet_id": row["url"].split("/")[-1]} \
         for index, row in tweets.iterrows()]
-
-# data = [{"id": index, "tweet": row["text"], "user_location": row["user_location"], "link": row["url"],  \
-#     "user_geo": list(map(float, row["user_geo"].strip("()").split(","))), \
-#     "toxicity": row["toxicity"], "subjectivity": row["subjectivity"]} \
-#     for index, row in tweets.iterrows()]
 
 print(solr.add(data))
 
