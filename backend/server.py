@@ -55,24 +55,28 @@ def performQuery(params):
         results_tw, tw_suggestions, found_tw = performSingleCoreQuery(params, solr_tw, SOLR_PATH_TW, "twitter")
         results_rp, rp_suggestions, found_rp = performSingleCoreQuery(params, solr_rp, SOLR_PATH_RP, "reddit posts")
         results_rc, rc_suggestions, found_rc = performSingleCoreQuery(params, solr_rc, SOLR_PATH_RC, "reddit comments")
+        print(found_tw)
+        print(found_rp)
+        print(found_rc)
 
         # initialise the spelling components in the response
         results_spell['hide_suggestions'] = True
         results_spell['spell_suggestions'] = []
         results_spell['spell_error_found'] = False
 
-        if found_tw or found_rp or found_rc:
+        # majority voting for spell checking => if any two of them say there is a spelling error
+        if (found_tw and found_rp) or (found_rp and found_rc) or (found_tw and found_rc):
             results_spell['hide_suggestions'] = False
             results_spell['spell_error_found'] = True
     
             common_suggestions = get_common_suggestions(tw_suggestions, rp_suggestions, rc_suggestions)
 
             if len(common_suggestions) == 0:
-                if found_tw:
+                if found_tw and len(tw_suggestions) > 0:
                     results_spell['spell_suggestions'].append(tw_suggestions[0])
-                if found_rp:
+                if found_rp and len(rp_suggestions) > 0:
                     results_spell['spell_suggestions'].append(rp_suggestions[0])
-                if found_rc:
+                if found_rc and len(rc_suggestions) > 0:
                     results_spell['spell_suggestions'].append(rc_suggestions[0])
             else:
                 results_spell['spell_suggestions'] = common_suggestions[:3] if len(common_suggestions)>3 else common_suggestions
@@ -88,7 +92,7 @@ def performSingleCoreQuery(params, solr, SOLR_PATH, source):
     # [TODO] fq
     # if params['fq'] ==
 
-    print("Successfully retrieved ", len(results['response']['docs']), "rows of data.")
+    print(f"{source} successfully retrieved ", len(results['response']['docs']), "rows of data.")
 
     spell_response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
 
