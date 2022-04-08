@@ -50,7 +50,7 @@ def performQuery(params):
         results = {}
     else:
         if params['sort']:
-            results_tw = solr_tw.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15) # to parse params['filters'] as fq
+            results_tw = solr_tw.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
             results_rp = solr_rc.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
             results_rc = solr_rc.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
         else:
