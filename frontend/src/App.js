@@ -60,13 +60,29 @@ function App() {
     console.log(results)
   });
   socket.on('results_rp', function(msg) {
-    setRedditPosts(msg.results);
-    console.log(results)
+    const newList = msg.results.map((redditpost) => {
+      const embed_url='<iframe id="reddit-embed" src="'+redditpost.permalink+'/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="127" width="640" scrolling="no"></iframe>'
+      const updatedItem = {
+          ...redditpost,
+          permalink: embed_url,
+        };
+      return updatedItem;
+    });
+
+    setRedditPosts(newList)
   });
   socket.on('results_rc', function(msg) {
-    
-    setRedditComments(msg.results);
-    console.log(results)
+    /*setRedditComments(msg.results);*/
+    const newList = msg.results.map((redditcomment) => {
+      const embed_url='<iframe id="reddit-embed" src="'+redditcomment.permalink+'/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="127" width="640" scrolling="no"></iframe>'
+      const updatedItem = {
+          ...redditcomment,
+          permalink: embed_url,
+        };
+      return updatedItem;
+    });
+
+    setRedditComments(newList);
   });
   socket.on('disconnect', function(msg) {
     socket.emit('leave', {data: 'Client disconnected!', client_id: socket.id});
@@ -105,10 +121,6 @@ function App() {
       ...filters,
       [event.target.name]: event.target.checked,
     });
-  }
-
-  const handleSiteChange = (event) => {
-    setSiteFilter('both');
   }
 
   function TabPanel(props) {
@@ -295,7 +307,7 @@ function App() {
 
          {
           tweets.map(tweet => (
-            <Tweet tweetId={tweet.id} />
+            <Tweet tweetId={tweet.tweet_id} />
           ))
         } 
         
@@ -305,7 +317,7 @@ function App() {
 {
           redditPosts.map(redditpost => (
 
-            <Typography>{redditpost.text}</Typography>
+            <div dangerouslySetInnerHTML={{__html:redditpost.permalink}}/>
           ))
 }
 
@@ -314,7 +326,7 @@ function App() {
 {
           redditComments.map(redditcomment => (
 
-            <Typography>{redditcomment.text}</Typography>
+            <div dangerouslySetInnerHTML={{__html:redditcomment.permalink}}/>
           ))
 }
 
