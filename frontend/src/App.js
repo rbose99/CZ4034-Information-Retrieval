@@ -27,7 +27,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import { ClassNames } from '@emotion/react';
 
 
@@ -210,7 +210,7 @@ function App() {
           <Typography sx={{ color: 'text.secondary' }}>Advanced Settings</Typography>
         </AccordionSummary>
 <AccordionDetails>
-<SpellCheck show={hideSpellCheck} corrections={spellCheck}/>
+
 
 <Grid container item xs={12} justify='center' >
   {/* <Grid container item md={12} xs={12} justify='center'>
@@ -266,6 +266,7 @@ function App() {
 </AccordionDetails>
 </Accordion>
 </Grid>
+<SpellCheck show={hideSpellCheck} corrections={spellCheck}/>
 
 
 
@@ -351,7 +352,7 @@ function App() {
                             </Grid>
                             }
                             <Grid container item xs={12}>  
-                              {tweet.sarcasm==1 ? <LightbulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                              {tweet.sarcasm==1 ? <PriorityHighIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
                             </Grid>
                             </Box>
 
@@ -426,7 +427,7 @@ function App() {
                             </Grid>
                             }
                             <Grid container item xs={12}>  
-                              {redditpost.sarcasm==1 ? <LightbulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                              {redditpost.sarcasm==1 ? <PriorityHighIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
                             </Grid>
                             </Box>
 
@@ -495,7 +496,7 @@ function App() {
                             </Grid>
                             }
                             <Grid container item xs={12}>  
-                              {redditcomment.sarcasm==1 ? <LightbulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                              {redditcomment.sarcasm==1 ? <PriorityHighIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
                             </Grid>
                             </Box>
 
