@@ -65,17 +65,17 @@ def performQuery(params):
             results_spell['hide_suggestions'] = False
             results_spell['spell_error_found'] = True
     
-        common_suggestions = get_common_suggestions(tw_suggestions, rp_suggestions, rc_suggestions)
+            common_suggestions = get_common_suggestions(tw_suggestions, rp_suggestions, rc_suggestions)
 
-        if len(common_suggestions) == 0:
-            if found_tw:
-                results_spell['spell_suggestions'].append(tw_suggestions[0])
-            if found_rp:
-                results_spell['spell_suggestions'].append(rp_suggestions[0])
-            if found_rc:
-                results_spell['spell_suggestions'].append(rc_suggestions[0])
-        else:
-            results_spell['spell_suggestions'] = common_suggestions[:3] if len(common_suggestions)>3 else common_suggestions
+            if len(common_suggestions) == 0:
+                if found_tw:
+                    results_spell['spell_suggestions'].append(tw_suggestions[0])
+                if found_rp:
+                    results_spell['spell_suggestions'].append(rp_suggestions[0])
+                if found_rc:
+                    results_spell['spell_suggestions'].append(rc_suggestions[0])
+            else:
+                results_spell['spell_suggestions'] = common_suggestions[:3] if len(common_suggestions)>3 else common_suggestions
         
     return results_spell, results_tw, results_rp, results_rc
 
@@ -97,14 +97,14 @@ def performSingleCoreQuery(params, solr, SOLR_PATH, source):
 
     spell_response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
 
-    suggestions, found = get_suggestions(spell_response, source)
+    suggestions, found = get_suggestions(spell_response, params)
 
     return results, suggestions, found
 
 
 # check the response given by Solr
 # returns the suggestions and spell_error_found
-def get_suggestions(response, source):
+def get_suggestions(response, params):
     if response.status_code == 200:
         json_response = response.json()
         if(json_response['spellcheck']['correctlySpelled'] == False): # spelling error is found
@@ -129,7 +129,7 @@ def get_suggestions(response, source):
                 sorted_suggestions = sorted(suggestions, key=lambda x: x['hits'], reverse=True)
                 final_suggestions = [x['collationQuery'].split("\"")[1] for x in sorted_suggestions]
 
-            print(f"Spelling suggestions from {source} found are", final_suggestions)
+            print(f"Spelling suggestions found are", final_suggestions)
 
             return final_suggestions, True # suggestions, error_found=True
         
