@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
-import { Tweet } from 'react-twitter-widgets'
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { CircularProgress , Link, CssBaseline, Container, AppBar, Toolbar, TextField, IconButton, Input, Box, Grid, Paper, Avatar,  InputLabel, Select, MenuItem, ListItemText, Button } from '@material-ui/core';
@@ -20,14 +19,17 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
-import ShowChartIcon from '@material-ui/icons/ShowChart';
+import SentimentNeutralIcon from '@mui/icons-material/SentimentNeutral';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import SearchIcon from '@material-ui/icons/Search';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import RepeatIcon from '@material-ui/icons/Repeat';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import TrendingDownIcon from '@material-ui/icons/TrendingDown';
-import grey from '@material-ui/core/colors/grey';
-import purple from '@material-ui/core/colors/purple';
+import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
+import RepeatIcon from '@mui/icons-material/Repeat';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { ClassNames } from '@emotion/react';
+
 
 const io = require('socket.io-client');
 const socket = io.connect('http://localhost:5000');
@@ -57,32 +59,12 @@ function App() {
   });
   socket.on('results_tw', function(msg) {
     setTweets(msg.results);
-    console.log(results)
   });
   socket.on('results_rp', function(msg) {
-    const newList = msg.results.map((redditpost) => {
-      const embed_url='<iframe id="reddit-embed" src="'+redditpost.permalink+'/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="127" width="640" scrolling="no"></iframe>'
-      const updatedItem = {
-          ...redditpost,
-          permalink: embed_url,
-        };
-      return updatedItem;
-    });
-
-    setRedditPosts(newList)
+    setRedditPosts(msg.results);
   });
   socket.on('results_rc', function(msg) {
-    /*setRedditComments(msg.results);*/
-    const newList = msg.results.map((redditcomment) => {
-      const embed_url='<iframe id="reddit-embed" src="'+redditcomment.permalink+'/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="127" width="640" scrolling="no"></iframe>'
-      const updatedItem = {
-          ...redditcomment,
-          permalink: embed_url,
-        };
-      return updatedItem;
-    });
-
-    setRedditComments(newList);
+    setRedditComments(msg.results);
   });
   socket.on('disconnect', function(msg) {
     socket.emit('leave', {data: 'Client disconnected!', client_id: socket.id});
@@ -307,17 +289,152 @@ function App() {
 
          {
           tweets.map(tweet => (
-            <Tweet tweetId={tweet.tweet_id} />
+          <Paper>
+            <Grid container item xs={12}>
+              <Grid container item xs={9}>
+              <Grid container item xs={12} style={{alignItems: "baseline" }}>
+                      <Box mr={1}>
+                      <Link target="_blank" href={tweet.user_profile_url}>
+                        <Typography variant="h6" color="textPrimary" >Username</Typography>
+                      </Link>
+                      </Box>
+                      <Typography variant="body2" color="textPrimary">{tweet.date}</Typography>
+                      <Box my={1}>
+                      <Grid container item xs={12} >
+                        <Link target="_blank" href={tweet.url}>
+                        <Typography variant="body1" color="textPrimary" align="left">{tweet.text}</Typography>
+                        </Link>
+                      </Grid>
+                    </Box>
+                    </Grid>
+                    <Grid container item xs={12} style={{alignItems: "center" }}>
+                        <Grid container item xs={11} >
+                          <FavoriteIcon color="warning" />
+                          <Box mr={2}>
+                            <Typography variant="subtitle2" color="textPrimary">{tweet.score}</Typography>
+                          </Box>
+                          <RepeatIcon color="success" />
+                          <Box mr={2}>
+                            <Typography variant="subtitle2" color="textPrimary">{tweet.retweet_count}</Typography>
+                          </Box>
+                          <ChatBubbleOutlineIcon />
+                          <Box mr={2}>
+                            <Typography variant="subtitle2" color="textPrimary">{tweet.reply_count}</Typography>
+                          </Box>
+                          
+                        </Grid>
+                        <Grid container item xs={1}>
+                            <Box float="right">
+                            
+                            {tweet.subjectivity == 0 &&
+                            
+                            <Grid container item xs={12}>
+                            <SentimentNeutralIcon />
+                            <Typography variant="caption">Neutral</Typography>
+      
+                            </Grid>
+                            }
+                            {tweet.subjectivity == 1 && tweet.polarity == 0 &&
+                            
+                            <Grid container item xs={12}>
+                            <SentimentVeryDissatisfiedIcon />
+                            <Typography variant="caption">Negative</Typography>
+      
+                            </Grid>
+                            }
+                            {tweet.subjectivity == 1 && tweet.polarity == 1 &&
+                            
+                            <Grid container item xs={12}>
+ 
+                            <SentimentSatisfiedAltIcon />
+                            <Typography variant="caption">Positive</Typography>
+                            </Grid>
+                            }
+                            <Grid container item xs={12}>  
+                              {tweet.sarcasm==1 ? <LightBulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                            </Grid>
+                            </Box>
+
+                        </Grid>
+                    </Grid>
+              </Grid>
+            </Grid>
+          </Paper>
           ))
-        } 
+}
         
         
 </TabPanel>
 <TabPanel value={value} index={1}>
 {
           redditPosts.map(redditpost => (
+          <Paper>
+            <Grid container item xs={12}>
+              <Grid container item xs={9}>
+              <Grid container item xs={12} style={{alignItems: "baseline" }}>
+                      <Box mr={1}>
+                      <Link target="_blank" href={redditpost.user_profile_url}>
+                        <Typography variant="h6" color="textPrimary" >{redditpost.author}</Typography>
+                      </Link>
+                      </Box>
+                      <Typography variant="body2" color="textPrimary">{redditpost.date}</Typography>
+                      <Box my={1}>
+                      <Grid container item xs={12} >
+                        <Link target="_blank" href={tweet.url}>
+                        <Typography variant="body1" color="textPrimary" align="left">{redditpost.text}</Typography>
+                        </Link>
+                      </Grid>
+                    </Box>
+                    </Grid>
+                    <Grid container item xs={12} style={{alignItems: "center" }}>
+                        <Grid container item xs={11} >
+                          <ThumbsUpDownIcon />
+                          <Box mr={2}>
+                            <Typography variant="subtitle2" color="textPrimary">{redditpost.score}</Typography>
+                          </Box>
+                          <ChatBubbleOutlineIcon />
+                          <Box mr={2}>
+                            <Typography variant="subtitle2" color="textPrimary">{redditpost.reply_count}</Typography>
+                          </Box>
+                          
+                        </Grid>
+                        <Grid container item xs={1}>
+                            <Box float="right">
+                            
+                            {redditpost.subjectivity == 0 &&
+                            
+                            <Grid container item xs={12}>
+                            <SentimentNeutralIcon />
+                            <Typography variant="caption">Neutral</Typography>
+      
+                            </Grid>
+                            }
+                            {redditpost.subjectivity == 1 && redditpost.polarity == 0 &&
+                            
+                            <Grid container item xs={12}>
+                            <SentimentVeryDissatisfiedIcon />
+                            <Typography variant="caption">Negative</Typography>
+      
+                            </Grid>
+                            }
+                            {redditpost.subjectivity == 1 && redditpost.polarity == 1 &&
+                            
+                            <Grid container item xs={12}>
+ 
+                            <SentimentSatisfiedAltIcon />
+                            <Typography variant="caption">Positive</Typography>
+                            </Grid>
+                            }
+                            <Grid container item xs={12}>  
+                              {redditpost.sarcasm==1 ? <LightBulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                            </Grid>
+                            </Box>
 
-            <div dangerouslySetInnerHTML={{__html:redditpost.permalink}}/>
+                        </Grid>
+                    </Grid>
+              </Grid>
+            </Grid>
+          </Paper>
           ))
 }
 
@@ -325,10 +442,71 @@ function App() {
 <TabPanel value={value} index={2}>
 {
           redditComments.map(redditcomment => (
+          <Paper>
+            <Grid container item xs={12}>
+              <Grid container item xs={9}>
+              <Grid container item xs={12} style={{alignItems: "baseline" }}>
+                      <Box mr={1}>
+                      <Link target="_blank" href={redditcomment.user_profile_url}>
+                        <Typography variant="h6" color="textPrimary" >{redditcomment.author}</Typography>
+                      </Link>
+                      </Box>
+                      <Typography variant="body2" color="textPrimary">{redditcomment.date}</Typography>
+                      <Box my={1}>
+                      <Grid container item xs={12} >
+                        <Link target="_blank" href={tweet.url}>
+                        <Typography variant="body1" color="textPrimary" align="left">{redditcomment.text}</Typography>
+                        </Link>
+                      </Grid>
+                    </Box>
+                    </Grid>
+                    <Grid container item xs={12} style={{alignItems: "center" }}>
+                        <Grid container item xs={11} >
+                          <ThumbsUpDownIcon />
+                          <Box mr={2}>
+                            <Typography variant="subtitle2" color="textPrimary">{redditcomment.score}</Typography>
+                          </Box>       
+                        </Grid>
+                        <Grid container item xs={1}>
+                            <Box float="right">
+                            
+                            {redditcomment.subjectivity == 0 &&
+                            
+                            <Grid container item xs={12}>
+                            <SentimentNeutralIcon />
+                            <Typography variant="caption">Neutral</Typography>
+      
+                            </Grid>
+                            }
+                            {redditcomment.subjectivity == 1 && redditcomment.polarity == 0 &&
+                            
+                            <Grid container item xs={12}>
+                            <SentimentVeryDissatisfiedIcon />
+                            <Typography variant="caption">Negative</Typography>
+      
+                            </Grid>
+                            }
+                            {redditcomment.subjectivity == 1 && redditcomment.polarity == 1 &&
+                            
+                            <Grid container item xs={12}>
+ 
+                            <SentimentSatisfiedAltIcon />
+                            <Typography variant="caption">Positive</Typography>
+                            </Grid>
+                            }
+                            <Grid container item xs={12}>  
+                              {redditcomment.sarcasm==1 ? <LightBulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                            </Grid>
+                            </Box>
 
-            <div dangerouslySetInnerHTML={{__html:redditcomment.permalink}}/>
+                        </Grid>
+                    </Grid>
+              </Grid>
+            </Grid>
+          </Paper>
           ))
 }
+
 
 </TabPanel>
         
