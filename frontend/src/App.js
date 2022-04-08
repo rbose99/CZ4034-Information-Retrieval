@@ -57,7 +57,7 @@ function App() {
   });
   socket.on('results_tw', function(msg) {
     setTweets(msg.results);
-    console.log(results)
+    console.log(tweets);
   });
   socket.on('results_rp', function(msg) {
     const newList = msg.results.map((redditpost) => {
@@ -308,8 +308,10 @@ function App() {
          {
           tweets.map(tweet => (
             <Tweet tweetId={tweet.tweet_id} />
+
           ))
-        } 
+        }
+      
         
         
 </TabPanel>

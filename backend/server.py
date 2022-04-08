@@ -10,8 +10,6 @@ import os
 import pandas as pd
 import logging
 
-nltk.download('stopwords')
-
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -32,7 +30,7 @@ solr_rc.ping()
 # retreive all data entries from Solr
 def getAll():
     results_tw = solr_tw.search('*', rows=15)
-    results_rp = solr_rc.search('*', rows=15)
+    results_rp = solr_rp.search('*', rows=15)
     results_rc = solr_rc.search('*', rows=15)
 
     print("Successfully retrieved ", len(results_tw['response']['docs']), "rows of data.")
@@ -51,11 +49,11 @@ def performQuery(params):
     else:
         if params['sort']:
             results_tw = solr_tw.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
-            results_rp = solr_rc.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
+            results_rp = solr_rp.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
             results_rc = solr_rc.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
         else:
             results_tw = solr_tw.search(params['q'], fq=params['fq'], rows=15)
-            results_rp = solr_rc.search(params['q'], fq=params['fq'], rows=15)
+            results_rp = solr_rp.search(params['q'], fq=params['fq'], rows=15)
             results_rc = solr_rc.search(params['q'], fq=params['fq'], rows=15)
 
     print("Successfully retrieved ", len(results_tw['response']['docs']), "rows of data.")
@@ -156,6 +154,11 @@ def on_join(json):
     socketio.emit('results_tw', {'results': results_tw['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
+
+    # print(results_tw['response']['docs'])
+    # print(results_rp['response']['docs'])
+    # print(results_rc['response']['docs'])
+
 
 
 @socketio.on('leave')
