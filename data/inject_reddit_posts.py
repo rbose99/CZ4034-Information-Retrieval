@@ -6,14 +6,13 @@ SOLR_PATH = 'http://localhost:8888/solr/reddit_post_core/'  # format of the path
 solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
 solr.ping()
 
-posts = pd.read_csv('Reddit_Posts_1k.csv')
+posts = pd.read_csv('Reddit_Posts_1k_Cleaned_labelled.csv')
 
-data = [{"id": index, "text": row["Title"], "date": index, \
+data = [{"id": index, "text": row["Title"], "date": row["created_utc"], \
         "score": row["score"], "num_comments": row["num_comments"], \
-        "full_url": row["full_link"], \
-        "permalink": "https://www.redditmedia.com" + str(row["permalink"]) + "?ref_source=embed&amp;ref=share&amp;embed=true",
-        "subjectivity": "1", \
-        "polarity": "1", "sarcasm": "0"} \
+        "full_url": row["full_link"], "author": row["author"], \
+        "user_profile_url": "https://www.reddit.com/user/" + str(row["author"]), \
+        "subjectivity": "1", "polarity": "1", "sarcasm": "0"} \
         for index, row in posts.iterrows()]
 
 print(solr.add(data))
