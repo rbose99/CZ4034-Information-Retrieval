@@ -20,7 +20,6 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import SentimentNeutralIcon from '@mui/icons-material/SentimentNeutral';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -28,6 +27,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import { ClassNames } from '@emotion/react';
 
 
@@ -295,7 +295,7 @@ function App() {
               <Grid container item xs={12} style={{alignItems: "baseline" }}>
                       <Box mr={1}>
                       <Link target="_blank" href={tweet.user_profile_url}>
-                        <Typography variant="h6" color="textPrimary" >Username</Typography>
+                        <Typography variant="h6" color="textPrimary" >{tweet.user_name}</Typography>
                       </Link>
                       </Box>
                       <Typography variant="body2" color="textPrimary">{tweet.date}</Typography>
@@ -351,7 +351,7 @@ function App() {
                             </Grid>
                             }
                             <Grid container item xs={12}>  
-                              {tweet.sarcasm==1 ? <LightBulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                              {tweet.sarcasm==1 ? <LightbulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
                             </Grid>
                             </Box>
 
@@ -380,7 +380,7 @@ function App() {
                       <Typography variant="body2" color="textPrimary">{redditpost.date}</Typography>
                       <Box my={1}>
                       <Grid container item xs={12} >
-                        <Link target="_blank" href={tweet.url}>
+                        <Link target="_blank" href={redditpost.url}>
                         <Typography variant="body1" color="textPrimary" align="left">{redditpost.text}</Typography>
                         </Link>
                       </Grid>
@@ -426,7 +426,7 @@ function App() {
                             </Grid>
                             }
                             <Grid container item xs={12}>  
-                              {redditpost.sarcasm==1 ? <LightBulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                              {redditpost.sarcasm==1 ? <LightbulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
                             </Grid>
                             </Box>
 
@@ -454,7 +454,7 @@ function App() {
                       <Typography variant="body2" color="textPrimary">{redditcomment.date}</Typography>
                       <Box my={1}>
                       <Grid container item xs={12} >
-                        <Link target="_blank" href={tweet.url}>
+                        <Link target="_blank" href={redditcomment.url}>
                         <Typography variant="body1" color="textPrimary" align="left">{redditcomment.text}</Typography>
                         </Link>
                       </Grid>
@@ -495,7 +495,7 @@ function App() {
                             </Grid>
                             }
                             <Grid container item xs={12}>  
-                              {redditcomment.sarcasm==1 ? <LightBulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
+                              {redditcomment.sarcasm==1 ? <LightbulbIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
                             </Grid>
                             </Box>
 

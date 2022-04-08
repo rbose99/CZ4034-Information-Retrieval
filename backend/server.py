@@ -42,12 +42,14 @@ def getAll():
 
 def performQuery(params):
     print(params)
+
+    results_spell = {}
+    results_tw = {}
+    results_rp = {}
+    results_rc = {}
     
     if len(params) == 0: # no query was given but the submit button was clicked
-        results_spell = {}
-        results_tw = {}
-        results_rp = {}
-        results_rc = {}
+        pass
 
     else:
         results_tw, tw_suggestions, found_tw = performSingleCoreQuery(params, solr_tw, SOLR_PATH_TW, "twitter")
@@ -73,7 +75,7 @@ def performQuery(params):
             if found_rc:
                 results_spell['spell_suggestions'].append(rc_suggestions[0])
         else:
-            results_spell['spell_suggestions'] = common_suggestions[:3] is len(common_suggestions)>3 else common_suggestions
+            results_spell['spell_suggestions'] = common_suggestions[:3] if len(common_suggestions)>3 else common_suggestions
         
     return results_spell, results_tw, results_rp, results_rc
 
@@ -81,10 +83,15 @@ def performQuery(params):
 # given a query return the relevant results
 # params = {q:, fq:, sort:}
 def performSingleCoreQuery(params, solr, SOLR_PATH, source):
-    if params['sort']:
-        results = solr.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
-    else:
-        results = solr.search(params['q'], fq=params['fq'], rows=15)
+    if params['sort'] == 'popularity':
+        results = solr.search(params['q'], sort='score desc', rows=15)
+    elif params['sort'] == 'date':
+        results = solr.search(params['q'], sort='date desc', rows=15)
+    else:  # for relevance and in case of any error it will do relevance by default
+        results = solr.search(params['q'], rows=15)
+
+    # [TODO] fq
+    # if params['fq'] ==
 
     print("Successfully retrieved ", len(results['response']['docs']), "rows of data.")
 
@@ -185,7 +192,6 @@ def on_leave(json):
 def query(json):
     print('received json: ' + str(json))
     results_spell, results_tw, results_rp, results_rc = performQuery(json['search_params'])
-    print(results['response'])
     socketio.emit('results_tw', {'results': results_tw['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
