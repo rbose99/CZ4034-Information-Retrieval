@@ -9,8 +9,8 @@ solr.ping()
 posts = pd.read_csv('Reddit_Posts_1k_Cleaned_labelled.csv')
 
 data = [{"id": index, "text": row["Title"], "date": row["created_utc"], \
-        "score": row["score"], "num_comments": row["num_comments"], \
-        "full_url": row["full_link"], "author": row["author"], \
+        "likes": row["score"], "num_comments": row["num_comments"], \
+        "url": row["full_link"], "author": row["author"], \
         "user_profile_url": "https://www.reddit.com/user/" + str(row["author"]), \
         "subjectivity": "1", "polarity": "1", "sarcasm": "0"} \
         for index, row in posts.iterrows()]

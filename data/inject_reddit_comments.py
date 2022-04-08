@@ -10,7 +10,7 @@ solr.ping()
 tweets = pd.read_csv('Reddit_Comments_7k_final_Cleaned_labelled.csv')
 
 data = [{"id": index, "text": row["body"], "date": row['created_utc'], \
-        "score": row["score"], "author": row["author"], \
+        "likes": row["score"], "author": row["author"], \
         "url": "https://www.reddit.com" + str(row["permalink"]), \
         "user_profile_url": "https://www.reddit.com/user/" + str(row["author"]), \
         "subjectivity": row["subjectivity"], "polarity": row["polarity"], "sarcasm": row["sarcasm"]}

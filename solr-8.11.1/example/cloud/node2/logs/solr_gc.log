@@ -1,0 +1,130 @@
+[2022-02-27T17:10:58.352+0800][0.035s] Using G1
+[2022-02-27T17:10:58.539+0800][0.223s] Version: 17.0.2+8-LTS-86 (release)
+[2022-02-27T17:10:58.539+0800][0.223s] CPUs: 16 total, 16 available
+[2022-02-27T17:10:58.539+0800][0.223s] Memory: 32521M
+[2022-02-27T17:10:58.539+0800][0.223s] Large Page Support: Disabled
+[2022-02-27T17:10:58.539+0800][0.223s] NUMA Support: Disabled
+[2022-02-27T17:10:58.539+0800][0.223s] Compressed Oops: Enabled (32-bit)
+[2022-02-27T17:10:58.539+0800][0.223s] Heap Region Size: 1M
+[2022-02-27T17:10:58.539+0800][0.223s] Heap Min Capacity: 512M
+[2022-02-27T17:10:58.539+0800][0.223s] Heap Initial Capacity: 512M
+[2022-02-27T17:10:58.540+0800][0.223s] Heap Max Capacity: 512M
+[2022-02-27T17:10:58.540+0800][0.223s] Pre-touch: Enabled
+[2022-02-27T17:10:58.540+0800][0.223s] Parallel Workers: 13
+[2022-02-27T17:10:58.540+0800][0.223s] Concurrent Workers: 3
+[2022-02-27T17:10:58.540+0800][0.223s] Concurrent Refinement Workers: 13
+[2022-02-27T17:10:58.540+0800][0.223s] Periodic GC: Disabled
+[2022-02-27T17:10:58.540+0800][0.224s] CDS archive(s) mapped at: [0x0000000800000000-0x0000000800bc0000-0x0000000800bc0000), size 12320768, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+[2022-02-27T17:10:58.540+0800][0.224s] Compressed class space mapped at: 0x0000000800c00000-0x0000000840c00000, reserved size: 1073741824
+[2022-02-27T17:10:58.540+0800][0.224s] Narrow klass base: 0x0000000800000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+[2022-02-27T17:10:59.643+0800][1.327s] GC(0) Pause Young (Normal) (G1 Evacuation Pause)
+[2022-02-27T17:10:59.644+0800][1.327s] GC(0) Using 12 workers of 13 for evacuation
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0)   Pre Evacuate Collection Set: 0.1ms
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0)   Merge Heap Roots: 0.0ms
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0)   Evacuate Collection Set: 3.2ms
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0)   Post Evacuate Collection Set: 0.5ms
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0)   Other: 0.7ms
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) Eden regions: 29->0(38)
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) Survivor regions: 0->4(4)
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) Old regions: 0->1
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) Archive regions: 0->0
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) Humongous regions: 4->4
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) Metaspace: 9884K(10048K)->9884K(10048K) NonClass: 8725K(8832K)->8725K(8832K) Class: 1159K(1216K)->1159K(1216K)
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 33M->8M(512M) 4.684ms
+[2022-02-27T17:10:59.648+0800][1.331s] GC(0) User=0.00s Sys=0.00s Real=0.01s
+[2022-02-27T17:11:00.484+0800][2.167s] GC(1) Pause Young (Normal) (G1 Evacuation Pause)
+[2022-02-27T17:11:00.484+0800][2.167s] GC(1) Using 13 workers of 13 for evacuation
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1)   Pre Evacuate Collection Set: 0.1ms
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1)   Merge Heap Roots: 0.1ms
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1)   Evacuate Collection Set: 8.6ms
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1)   Post Evacuate Collection Set: 0.9ms
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1)   Other: 0.3ms
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) Eden regions: 37->0(49)
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) Survivor regions: 4->6(6)
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) Old regions: 1->11
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) Archive regions: 0->0
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) Humongous regions: 4->4
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) Metaspace: 15625K(15872K)->15625K(15872K) NonClass: 13812K(13952K)->13812K(13952K) Class: 1812K(1920K)->1812K(1920K)
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 45M->20M(512M) 10.141ms
+[2022-02-27T17:11:00.494+0800][2.177s] GC(1) User=0.02s Sys=0.00s Real=0.01s
+[2022-02-27T17:11:01.407+0800][3.090s] GC(2) Pause Young (Concurrent Start) (Metadata GC Threshold)
+[2022-02-27T17:11:01.407+0800][3.090s] GC(2) Using 13 workers of 13 for evacuation
+[2022-02-27T17:11:01.416+0800][3.098s] GC(2)   Pre Evacuate Collection Set: 0.2ms
+[2022-02-27T17:11:01.416+0800][3.098s] GC(2)   Merge Heap Roots: 0.2ms
+[2022-02-27T17:11:01.416+0800][3.098s] GC(2)   Evacuate Collection Set: 6.6ms
+[2022-02-27T17:11:01.416+0800][3.098s] GC(2)   Post Evacuate Collection Set: 1.3ms
+[2022-02-27T17:11:01.416+0800][3.098s] GC(2)   Other: 0.6ms
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) Eden regions: 41->0(112)
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) Survivor regions: 6->5(7)
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) Old regions: 11->17
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) Archive regions: 0->0
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) Humongous regions: 4->4
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) Metaspace: 21214K(21504K)->21214K(21504K) NonClass: 18807K(18944K)->18807K(18944K) Class: 2407K(2560K)->2407K(2560K)
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) Pause Young (Concurrent Start) (Metadata GC Threshold) 61M->25M(512M) 9.251ms
+[2022-02-27T17:11:01.416+0800][3.099s] GC(2) User=0.20s Sys=0.00s Real=0.01s
+[2022-02-27T17:11:01.416+0800][3.099s] GC(3) Concurrent Mark Cycle
+[2022-02-27T17:11:01.416+0800][3.099s] GC(3) Concurrent Clear Claimed Marks
+[2022-02-27T17:11:01.416+0800][3.099s] GC(3) Concurrent Clear Claimed Marks 0.053ms
+[2022-02-27T17:11:01.416+0800][3.099s] GC(3) Concurrent Scan Root Regions
+[2022-02-27T17:11:01.422+0800][3.104s] GC(3) Concurrent Scan Root Regions 5.104ms
+[2022-02-27T17:11:01.422+0800][3.104s] GC(3) Concurrent Mark
+[2022-02-27T17:11:01.422+0800][3.104s] GC(3) Concurrent Mark From Roots
+[2022-02-27T17:11:01.422+0800][3.104s] GC(3) Using 3 workers of 3 for marking
+[2022-02-27T17:11:01.439+0800][3.123s] GC(3) Concurrent Mark From Roots 18.486ms
+[2022-02-27T17:11:01.439+0800][3.123s] GC(3) Concurrent Preclean
+[2022-02-27T17:11:01.440+0800][3.123s] GC(3) Concurrent Preclean 0.280ms
+[2022-02-27T17:11:01.441+0800][3.124s] GC(3) Pause Remark
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) Pause Remark 26M->26M(512M) 3.117ms
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) User=0.00s Sys=0.00s Real=0.00s
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) Concurrent Mark 22.588ms
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) Concurrent Rebuild Remembered Sets
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) Concurrent Rebuild Remembered Sets 0.038ms
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) Pause Cleanup
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) Pause Cleanup 26M->26M(512M) 0.101ms
+[2022-02-27T17:11:01.444+0800][3.127s] GC(3) User=0.00s Sys=0.00s Real=0.00s
+[2022-02-27T17:11:01.444+0800][3.128s] GC(3) Concurrent Cleanup for Next Mark
+[2022-02-27T17:11:01.445+0800][3.128s] GC(3) Concurrent Cleanup for Next Mark 0.673ms
+[2022-02-27T17:11:01.445+0800][3.128s] GC(3) Concurrent Mark Cycle 29.464ms
+[2022-02-27T17:11:05.039+0800][6.722s] GC(4) Pause Young (Concurrent Start) (Metadata GC Threshold)
+[2022-02-27T17:11:05.039+0800][6.722s] GC(4) Using 13 workers of 13 for evacuation
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4)   Pre Evacuate Collection Set: 0.2ms
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4)   Merge Heap Roots: 0.2ms
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4)   Evacuate Collection Set: 12.6ms
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4)   Post Evacuate Collection Set: 1.2ms
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4)   Other: 0.3ms
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) Eden regions: 85->0(296)
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) Survivor regions: 5->11(15)
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) Old regions: 17->17
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) Archive regions: 0->0
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) Humongous regions: 4->4
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) Metaspace: 36142K(36416K)->36142K(36416K) NonClass: 31990K(32128K)->31990K(32128K) Class: 4152K(4288K)->4152K(4288K)
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) Pause Young (Concurrent Start) (Metadata GC Threshold) 109M->31M(512M) 14.925ms
+[2022-02-27T17:11:05.054+0800][6.737s] GC(4) User=0.20s Sys=0.00s Real=0.01s
+[2022-02-27T17:11:05.054+0800][6.737s] GC(5) Concurrent Mark Cycle
+[2022-02-27T17:11:05.054+0800][6.737s] GC(5) Concurrent Clear Claimed Marks
+[2022-02-27T17:11:05.055+0800][6.737s] GC(5) Concurrent Clear Claimed Marks 0.069ms
+[2022-02-27T17:11:05.055+0800][6.738s] GC(5) Concurrent Scan Root Regions
+[2022-02-27T17:11:05.059+0800][6.742s] GC(5) Concurrent Scan Root Regions 4.554ms
+[2022-02-27T17:11:05.059+0800][6.742s] GC(5) Concurrent Mark
+[2022-02-27T17:11:05.059+0800][6.742s] GC(5) Concurrent Mark From Roots
+[2022-02-27T17:11:05.059+0800][6.742s] GC(5) Using 3 workers of 3 for marking
+[2022-02-27T17:11:05.079+0800][6.762s] GC(5) Concurrent Mark From Roots 20.000ms
+[2022-02-27T17:11:05.079+0800][6.762s] GC(5) Concurrent Preclean
+[2022-02-27T17:11:05.080+0800][6.763s] GC(5) Concurrent Preclean 0.249ms
+[2022-02-27T17:11:05.080+0800][6.763s] GC(5) Pause Remark
+[2022-02-27T17:11:05.086+0800][6.769s] GC(5) Pause Remark 33M->33M(512M) 6.510ms
+[2022-02-27T17:11:05.087+0800][6.769s] GC(5) User=0.00s Sys=0.00s Real=0.01s
+[2022-02-27T17:11:05.087+0800][6.770s] GC(5) Concurrent Mark 27.398ms
+[2022-02-27T17:11:05.087+0800][6.770s] GC(5) Concurrent Rebuild Remembered Sets
+[2022-02-27T17:11:05.098+0800][6.781s] GC(5) Concurrent Rebuild Remembered Sets 11.155ms
+[2022-02-27T17:11:05.103+0800][6.786s] GC(5) Pause Cleanup
+[2022-02-27T17:11:05.103+0800][6.786s] GC(5) Pause Cleanup 33M->33M(512M) 0.237ms
+[2022-02-27T17:11:05.103+0800][6.786s] GC(5) User=0.00s Sys=0.00s Real=0.00s
+[2022-02-27T17:11:05.103+0800][6.786s] GC(5) Concurrent Cleanup for Next Mark
+[2022-02-27T17:11:05.104+0800][6.787s] GC(5) Concurrent Cleanup for Next Mark 0.601ms
+[2022-02-27T17:11:05.104+0800][6.787s] GC(5) Concurrent Mark Cycle 49.402ms
+[2022-02-27T17:56:28.481+0800][2730.164s] Heap
+[2022-02-27T17:56:28.481+0800][2730.164s]  garbage-first heap   total 524288K, used 344897K [0x00000000e0000000, 0x0000000100000000)
+[2022-02-27T17:56:28.481+0800][2730.165s]   region size 1024K, 307 young (314368K), 11 survivors (11264K)
+[2022-02-27T17:56:28.481+0800][2730.165s]  Metaspace       used 55889K, committed 56320K, reserved 1105920K
+[2022-02-27T17:56:28.481+0800][2730.165s]   class space    used 6608K, committed 6784K, reserved 1048576K

@@ -1,0 +1,615 @@
+2022-04-08 09:52:40.060 INFO  (main) [   ] o.e.j.u.log Logging initialized @1531ms to org.eclipse.jetty.util.log.Slf4jLog
+2022-04-08 09:52:40.317 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 17.0.2+8-LTS-86
+2022-04-08 09:52:40.331 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///C:/Users/Mitali/CE4034-Project/solr-8.11.1/solr-8.11.1/server/contexts/] at interval 0
+2022-04-08 09:52:40.908 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2022-04-08 09:52:40.915 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2022-04-08 09:52:40.915 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2022-04-08 09:52:40.915 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 600000ms
+2022-04-08 09:52:40.964 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2022-04-08 09:52:40.964 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 8.11.1
+2022-04-08 09:52:40.964 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8888
+2022-04-08 09:52:40.964 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1
+2022-04-08 09:52:40.964 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2022-04-08T09:52:40.964542100Z
+2022-04-08 09:52:40.979 INFO  (main) [   ] o.a.s.c.SolrPaths Using system property solr.solr.home: C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr
+2022-04-08 09:52:40.980 INFO  (main) [   ] o.a.s.c.SolrXmlConfig Loading container configuration from C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\solr.xml
+2022-04-08 09:52:41.056 INFO  (main) [   ] o.a.s.c.SolrXmlConfig MBean server found: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942, but no JMX reporters were configured - adding default JMX reporter.
+2022-04-08 09:52:41.593 INFO  (main) [   ] o.a.s.h.c.HttpShardHandlerFactory Host whitelist initialized: WhitelistHostChecker [whitelistHosts=null, whitelistHostCheckingEnabled=true]
+2022-04-08 09:52:41.879 WARN  (main) [   ] o.e.j.u.s.S.config Trusting all certificates configured for Client@4e1ce44[provider=null,keyStore=null,trustStore=null]
+2022-04-08 09:52:41.879 WARN  (main) [   ] o.e.j.u.s.S.config No Client EndPointIdentificationAlgorithm configured for Client@4e1ce44[provider=null,keyStore=null,trustStore=null]
+2022-04-08 09:52:42.050 WARN  (main) [   ] o.e.j.u.s.S.config Trusting all certificates configured for Client@7a0e7ecd[provider=null,keyStore=null,trustStore=null]
+2022-04-08 09:52:42.050 WARN  (main) [   ] o.e.j.u.s.S.config No Client EndPointIdentificationAlgorithm configured for Client@7a0e7ecd[provider=null,keyStore=null,trustStore=null]
+2022-04-08 09:52:42.108 WARN  (main) [   ] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
+2022-04-08 09:52:42.275 INFO  (main) [   ] o.a.s.c.TransientSolrCoreCacheDefault Allocating transient core cache for max 2147483647 cores with initial capacity of 1024
+2022-04-08 09:52:42.287 INFO  (main) [   ] o.a.s.h.a.MetricsHistoryHandler No .system collection, keeping metrics history in memory.
+2022-04-08 09:52:42.361 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.node' (registry 'solr.node') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 09:52:42.362 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jvm' (registry 'solr.jvm') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 09:52:42.363 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jetty' (registry 'solr.jetty') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 09:52:42.408 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found 4 core definitions underneath C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr
+2022-04-08 09:52:42.409 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Cores are: [reddit_comment_core, reddit_post_core, test_core, twitter_core]
+2022-04-08 09:52:42.490 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 09:52:42.490 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 09:52:42.490 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 09:52:42.519 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 09:52:42.519 WARN  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 09:52:42.519 WARN  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 09:52:42.592 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 09:52:42.592 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 09:52:42.593 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 09:52:42.739 INFO  (main) [   ] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@53ab0286{/solr,file:///C:/Users/Mitali/CE4034-Project/solr-8.11.1/solr-8.11.1/server/solr-webapp/webapp/,AVAILABLE}{C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server/solr-webapp/webapp}
+2022-04-08 09:52:42.766 INFO  (main) [   ] o.e.j.s.AbstractConnector Started ServerConnector@478ee483{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8888}
+2022-04-08 09:52:42.766 INFO  (main) [   ] o.e.j.s.Server Started @4238ms
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitNorms to be specified in schema, hardcoded behavior is omitNorms=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitNorms to be specified in schema, hardcoded behavior is omitNorms=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitNorms to be specified in schema, hardcoded behavior is omitNorms=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitTermFreqAndPositions to be specified in schema, hardcoded behavior is omitTermFreqAndPositions=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitTermFreqAndPositions to be specified in schema, hardcoded behavior is omitTermFreqAndPositions=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitTermFreqAndPositions to be specified in schema, hardcoded behavior is omitTermFreqAndPositions=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termOffsets to be specified in schema, hardcoded behavior is termOffsets=false
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termOffsets to be specified in schema, hardcoded behavior is termOffsets=false
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termOffsets to be specified in schema, hardcoded behavior is termOffsets=false
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termPositions to be specified in schema, hardcoded behavior is termPositions=false
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termPositions to be specified in schema, hardcoded behavior is termPositions=false
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitPositions to be specified in schema, hardcoded behavior is omitPositions=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termPositions to be specified in schema, hardcoded behavior is termPositions=false
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitPositions to be specified in schema, hardcoded behavior is omitPositions=true
+2022-04-08 09:52:43.050 WARN  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitPositions to be specified in schema, hardcoded behavior is omitPositions=true
+2022-04-08 09:52:43.351 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 09:52:43.351 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 09:52:43.351 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 09:52:43.386 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.CoreContainer Creating SolrCore 'test_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\test_core, trusted=true
+2022-04-08 09:52:43.392 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.CoreContainer Creating SolrCore 'reddit_post_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_post_core, trusted=true
+2022-04-08 09:52:43.394 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.CoreContainer Creating SolrCore 'reddit_comment_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_comment_core, trusted=true
+2022-04-08 09:52:43.439 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.reddit_post_core' (registry 'solr.core.reddit_post_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 09:52:43.439 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.test_core' (registry 'solr.core.test_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 09:52:43.439 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.reddit_comment_core' (registry 'solr.core.reddit_comment_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 09:52:43.466 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.SolrCore [[test_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\test_core], dataDir=[C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\test_core\data\]
+2022-04-08 09:52:43.466 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.SolrCore [[reddit_post_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_post_core], dataDir=[C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_post_core\data\]
+2022-04-08 09:52:43.466 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.SolrCore [[reddit_comment_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_comment_core], dataDir=[C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_comment_core\data\]
+2022-04-08 09:52:44.657 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 09:52:44.657 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 09:52:44.657 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 09:52:44.657 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 09:52:44.657 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 09:52:44.657 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 09:52:44.701 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 09:52:44.701 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 09:52:44.701 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 09:52:44.701 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 09:52:44.701 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 09:52:44.701 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 09:52:45.038 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_post_core\conf
+2022-04-08 09:52:45.038 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\reddit_comment_core\conf
+2022-04-08 09:52:45.038 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\test_core\conf
+2022-04-08 09:52:45.073 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 09:52:45.073 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 09:52:45.073 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 09:52:45.089 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 09:52:45.089 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=_text_,field=tweet,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 09:52:45.089 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 09:52:45.116 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 09:52:45.116 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 09:52:45.116 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 09:52:45.146 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 09:52:45.146 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 09:52:45.146 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 09:52:45.162 INFO  (qtp2101636817-59) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=51
+2022-04-08 09:52:45.168 INFO  (searcherExecutor-17-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 09:52:45.168 INFO  (searcherExecutor-17-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 09:52:45.168 INFO  (searcherExecutor-17-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 09:52:45.180 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 09:52:45.180 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 09:52:45.180 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 09:52:45.180 INFO  (searcherExecutor-18-thread-1-processing-x:test_core) [   x:test_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 09:52:45.180 INFO  (searcherExecutor-18-thread-1-processing-x:test_core) [   x:test_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 09:52:45.180 INFO  (searcherExecutor-18-thread-1-processing-x:test_core) [   x:test_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 09:52:45.180 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 09:52:45.181 WARN  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 09:52:45.188 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 09:52:45.201 WARN  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitNorms to be specified in schema, hardcoded behavior is omitNorms=true
+2022-04-08 09:52:45.201 WARN  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitTermFreqAndPositions to be specified in schema, hardcoded behavior is omitTermFreqAndPositions=true
+2022-04-08 09:52:45.201 WARN  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termOffsets to be specified in schema, hardcoded behavior is termOffsets=false
+2022-04-08 09:52:45.201 WARN  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termPositions to be specified in schema, hardcoded behavior is termPositions=false
+2022-04-08 09:52:45.201 WARN  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitPositions to be specified in schema, hardcoded behavior is omitPositions=true
+2022-04-08 09:52:45.213 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.SolrCore [reddit_comment_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 09:52:45.213 INFO  (searcherExecutor-17-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.SolrCore [reddit_post_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 09:52:45.213 INFO  (searcherExecutor-18-thread-1-processing-x:test_core) [   x:test_core] o.a.s.c.SolrCore [test_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 09:52:45.234 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 09:52:45.261 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.CoreContainer Creating SolrCore 'twitter_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\twitter_core, trusted=true
+2022-04-08 09:52:45.261 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.twitter_core' (registry 'solr.core.twitter_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 09:52:45.261 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.SolrCore [[twitter_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\twitter_core], dataDir=[C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\twitter_core\data\]
+2022-04-08 09:52:45.315 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 09:52:45.315 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 09:52:45.317 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 09:52:45.318 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 09:52:45.327 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server\solr\twitter_core\conf
+2022-04-08 09:52:45.328 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 09:52:45.328 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 09:52:45.348 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 09:52:45.349 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 09:52:45.353 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 09:52:45.353 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 09:52:45.353 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 09:52:45.356 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.SolrCore [twitter_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 09:52:54.575 INFO  (qtp2101636817-30) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=3
+2022-04-08 09:52:54.645 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=69
+2022-04-08 09:52:54.685 INFO  (qtp2101636817-60) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=31
+2022-04-08 09:52:56.835 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=1
+2022-04-08 09:52:56.870 INFO  (qtp2101636817-60) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649404472088} status=0 QTime=18
+2022-04-08 09:52:56.883 INFO  (qtp2101636817-32) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649404472088} status=0 QTime=14
+2022-04-08 09:52:56.896 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649403788600&ts=1649403788600} status=503 QTime=3
+2022-04-08 09:52:56.966 INFO  (qtp2101636817-59) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=125
+2022-04-08 09:52:56.989 INFO  (qtp2101636817-33) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/system params={wt=json&_=1649404472088} status=0 QTime=107
+2022-04-08 09:52:58.769 INFO  (qtp2101636817-60) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 09:52:58.845 INFO  (qtp2101636817-59) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=69
+2022-04-08 09:53:07.286 INFO  (qtp2101636817-60) [   x:twitter_core] o.a.s.c.PluginBag Going to create a new requestHandler with {type = requestHandler,name = /spell,class = solr.SearchHandler,attributes = {startup=lazy, name=/spell, class=solr.SearchHandler},args = {defaults={spellcheck.dictionary=direct,spellcheck.dictionary=filebased,spellcheck=on,spellcheck.extendedResults=true,spellcheck.count=10,spellcheck.alternativeTermCount=5,spellcheck.maxResultsForSuggest=2,spellcheck.collate=true,spellcheck.collateExtendedResults=true,spellcheck.maxCollationTries=10,spellcheck.maxCollations=5,df=_text_},last-components=[spellcheck]}} 
+2022-04-08 09:53:07.658 INFO  (qtp2101636817-60) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=*:*&indent=true&spellcheck=true&q.op=OR&spellcheck.build=true&_=1649403788650} hits=2214 status=0 QTime=371
+2022-04-08 09:53:07.765 INFO  (qtp2101636817-59) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 09:53:07.848 INFO  (qtp2101636817-60) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=53
+2022-04-08 09:53:07.886 INFO  (qtp2101636817-29) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=*:*&indent=true&spellcheck=true&q.op=OR&spellcheck.build=true&_=1649403788650} hits=2214 status=0 QTime=87
+2022-04-08 09:53:31.104 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:"bitcoin+NFT"&indent=true&spellcheck=true&q.op=OR&spellcheck.build=false&_=1649403788650} hits=3 status=0 QTime=152
+2022-04-08 09:53:31.223 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 09:53:31.230 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:"bitcoin+NFT"&indent=true&spellcheck=true&q.op=OR&spellcheck.build=false&_=1649403788650} hits=3 status=0 QTime=1
+2022-04-08 09:53:31.270 INFO  (qtp2101636817-59) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=44
+2022-04-08 09:59:12.972 INFO  (qtp2101636817-34) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:"bitcoin+NFT"&indent=true&spellcheck=true&q.op=OR&sort=score+desc&spellcheck.build=false&_=1649403788650} hits=3 status=0 QTime=8
+2022-04-08 09:59:13.110 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=1
+2022-04-08 09:59:13.132 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:"bitcoin+NFT"&indent=true&spellcheck=true&q.op=OR&sort=score+desc&spellcheck.build=false&_=1649403788650} hits=3 status=0 QTime=3
+2022-04-08 09:59:13.193 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=74
+2022-04-08 09:59:38.510 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 09:59:38.527 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649404472088} status=0 QTime=1
+2022-04-08 09:59:38.536 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649404472088} status=0 QTime=3
+2022-04-08 09:59:38.542 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649403788600&ts=1649403788600} status=503 QTime=0
+2022-04-08 09:59:38.590 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=72
+2022-04-08 09:59:38.599 INFO  (qtp2101636817-28) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/system params={wt=json&_=1649404472088} status=0 QTime=66
+2022-04-08 09:59:40.689 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=1
+2022-04-08 09:59:40.760 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=63
+2022-04-08 09:59:53.207 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.PluginBag Going to create a new requestHandler with {type = requestHandler,name = /spell,class = solr.SearchHandler,attributes = {startup=lazy, name=/spell, class=solr.SearchHandler},args = {defaults={spellcheck.dictionary=direct,spellcheck.dictionary=filebased,spellcheck=on,spellcheck.extendedResults=true,spellcheck.count=10,spellcheck.alternativeTermCount=5,spellcheck.maxResultsForSuggest=2,spellcheck.collate=true,spellcheck.collateExtendedResults=true,spellcheck.maxCollationTries=10,spellcheck.maxCollations=5,df=_text_},last-components=[spellcheck]}} 
+2022-04-08 09:59:53.223 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&spellcheck=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1112 status=0 QTime=16
+2022-04-08 09:59:53.378 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 09:59:53.392 INFO  (qtp2101636817-29) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&spellcheck=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1112 status=0 QTime=1
+2022-04-08 09:59:53.440 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=55
+2022-04-08 10:00:48.592 INFO  (qtp2101636817-31) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:nfs&indent=true&spellcheck=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1 status=0 QTime=75
+2022-04-08 10:00:48.715 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:00:48.745 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:nfs&indent=true&spellcheck=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1 status=0 QTime=15
+2022-04-08 10:00:48.794 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=72
+2022-04-08 10:01:47.442 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&spellcheck=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1112 status=0 QTime=1
+2022-04-08 10:01:47.570 INFO  (qtp2101636817-34) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:01:47.588 INFO  (qtp2101636817-29) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&spellcheck=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1112 status=0 QTime=2
+2022-04-08 10:01:47.635 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=57
+2022-04-08 10:02:22.750 INFO  (qtp2101636817-34) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:02:22.766 INFO  (qtp2101636817-28) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649404472088} status=0 QTime=1
+2022-04-08 10:02:22.788 INFO  (qtp2101636817-29) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649404472088} status=0 QTime=9
+2022-04-08 10:02:22.795 INFO  (qtp2101636817-28) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649403788600&ts=1649403788600} status=503 QTime=0
+2022-04-08 10:02:22.847 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=93
+2022-04-08 10:02:22.860 INFO  (qtp2101636817-57) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/system params={wt=json&_=1649404472088} status=0 QTime=76
+2022-04-08 10:02:24.494 INFO  (qtp2101636817-35) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:02:24.562 INFO  (qtp2101636817-57) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=61
+2022-04-08 10:02:28.076 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1002 status=0 QTime=2
+2022-04-08 10:02:28.226 INFO  (qtp2101636817-57) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:02:28.241 INFO  (qtp2101636817-34) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1002 status=0 QTime=1
+2022-04-08 10:02:28.280 INFO  (qtp2101636817-35) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=50
+2022-04-08 10:04:45.351 INFO  (qtp2101636817-60) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&sort=date+desc&_=1649403788650} hits=1002 status=0 QTime=17
+2022-04-08 10:04:45.501 INFO  (qtp2101636817-34) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:04:45.514 INFO  (qtp2101636817-30) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&sort=date+desc&_=1649403788650} hits=1002 status=0 QTime=1
+2022-04-08 10:04:45.568 INFO  (qtp2101636817-60) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=60
+2022-04-08 10:08:29.389 INFO  (qtp2101636817-63) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=1
+2022-04-08 10:08:29.389 INFO  (qtp2101636817-63) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=2
+2022-04-08 10:08:29.411 INFO  (qtp2101636817-59) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 10:08:29.412 INFO  (qtp2101636817-59) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=1
+2022-04-08 10:08:29.442 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=4
+2022-04-08 10:08:29.442 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=4
+2022-04-08 10:09:38.916 INFO  (qtp2101636817-69) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=1
+2022-04-08 10:09:38.931 INFO  (qtp2101636817-63) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 10:09:38.950 INFO  (qtp2101636817-59) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 10:09:39.241 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 10:09:39.260 INFO  (qtp2101636817-69) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 10:09:39.280 INFO  (qtp2101636817-63) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 10:24:11.189 INFO  (qtp2101636817-74) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:24:11.201 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649404472088} status=0 QTime=1
+2022-04-08 10:24:11.221 INFO  (qtp2101636817-75) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649404472088} status=0 QTime=8
+2022-04-08 10:24:11.229 INFO  (qtp2101636817-34) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649403788600&ts=1649403788600} status=503 QTime=0
+2022-04-08 10:24:11.325 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=130
+2022-04-08 10:24:11.334 INFO  (qtp2101636817-57) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/system params={wt=json&_=1649404472088} status=0 QTime=115
+2022-04-08 10:24:13.084 INFO  (qtp2101636817-74) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:24:13.111 INFO  (qtp2101636817-73) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1649404472088} status=0 QTime=12
+2022-04-08 10:24:13.122 INFO  (qtp2101636817-75) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/config params={wt=json&_=1649405020382} status=0 QTime=12
+2022-04-08 10:24:13.175 INFO  (qtp2101636817-57) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=84
+2022-04-08 10:24:13.239 INFO  (qtp2101636817-66) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1649404472088} status=0 QTime=6
+2022-04-08 10:24:20.327 INFO  (qtp2101636817-73) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:24:20.398 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=64
+2022-04-08 10:24:21.994 INFO  (qtp2101636817-73) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&_=1649403788650} hits=2214 status=0 QTime=1
+2022-04-08 10:24:22.150 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:24:22.160 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&_=1649403788650} hits=2214 status=0 QTime=0
+2022-04-08 10:24:22.190 INFO  (qtp2101636817-73) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=35
+2022-04-08 10:26:22.702 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=1
+2022-04-08 10:26:22.714 INFO  (qtp2101636817-57) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649404472088} status=0 QTime=1
+2022-04-08 10:26:22.728 INFO  (qtp2101636817-66) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649404472088} status=0 QTime=6
+2022-04-08 10:26:22.734 INFO  (qtp2101636817-57) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649403788600&ts=1649403788600} status=503 QTime=0
+2022-04-08 10:26:22.788 INFO  (qtp2101636817-59) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=79
+2022-04-08 10:26:22.794 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/system params={wt=json&_=1649404472088} status=0 QTime=64
+2022-04-08 10:26:24.456 INFO  (qtp2101636817-76) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:26:24.499 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=31
+2022-04-08 10:26:26.566 INFO  (qtp2101636817-76) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&_=1649403788650} hits=1002 status=0 QTime=1
+2022-04-08 10:26:26.697 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:26:26.714 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&_=1649403788650} hits=1002 status=0 QTime=1
+2022-04-08 10:26:26.773 INFO  (qtp2101636817-76) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=68
+2022-04-08 10:27:07.320 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:27:07.331 INFO  (qtp2101636817-59) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 10:27:07.346 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649404472088} status=0 QTime=7
+2022-04-08 10:27:07.356 INFO  (qtp2101636817-59) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649403788600&ts=1649403788600} status=503 QTime=0
+2022-04-08 10:27:07.416 INFO  (qtp2101636817-76) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=88
+2022-04-08 10:27:07.424 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/system params={wt=json&_=1649404472088} status=0 QTime=78
+2022-04-08 10:27:08.845 INFO  (qtp2101636817-57) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:27:08.909 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=55
+2022-04-08 10:27:10.244 INFO  (qtp2101636817-57) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&_=1649403788650} hits=7000 status=0 QTime=0
+2022-04-08 10:27:10.380 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 10:27:10.393 INFO  (qtp2101636817-29) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&_=1649403788650} hits=7000 status=0 QTime=0
+2022-04-08 10:27:10.441 INFO  (qtp2101636817-57) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=52
+2022-04-08 11:08:55.142 INFO  (qtp2101636817-84) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=2
+2022-04-08 11:08:55.143 INFO  (qtp2101636817-84) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=3
+2022-04-08 11:08:55.163 INFO  (qtp2101636817-73) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=1
+2022-04-08 11:08:55.163 INFO  (qtp2101636817-73) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=1
+2022-04-08 11:08:55.184 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=1
+2022-04-08 11:08:55.184 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=2
+2022-04-08 11:09:08.191 INFO  (qtp2101636817-69) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 11:09:08.197 INFO  (qtp2101636817-83) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 11:09:08.203 INFO  (qtp2101636817-73) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 11:09:08.513 INFO  (qtp2101636817-34) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 11:09:08.526 INFO  (qtp2101636817-69) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 11:09:08.540 INFO  (qtp2101636817-83) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 11:10:32.213 INFO  (qtp2101636817-73) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1931 status=0 QTime=6
+2022-04-08 11:10:32.255 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=3
+2022-04-08 11:13:47.912 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=1
+2022-04-08 11:13:47.912 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=1
+2022-04-08 11:13:47.933 INFO  (qtp2101636817-66) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=1
+2022-04-08 11:13:47.933 INFO  (qtp2101636817-66) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=1
+2022-04-08 11:13:47.954 INFO  (qtp2101636817-76) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=0
+2022-04-08 11:13:47.954 INFO  (qtp2101636817-76) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=1
+2022-04-08 11:14:01.824 INFO  (qtp2101636817-83) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=1
+2022-04-08 11:14:01.855 INFO  (qtp2101636817-74) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=1
+2022-04-08 11:14:01.876 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=2
+2022-04-08 11:14:02.158 INFO  (qtp2101636817-76) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=1
+2022-04-08 11:14:02.175 INFO  (qtp2101636817-83) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 11:14:02.182 INFO  (qtp2101636817-74) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 11:14:25.917 INFO  (qtp2101636817-66) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1931 status=0 QTime=1
+2022-04-08 11:14:25.941 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=1
+2022-04-08 11:14:25.960 INFO  (qtp2101636817-76) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=627 status=0 QTime=3
+2022-04-08 11:14:25.990 INFO  (qtp2101636817-69) [   x:reddit_post_core] o.a.s.c.PluginBag Going to create a new requestHandler with {type = requestHandler,name = /spell,class = solr.SearchHandler,attributes = {startup=lazy, name=/spell, class=solr.SearchHandler},args = {defaults={spellcheck.dictionary=direct,spellcheck.dictionary=filebased,spellcheck=on,spellcheck.extendedResults=true,spellcheck.count=10,spellcheck.alternativeTermCount=5,spellcheck.maxResultsForSuggest=2,spellcheck.collate=true,spellcheck.collateExtendedResults=true,spellcheck.maxCollationTries=10,spellcheck.maxCollations=5,df=_text_},last-components=[spellcheck]}} 
+2022-04-08 11:14:25.996 INFO  (qtp2101636817-69) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=5
+2022-04-08 11:14:26.011 INFO  (qtp2101636817-83) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1112 status=0 QTime=1
+2022-04-08 11:14:26.041 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=2
+2022-04-08 11:18:02.263 INFO  (qtp2101636817-73) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"whay"&rows=15&wt=json} hits=0 status=0 QTime=3
+2022-04-08 11:18:02.406 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"whay"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=0 status=0 QTime=128
+2022-04-08 11:18:06.587 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"whay"&rows=15&wt=json} hits=0 status=0 QTime=1
+2022-04-08 11:18:06.637 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"whay"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=0 status=0 QTime=33
+2022-04-08 11:19:13.910 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=0
+2022-04-08 11:19:13.910 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 11:19:13.918 INFO  (qtp2101636817-76) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 11:19:13.918 INFO  (qtp2101636817-76) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 11:19:13.934 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=0
+2022-04-08 11:19:13.934 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 11:19:21.325 INFO  (qtp2101636817-73) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 11:19:21.331 INFO  (qtp2101636817-86) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 11:19:21.339 INFO  (qtp2101636817-76) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 11:19:21.637 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 11:19:21.642 INFO  (qtp2101636817-73) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 11:19:21.649 INFO  (qtp2101636817-86) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 11:19:27.123 INFO  (qtp2101636817-76) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"whay"&rows=15&wt=json} hits=0 status=0 QTime=2
+2022-04-08 11:19:27.175 INFO  (qtp2101636817-69) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"whay"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=0 status=0 QTime=28
+2022-04-08 11:19:27.206 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"whay"&rows=15&wt=json} hits=0 status=0 QTime=6
+2022-04-08 11:19:27.258 INFO  (qtp2101636817-34) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"whay"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=0 status=0 QTime=35
+2022-04-08 11:19:27.290 INFO  (qtp2101636817-73) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"whay"&rows=15&wt=json} hits=0 status=0 QTime=4
+2022-04-08 11:19:27.345 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"whay"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=0 status=0 QTime=37
+2022-04-08 11:20:32.561 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"what"&rows=15&wt=json} hits=127 status=0 QTime=2
+2022-04-08 11:20:32.593 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"what"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=127 status=0 QTime=2
+2022-04-08 11:20:32.609 INFO  (qtp2101636817-76) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"what"&rows=15&wt=json} hits=175 status=0 QTime=1
+2022-04-08 11:20:32.669 INFO  (qtp2101636817-74) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"what"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=175 status=0 QTime=30
+2022-04-08 11:20:32.684 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"what"&rows=15&wt=json} hits=913 status=0 QTime=3
+2022-04-08 11:20:32.718 INFO  (qtp2101636817-73) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"what"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=913 status=0 QTime=2
+2022-04-08 12:34:57.398 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=0
+2022-04-08 12:34:57.399 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:34:57.412 INFO  (qtp2101636817-86) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 12:34:57.412 INFO  (qtp2101636817-86) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:34:57.428 INFO  (qtp2101636817-69) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=1
+2022-04-08 12:34:57.429 INFO  (qtp2101636817-69) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=1
+2022-04-08 12:35:14.181 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:35:14.184 INFO  (qtp2101636817-90) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:35:14.187 INFO  (qtp2101636817-86) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:35:14.500 INFO  (qtp2101636817-69) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:35:14.503 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:35:14.507 INFO  (qtp2101636817-90) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:35:23.788 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1931 status=0 QTime=1
+2022-04-08 12:35:23.795 INFO  (qtp2101636817-34) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=0
+2022-04-08 12:35:23.798 INFO  (qtp2101636817-69) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:35:23.802 INFO  (qtp2101636817-66) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:35:23.805 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:35:23.809 INFO  (qtp2101636817-31) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:35:34.440 INFO  (qtp2101636817-90) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1931 status=0 QTime=0
+2022-04-08 12:35:34.445 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=0
+2022-04-08 12:35:34.448 INFO  (qtp2101636817-86) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:35:34.452 INFO  (qtp2101636817-73) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:35:34.454 INFO  (qtp2101636817-69) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:35:34.458 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:35:40.065 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1931 status=0 QTime=0
+2022-04-08 12:35:40.070 INFO  (qtp2101636817-90) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=0
+2022-04-08 12:35:40.073 INFO  (qtp2101636817-90) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:35:40.077 INFO  (qtp2101636817-86) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:35:40.079 INFO  (qtp2101636817-86) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:35:40.084 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:35:42.064 INFO  (qtp2101636817-69) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1931 status=0 QTime=0
+2022-04-08 12:35:42.078 INFO  (qtp2101636817-66) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=1
+2022-04-08 12:35:42.084 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:35:42.088 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:35:42.091 INFO  (qtp2101636817-90) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:35:42.096 INFO  (qtp2101636817-74) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:38:35.197 INFO  (qtp2101636817-73) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=0
+2022-04-08 12:38:35.197 INFO  (qtp2101636817-73) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:38:35.225 INFO  (qtp2101636817-86) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 12:38:35.225 INFO  (qtp2101636817-86) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:38:35.256 INFO  (qtp2101636817-91) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=0
+2022-04-08 12:38:35.256 INFO  (qtp2101636817-91) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:38:35.766 INFO  (qtp2101636817-69) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:38:35.770 INFO  (qtp2101636817-73) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:38:35.773 INFO  (qtp2101636817-86) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:38:36.077 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:38:36.082 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:38:36.082 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:38:36.084 INFO  (qtp2101636817-69) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:38:36.088 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:38:36.089 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:38:36.089 INFO  (qtp2101636817-94) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:38:36.092 INFO  (qtp2101636817-69) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:38:36.094 INFO  (qtp2101636817-73) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:38:36.097 INFO  (qtp2101636817-94) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:38:36.099 INFO  (qtp2101636817-69) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:38:36.100 INFO  (qtp2101636817-34) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:38:36.107 INFO  (qtp2101636817-94) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:38:36.108 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:38:36.111 INFO  (qtp2101636817-31) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:39:04.274 INFO  (qtp2101636817-93) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:39:04.278 INFO  (qtp2101636817-91) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:39:04.281 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:39:04.583 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:39:04.586 INFO  (qtp2101636817-93) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:39:04.590 INFO  (qtp2101636817-91) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:40:33.868 ERROR (qtp2101636817-74) [   x:reddit_comment_core] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: sort param field can't be found: relevance => org.apache.solr.common.SolrException: sort param field can't be found: relevance
+	at org.apache.solr.search.SortSpecParsing.parseSortSpecImpl(SortSpecParsing.java:198)
+org.apache.solr.common.SolrException: sort param field can't be found: relevance
+	at org.apache.solr.search.SortSpecParsing.parseSortSpecImpl(SortSpecParsing.java:198) ~[?:?]
+	at org.apache.solr.search.SortSpecParsing.parseSortSpec(SortSpecParsing.java:60) ~[?:?]
+	at org.apache.solr.search.QParser.getSortSpec(QParser.java:281) ~[?:?]
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:189) ~[?:?]
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:333) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:216) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2637) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.execute(HttpSolrCall.java:794) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:567) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:427) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:357) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:201) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1434) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:191) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:177) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:322) ~[jetty-rewrite-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:763) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2022-04-08 12:40:33.868 INFO  (qtp2101636817-74) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&sort=relevance+desc&_=1649403788650} status=400 QTime=0
+2022-04-08 12:40:33.905 INFO  (qtp2101636817-93) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:40:33.908 ERROR (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: sort param field can't be found: relevance => org.apache.solr.common.SolrException: sort param field can't be found: relevance
+	at org.apache.solr.search.SortSpecParsing.parseSortSpecImpl(SortSpecParsing.java:198)
+org.apache.solr.common.SolrException: sort param field can't be found: relevance
+	at org.apache.solr.search.SortSpecParsing.parseSortSpecImpl(SortSpecParsing.java:198) ~[?:?]
+	at org.apache.solr.search.SortSpecParsing.parseSortSpec(SortSpecParsing.java:60) ~[?:?]
+	at org.apache.solr.search.QParser.getSortSpec(QParser.java:281) ~[?:?]
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:189) ~[?:?]
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:333) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:216) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2637) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.execute(HttpSolrCall.java:794) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:567) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:427) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:357) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:201) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1434) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:191) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:177) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:322) ~[jetty-rewrite-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:763) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2022-04-08 12:40:33.908 INFO  (qtp2101636817-66) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&sort=relevance+desc&_=1649403788650} status=400 QTime=0
+2022-04-08 12:40:33.934 INFO  (qtp2101636817-74) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=27
+2022-04-08 12:45:01.182 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=0
+2022-04-08 12:45:01.182 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:45:01.206 INFO  (qtp2101636817-34) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 12:45:01.206 INFO  (qtp2101636817-34) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:45:01.237 INFO  (qtp2101636817-94) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=0
+2022-04-08 12:45:01.237 INFO  (qtp2101636817-94) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:45:16.012 INFO  (qtp2101636817-90) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:45:16.015 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:45:16.018 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:45:16.335 INFO  (qtp2101636817-94) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:45:16.341 INFO  (qtp2101636817-90) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:45:16.344 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:45:25.520 INFO  (qtp2101636817-34) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1931 status=0 QTime=0
+2022-04-08 12:45:25.524 INFO  (qtp2101636817-96) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=0
+2022-04-08 12:45:25.527 INFO  (qtp2101636817-94) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:45:25.532 INFO  (qtp2101636817-91) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:45:25.535 INFO  (qtp2101636817-90) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:45:25.540 INFO  (qtp2101636817-97) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:46:50.271 INFO  (qtp2101636817-93) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=0
+2022-04-08 12:46:50.271 INFO  (qtp2101636817-93) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:46:50.295 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 12:46:50.295 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:46:50.326 INFO  (qtp2101636817-90) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=0
+2022-04-08 12:46:50.326 INFO  (qtp2101636817-90) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:46:55.008 INFO  (qtp2101636817-34) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1931 status=0 QTime=0
+2022-04-08 12:46:55.012 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=0
+2022-04-08 12:46:55.014 INFO  (qtp2101636817-93) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:46:55.019 INFO  (qtp2101636817-94) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:46:55.022 INFO  (qtp2101636817-31) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:46:55.027 INFO  (qtp2101636817-96) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:47:28.404 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=0
+2022-04-08 12:47:28.404 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:47:28.426 INFO  (qtp2101636817-97) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 12:47:28.426 INFO  (qtp2101636817-97) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:47:28.457 INFO  (qtp2101636817-31) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=0
+2022-04-08 12:47:28.457 INFO  (qtp2101636817-31) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:47:38.367 INFO  (qtp2101636817-93) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1931 status=0 QTime=0
+2022-04-08 12:47:38.372 INFO  (qtp2101636817-69) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=0
+2022-04-08 12:47:38.374 INFO  (qtp2101636817-91) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:47:38.379 INFO  (qtp2101636817-35) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:47:38.382 INFO  (qtp2101636817-97) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:47:38.386 INFO  (qtp2101636817-74) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:49:01.068 INFO  (qtp2101636817-94) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=2214 status=0 QTime=0
+2022-04-08 12:49:01.068 INFO  (qtp2101636817-94) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:49:01.092 INFO  (qtp2101636817-96) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=1002 status=0 QTime=0
+2022-04-08 12:49:01.092 INFO  (qtp2101636817-96) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:49:01.124 INFO  (qtp2101636817-97) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=7000 status=0 QTime=0
+2022-04-08 12:49:01.124 INFO  (qtp2101636817-97) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 12:49:10.113 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:49:10.117 INFO  (qtp2101636817-93) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:49:10.119 INFO  (qtp2101636817-96) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:49:10.424 INFO  (qtp2101636817-97) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=2214 status=0 QTime=0
+2022-04-08 12:49:10.427 INFO  (qtp2101636817-91) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=1002 status=0 QTime=0
+2022-04-08 12:49:10.430 INFO  (qtp2101636817-93) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=*&rows=15&wt=json} hits=7000 status=0 QTime=0
+2022-04-08 12:49:19.488 INFO  (qtp2101636817-96) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1931 status=0 QTime=0
+2022-04-08 12:49:19.494 INFO  (qtp2101636817-90) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1931 status=0 QTime=0
+2022-04-08 12:49:19.496 INFO  (qtp2101636817-97) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=627 status=0 QTime=0
+2022-04-08 12:49:19.501 INFO  (qtp2101636817-34) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=627 status=0 QTime=0
+2022-04-08 12:49:19.503 INFO  (qtp2101636817-91) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/select params={q=text:+"nft"&sort=score+desc&rows=15&wt=json} hits=1112 status=0 QTime=0
+2022-04-08 12:49:19.507 INFO  (qtp2101636817-69) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=text:+"nft"&spellcheck.maxCollations=10&spellcheck.count=10&wt=json&spellcheck.collate=true} hits=1112 status=0 QTime=0
+2022-04-08 12:49:36.431 INFO  (qtp2101636817-35) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:49:36.435 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:49:36.441 INFO  (qtp2101636817-31) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649404472088} status=0 QTime=3
+2022-04-08 12:49:36.448 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649403788600&ts=1649403788600} status=503 QTime=0
+2022-04-08 12:49:36.484 INFO  (qtp2101636817-74) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=51
+2022-04-08 12:49:36.489 INFO  (qtp2101636817-93) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/system params={wt=json&_=1649404472088} status=0 QTime=46
+2022-04-08 12:49:38.197 INFO  (qtp2101636817-86) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:49:38.222 INFO  (qtp2101636817-93) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=24
+2022-04-08 12:49:51.318 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1931 status=0 QTime=0
+2022-04-08 12:49:51.356 INFO  (qtp2101636817-93) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:49:51.361 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&q.op=OR&sort=score+desc&_=1649403788650} hits=1931 status=0 QTime=0
+2022-04-08 12:49:51.387 INFO  (qtp2101636817-86) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=28
+2022-04-08 12:51:16.360 INFO  (qtp2101636817-93) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&q.op=OR&sort=id+desc&_=1649403788650} hits=1931 status=0 QTime=3
+2022-04-08 12:51:16.398 INFO  (qtp2101636817-86) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:51:16.403 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&q.op=OR&sort=id+desc&_=1649403788650} hits=1931 status=0 QTime=0
+2022-04-08 12:51:16.429 INFO  (qtp2101636817-93) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=28
+2022-04-08 12:51:40.425 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&q.op=OR&sort=date+desc&_=1649403788650} hits=1931 status=0 QTime=1
+2022-04-08 12:51:40.467 INFO  (qtp2101636817-74) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:51:40.471 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/spell params={q=text:nft&indent=true&q.op=OR&sort=date+desc&_=1649403788650} hits=1931 status=0 QTime=0
+2022-04-08 12:51:40.498 INFO  (qtp2101636817-86) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=29
+2022-04-08 12:52:18.100 INFO  (qtp2101636817-74) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:52:18.107 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1649404472088} status=0 QTime=2
+2022-04-08 12:52:18.110 INFO  (qtp2101636817-96) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/config params={wt=json&_=1649405020382} status=0 QTime=0
+2022-04-08 12:52:18.129 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1649404472088} status=0 QTime=1
+2022-04-08 12:52:18.139 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=35
+2022-04-08 12:52:22.335 INFO  (qtp2101636817-74) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:52:22.339 INFO  (qtp2101636817-86) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1649404472088} status=0 QTime=1
+2022-04-08 12:52:22.341 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/config params={wt=json&_=1649405020382} status=0 QTime=0
+2022-04-08 12:52:22.356 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:52:22.362 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=25
+2022-04-08 12:53:04.007 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:53:04.014 INFO  (qtp2101636817-96) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/config params={wt=json&_=1649405020382} status=0 QTime=0
+2022-04-08 12:53:04.014 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:53:04.028 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:53:04.035 INFO  (qtp2101636817-86) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=25
+2022-04-08 12:53:09.543 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:53:09.548 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:53:09.550 INFO  (qtp2101636817-91) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/config params={wt=json&_=1649405020382} status=0 QTime=0
+2022-04-08 12:53:09.570 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:53:09.576 INFO  (qtp2101636817-86) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=31
+2022-04-08 12:53:17.118 INFO  (qtp2101636817-66) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649403788600} status=0 QTime=0
+2022-04-08 12:53:17.124 INFO  (qtp2101636817-74) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:53:17.126 INFO  (qtp2101636817-96) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/config params={wt=json&_=1649405020382} status=0 QTime=0
+2022-04-08 12:53:17.136 INFO  (qtp2101636817-35) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:53:17.143 INFO  (qtp2101636817-86) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649403788600} status=0 QTime=23
+2022-04-08 12:54:14.930 INFO  (qtp2101636817-66) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/luke params={fl=score&wt=json&_=1649404472088} status=0 QTime=0
+2022-04-08 12:56:07.269 INFO  (ShutdownMonitor) [   ] o.e.j.s.AbstractConnector Stopped ServerConnector@478ee483{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8888}
+2022-04-08 12:56:07.269 INFO  (ShutdownMonitor) [   ] o.e.j.s.session node0 Stopped scavenging
+2022-04-08 12:56:07.271 INFO  (ShutdownMonitor) [   ] o.a.s.c.CoreContainer Shutting down CoreContainer instance=1123862502
+2022-04-08 12:56:07.274 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.c.SolrCore [reddit_post_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@5b898e95
+2022-04-08 12:56:07.274 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.c.SolrCore [reddit_comment_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@255ad59d
+2022-04-08 12:56:07.274 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.reddit_post_core tag=SolrCore@5b898e95
+2022-04-08 12:56:07.274 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.c.SolrCore [test_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@46430bc4
+2022-04-08 12:56:07.274 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.c.SolrCore [twitter_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@70a6a803
+2022-04-08 12:56:07.274 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@7f4860f: rootName = null, domain = solr.core.reddit_post_core, service url = null, agent id = null] for registry solr.core.reddit_post_core/com.codahale.metrics.MetricRegistry@5ce92330
+2022-04-08 12:56:07.280 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.reddit_comment_core tag=SolrCore@255ad59d
+2022-04-08 12:56:07.280 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@2c5b4ec4: rootName = null, domain = solr.core.reddit_comment_core, service url = null, agent id = null] for registry solr.core.reddit_comment_core/com.codahale.metrics.MetricRegistry@1b1c1ff3
+2022-04-08 12:56:07.282 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 12:56:07.283 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.test_core tag=SolrCore@46430bc4
+2022-04-08 12:56:07.283 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@503e04e8: rootName = null, domain = solr.core.test_core, service url = null, agent id = null] for registry solr.core.test_core/com.codahale.metrics.MetricRegistry@11837c49
+2022-04-08 12:56:07.285 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 12:56:07.288 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.twitter_core tag=SolrCore@70a6a803
+2022-04-08 12:56:07.288 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@58e580a3: rootName = null, domain = solr.core.twitter_core, service url = null, agent id = null] for registry solr.core.twitter_core/com.codahale.metrics.MetricRegistry@70b647f6
+2022-04-08 12:56:07.290 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 12:56:07.293 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 12:56:07.297 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.node tag=null
+2022-04-08 12:56:07.297 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@6419a0e1: rootName = null, domain = solr.node, service url = null, agent id = null] for registry solr.node/com.codahale.metrics.MetricRegistry@21a00ccf
+2022-04-08 12:56:07.298 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jvm tag=null
+2022-04-08 12:56:07.298 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@149b0577: rootName = null, domain = solr.jvm, service url = null, agent id = null] for registry solr.jvm/com.codahale.metrics.MetricRegistry@5a665281
+2022-04-08 12:56:07.298 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jetty tag=null
+2022-04-08 12:56:07.298 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@5740ff5e: rootName = null, domain = solr.jetty, service url = null, agent id = null] for registry solr.jetty/com.codahale.metrics.MetricRegistry@23177474
+2022-04-08 12:56:07.306 INFO  (ShutdownMonitor) [   ] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@53ab0286{/solr,null,STOPPED}{C:\Users\Mitali\CE4034-Project\solr-8.11.1\solr-8.11.1\server/solr-webapp/webapp}

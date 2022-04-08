@@ -39,7 +39,7 @@ function App() {
   const [redditComments,setRedditComments] = React.useState([]);
   const [tweets, setTweets] = React.useState([]);
   const [value, setValue] = React.useState(0);
-  const [sortMethod, setSortMethod] = React.useState('relevance');
+  const [sortMethod, setSortMethod] = React.useState('score');
   const [filters, setFilters] = React.useState({'recent':false,'popular':false});
   const [spellCheck, setSpellCheck] = React.useState([]);
   const [hideSpellCheck, setHideSpellCheck] = React.useState(true);
@@ -95,7 +95,7 @@ function App() {
     setValue(newValue);
   };
   const handleSortChange = (event) => {
-    setSortMethod();
+    setSortMethod(event.target.value);
   }
 
   const handleFilterChange = (event) => {
@@ -232,11 +232,11 @@ function App() {
       <FormLabel>Sort using</FormLabel>
       <RadioGroup
       row
-        defaultValue=''
+        value={sortMethod}
         onChange={handleSortChange}
       >
-        <FormControlLabel value={""} control={<Radio color="secondary" />}  label="Relevance"/>
-        <FormControlLabel value={"score"} control={<Radio color="secondary" />}  label="Score/Like Count"/>
+        <FormControlLabel value={"score"} control={<Radio color="secondary" />}  label="Relevance"/>
+        <FormControlLabel value={"likes"} control={<Radio color="secondary" />}  label="Score/Like Count"/>
         <FormControlLabel value={"date"} control={<Radio color="secondary" />}  label="Date"/>
       </RadioGroup>
     </FormControl>
@@ -311,7 +311,7 @@ function App() {
                         <Grid container item xs={11} >
                           <FavoriteIcon color="warning" />
                           <Box mr={2}>
-                            <Typography variant="subtitle2" color="textPrimary">{tweet.score}</Typography>
+                            <Typography variant="subtitle2" color="textPrimary">{tweet.likes}</Typography>
                           </Box>
                           <RepeatIcon color="success" />
                           <Box mr={2}>
@@ -390,11 +390,11 @@ function App() {
                         <Grid container item xs={11} >
                           <ThumbsUpDownIcon />
                           <Box mr={2}>
-                            <Typography variant="subtitle2" color="textPrimary">{redditpost.score}</Typography>
+                            <Typography variant="subtitle2" color="textPrimary">{redditpost.likes}</Typography>
                           </Box>
                           <ChatBubbleOutlineIcon />
                           <Box mr={2}>
-                            <Typography variant="subtitle2" color="textPrimary">{redditpost.reply_count}</Typography>
+                            <Typography variant="subtitle2" color="textPrimary">{redditpost.num_comments}</Typography>
                           </Box>
                           
                         </Grid>
@@ -464,7 +464,7 @@ function App() {
                         <Grid container item xs={11} >
                           <ThumbsUpDownIcon />
                           <Box mr={2}>
-                            <Typography variant="subtitle2" color="textPrimary">{redditcomment.score}</Typography>
+                            <Typography variant="subtitle2" color="textPrimary">{redditcomment.likes}</Typography>
                           </Box>       
                         </Grid>
                         <Grid container item xs={1}>

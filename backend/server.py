@@ -83,12 +83,7 @@ def performQuery(params):
 # given a query return the relevant results
 # params = {q:, fq:, sort:}
 def performSingleCoreQuery(params, solr, SOLR_PATH, source):
-    if params['sort'] == 'popularity':
-        results = solr.search(params['q'], sort='score desc', rows=15)
-    elif params['sort'] == 'date':
-        results = solr.search(params['q'], sort='date desc', rows=15)
-    else:  # for relevance and in case of any error it will do relevance by default
-        results = solr.search(params['q'], rows=15)
+    results = solr.search(params['q'], sort=params['sort'] , rows=15)
 
     # [TODO] fq
     # if params['fq'] ==
@@ -195,6 +190,8 @@ def query(json):
     socketio.emit('results_tw', {'results': results_tw['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
+
+    # print(results_tw['response']['docs'])
 
     socketio.emit('spelling', {'spell_suggestions': results_spell['spell_suggestions'], 'hide_suggestions':results_spell['hide_suggestions'], \
                                 'spell_error_found':results_spell['spell_error_found']}, room = json['client_id'])

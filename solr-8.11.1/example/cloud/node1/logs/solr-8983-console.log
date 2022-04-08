@@ -1,0 +1,12 @@
+2022-02-27 09:10:50.881 INFO  (main) [   ] o.e.j.u.log Logging initialized @1497ms to org.eclipse.jetty.util.log.Slf4jLog
+2022-02-27 09:10:51.215 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 17.0.2+8-LTS-86
+2022-02-27 09:10:51.226 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///C:/Users/Mitali/solr-8.11.1/solr-8.11.1/server/contexts/] at interval 0
+2022-02-27 09:10:51.767 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2022-02-27 09:10:51.779 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2022-02-27 09:10:51.779 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2022-02-27 09:10:51.782 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 660000ms
+2022-02-27 09:10:51.872 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2022-02-27 09:10:51.888 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 8.11.1
+2022-02-27 09:10:51.888 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in cloud mode on port 8983
+2022-02-27 09:10:51.888 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: C:\Users\Mitali\solr-8.11.1\solr-8.11.1
+2022-02-27 09:10:51.888 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2022-02-27T09:10:51.888607300Z
