@@ -22,3 +22,9 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# Solr files
+*solr-8.11.1/bin/
+*solr-8.11.1/server/logs/
+*solr-8.11.1/server/tmp/
