@@ -4,13 +4,17 @@ import pandas as pd
 
 from argparse import ArgumentParser
 
+from preprocess import reddit_comments, reddit_posts, tweets
+
 parser = ArgumentParser()
 parser.add_argument("--source", type=str, required=True, help="where is the data scraped from, to decide which core to insert it in")
 args = parser.parse_args()
 
 data = pd.read_csv('scraped_data.csv')
 
-if args.source == "twitter":
+if args.source == "Twitter":
+    data = tweets(data)
+
     SOLR_PATH = 'http://localhost:8888/solr/twitter_core/'  # format of the path should be localhost:port/core_name
     solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
     solr.ping()
@@ -27,7 +31,9 @@ if args.source == "twitter":
 
     print(solr.add(data))
 
-if args.source == "reddit_posts":
+elif args.source == "Reddit Posts":
+    data = reddit_posts(data)
+
     SOLR_PATH = 'http://localhost:8888/solr/reddit_post_core/'  # format of the path should be localhost:port/core_name
     solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
     solr.ping()
@@ -44,6 +50,8 @@ if args.source == "reddit_posts":
     print(solr.add(data))
 
 else:
+    data = reddit_comments(data)
+
     SOLR_PATH = 'http://localhost:8888/solr/reddit_comment_core/'  # format of the path should be localhost:port/core_name
     solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
     solr.ping()
