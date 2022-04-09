@@ -40,6 +40,7 @@ function App() {
   const [tweets, setTweets] = React.useState([]);
   const [value, setValue] = React.useState(0);
   const [sortMethod, setSortMethod] = React.useState('score');
+  const [sortOrder, setSortOrder] = React.useState(' desc');
   const [filters, setFilters] = React.useState({'recent':false,'popular':false});
   const [spellCheck, setSpellCheck] = React.useState([]);
   const [hideSpellCheck, setHideSpellCheck] = React.useState(true);
@@ -83,7 +84,7 @@ function App() {
     if(searchq){
         search_params['q'] += 'text: '+ "\"" + searchq + "\""
     }
-    search_params['sort'] = sortMethod + ' desc'
+    search_params['sort'] = sortMethod + '' + sortOrder
     search_params['filter'] = filters 
     console.log(search_params);
     socket.emit('query', {search_params: search_params, client_id: socket.id});
@@ -96,6 +97,9 @@ function App() {
   };
   const handleSortChange = (event) => {
     setSortMethod(event.target.value);
+  }
+  const handleOrderChange = (event) => {
+    setSortOrder(event.target.value);
   }
 
   const handleFilterChange = (event) => {
@@ -238,6 +242,19 @@ function App() {
         <FormControlLabel value={"score"} control={<Radio color="secondary" />}  label="Relevance"/>
         <FormControlLabel value={"likes"} control={<Radio color="secondary" />}  label="Score/Like Count"/>
         <FormControlLabel value={"date"} control={<Radio color="secondary" />}  label="Date"/>
+      </RadioGroup>
+    </FormControl>
+  </Grid>
+  <Grid container item md={12} xs={12} justify='center'>
+    <FormControl>
+      <FormLabel>Sort order</FormLabel>
+      <RadioGroup
+      row
+        value={sortOrder}
+        onChange={handleOrderChange}
+      >
+        <FormControlLabel value={" desc"} control={<Radio color="secondary" />}  label="Descending"/>
+        <FormControlLabel value={" asc"} control={<Radio color="secondary" />}  label="Ascending"/>
       </RadioGroup>
     </FormControl>
   </Grid>
