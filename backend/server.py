@@ -87,10 +87,22 @@ def performQuery(params):
 # given a query return the relevant results
 # params = {q:, fq:, sort:}
 def performSingleCoreQuery(params, solr, SOLR_PATH, source):
-    results = solr.search(params['q'], sort=params['sort'] , rows=15)
+    results = {}
 
-    # [TODO] fq
-    # if params['fq'] ==
+    if params['filters'] == {'recent':False,'popular':False}:
+        results = solr.search(params['q'], sort=params['sort'] , rows=15)
+    elif params['filters'] == {'recent':True,'popular':False}:
+        results = solr.search(params['q'], fq="date:[NOW-7DAY/DAY TO NOW]", sort=params['sort'] , rows=15)
+    elif params['filters'] == {'recent':False,'popular':True}:
+        if source == "reddit posts":
+            results = solr.search(params['q'], fq="likes:[3 TO *]", sort=params['sort'] , rows=15)
+        else:
+            results = solr.search(params['q'], fq="likes:[100 TO *]", sort=params['sort'] , rows=15)
+    else:
+        if source == "reddit posts":
+            results = solr.search(params['q'], fq="likes:[3 TO *]&date:[NOW-7DAY/DAY TO NOW]", sort=params['sort'] , rows=15)
+        else:
+            results = solr.search(params['q'], fq="likes:[100 TO *]&date:[NOW-7DAY/DAY TO NOW]", sort=params['sort'] , rows=15)
 
     print(f"{source} successfully retrieved ", len(results['response']['docs']), "rows of data.")
 

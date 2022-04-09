@@ -1,74 +1,167 @@
-2022-04-08 13:11:13.675 INFO  (main) [   ] o.e.j.u.log Logging initialized @844ms to org.eclipse.jetty.util.log.Slf4jLog
-2022-04-08 13:11:13.821 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 17.0.2+8-LTS-86
-2022-04-08 13:11:13.828 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///C:/Users/Mitali/CE4034-Project/CZ4034-Information-Retrieval/solr-8.11.1/server/contexts/] at interval 0
-2022-04-08 13:11:14.226 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
-2022-04-08 13:11:14.232 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
-2022-04-08 13:11:14.232 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
-2022-04-08 13:11:14.233 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 660000ms
-2022-04-08 13:11:14.269 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
-2022-04-08 13:11:14.272 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 8.11.1
-2022-04-08 13:11:14.272 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8888
-2022-04-08 13:11:14.272 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1
-2022-04-08 13:11:14.272 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2022-04-08T13:11:14.272796400Z
-2022-04-08 13:11:14.279 INFO  (main) [   ] o.a.s.c.SolrPaths Using system property solr.solr.home: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr
-2022-04-08 13:11:14.279 INFO  (main) [   ] o.a.s.c.SolrXmlConfig Loading container configuration from C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\solr.xml
-2022-04-08 13:11:14.327 INFO  (main) [   ] o.a.s.c.SolrXmlConfig MBean server found: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942, but no JMX reporters were configured - adding default JMX reporter.
-2022-04-08 13:11:14.656 INFO  (main) [   ] o.a.s.h.c.HttpShardHandlerFactory Host whitelist initialized: WhitelistHostChecker [whitelistHosts=null, whitelistHostCheckingEnabled=true]
-2022-04-08 13:11:14.790 WARN  (main) [   ] o.e.j.u.s.S.config Trusting all certificates configured for Client@4e1ce44[provider=null,keyStore=null,trustStore=null]
-2022-04-08 13:11:14.790 WARN  (main) [   ] o.e.j.u.s.S.config No Client EndPointIdentificationAlgorithm configured for Client@4e1ce44[provider=null,keyStore=null,trustStore=null]
-2022-04-08 13:11:14.876 WARN  (main) [   ] o.e.j.u.s.S.config Trusting all certificates configured for Client@7a0e7ecd[provider=null,keyStore=null,trustStore=null]
-2022-04-08 13:11:14.876 WARN  (main) [   ] o.e.j.u.s.S.config No Client EndPointIdentificationAlgorithm configured for Client@7a0e7ecd[provider=null,keyStore=null,trustStore=null]
-2022-04-08 13:11:14.902 WARN  (main) [   ] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
-2022-04-08 13:11:14.998 INFO  (main) [   ] o.a.s.c.TransientSolrCoreCacheDefault Allocating transient core cache for max 2147483647 cores with initial capacity of 1024
-2022-04-08 13:11:15.004 INFO  (main) [   ] o.a.s.h.a.MetricsHistoryHandler No .system collection, keeping metrics history in memory.
-2022-04-08 13:11:15.042 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.node' (registry 'solr.node') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
-2022-04-08 13:11:15.042 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jvm' (registry 'solr.jvm') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
-2022-04-08 13:11:15.043 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jetty' (registry 'solr.jetty') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
-2022-04-08 13:11:15.064 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr
-2022-04-08 13:11:15.064 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Cores are: [test_core]
-2022-04-08 13:11:15.086 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
-2022-04-08 13:11:15.102 WARN  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
-2022-04-08 13:11:15.132 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.IndexSchema Schema name=default-config
-2022-04-08 13:11:15.247 INFO  (main) [   ] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@53ab0286{/solr,file:///C:/Users/Mitali/CE4034-Project/CZ4034-Information-Retrieval/solr-8.11.1/server/solr-webapp/webapp/,AVAILABLE}{C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server/solr-webapp/webapp}
-2022-04-08 13:11:15.261 INFO  (main) [   ] o.e.j.s.AbstractConnector Started ServerConnector@478ee483{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8888}
-2022-04-08 13:11:15.261 INFO  (main) [   ] o.e.j.s.Server Started @2432ms
-2022-04-08 13:11:15.322 WARN  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitNorms to be specified in schema, hardcoded behavior is omitNorms=true
-2022-04-08 13:11:15.322 WARN  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitTermFreqAndPositions to be specified in schema, hardcoded behavior is omitTermFreqAndPositions=true
-2022-04-08 13:11:15.322 WARN  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termOffsets to be specified in schema, hardcoded behavior is termOffsets=false
-2022-04-08 13:11:15.322 WARN  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termPositions to be specified in schema, hardcoded behavior is termPositions=false
-2022-04-08 13:11:15.323 WARN  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitPositions to be specified in schema, hardcoded behavior is omitPositions=true
-2022-04-08 13:11:15.445 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
-2022-04-08 13:11:15.470 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.c.CoreContainer Creating SolrCore 'test_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core, trusted=true
-2022-04-08 13:11:15.497 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.test_core' (registry 'solr.core.test_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
-2022-04-08 13:11:15.506 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.c.SolrCore [[test_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core\data\]
-2022-04-08 13:11:15.858 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
-2022-04-08 13:11:15.858 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
-2022-04-08 13:11:15.873 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
-2022-04-08 13:11:15.873 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
-2022-04-08 13:11:15.972 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core\conf
-2022-04-08 13:11:15.979 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
-2022-04-08 13:11:15.982 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=_text_,field=tweet,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
-2022-04-08 13:11:15.990 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
-2022-04-08 13:11:15.996 INFO  (coreLoadExecutor-13-thread-1) [   x:test_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
-2022-04-08 13:11:16.010 INFO  (searcherExecutor-15-thread-1-processing-x:test_core) [   x:test_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2022-04-08 13:11:16.010 INFO  (searcherExecutor-15-thread-1-processing-x:test_core) [   x:test_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
-2022-04-08 13:11:16.010 INFO  (searcherExecutor-15-thread-1-processing-x:test_core) [   x:test_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
-2022-04-08 13:11:16.020 INFO  (searcherExecutor-15-thread-1-processing-x:test_core) [   x:test_core] o.a.s.c.SolrCore [test_core]  Registered new searcher autowarm time: 0 ms
-2022-04-08 13:11:18.786 INFO  (qtp2101636817-53) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=23
-2022-04-08 13:11:24.732 INFO  (qtp2101636817-30) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=17
-2022-04-08 13:11:24.745 WARN  (qtp2101636817-32) [   x:twitter_core] o.a.s.c.CoreContainer Cannot unload non-existent core 'twitter_core'
-2022-04-08 13:11:24.746 ERROR (qtp2101636817-32) [   x:twitter_core] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: Cannot unload non-existent core [twitter_core] => org.apache.solr.common.SolrException: Cannot unload non-existent core [twitter_core]
-	at org.apache.solr.core.CoreContainer.unload(CoreContainer.java:1849)
-org.apache.solr.common.SolrException: Cannot unload non-existent core [twitter_core]
-	at org.apache.solr.core.CoreContainer.unload(CoreContainer.java:1849) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminOperation.lambda$static$1(CoreAdminOperation.java:108) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminOperation.execute(CoreAdminOperation.java:367) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminHandler$CallInfo.call(CoreAdminHandler.java:397) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminHandler.handleRequestBody(CoreAdminHandler.java:181) ~[?:?]
+2022-04-08 13:17:26.493 INFO  (main) [   ] o.e.j.u.log Logging initialized @824ms to org.eclipse.jetty.util.log.Slf4jLog
+2022-04-08 13:17:26.644 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 17.0.2+8-LTS-86
+2022-04-08 13:17:26.653 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///C:/Users/Mitali/CE4034-Project/CZ4034-Information-Retrieval/solr-8.11.1/server/contexts/] at interval 0
+2022-04-08 13:17:27.043 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2022-04-08 13:17:27.049 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2022-04-08 13:17:27.049 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2022-04-08 13:17:27.050 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 600000ms
+2022-04-08 13:17:27.084 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2022-04-08 13:17:27.086 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 8.11.1
+2022-04-08 13:17:27.086 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8888
+2022-04-08 13:17:27.086 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1
+2022-04-08 13:17:27.087 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2022-04-08T13:17:27.087445300Z
+2022-04-08 13:17:27.095 INFO  (main) [   ] o.a.s.c.SolrPaths Using system property solr.solr.home: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr
+2022-04-08 13:17:27.095 INFO  (main) [   ] o.a.s.c.SolrXmlConfig Loading container configuration from C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\solr.xml
+2022-04-08 13:17:27.138 INFO  (main) [   ] o.a.s.c.SolrXmlConfig MBean server found: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942, but no JMX reporters were configured - adding default JMX reporter.
+2022-04-08 13:17:27.475 INFO  (main) [   ] o.a.s.h.c.HttpShardHandlerFactory Host whitelist initialized: WhitelistHostChecker [whitelistHosts=null, whitelistHostCheckingEnabled=true]
+2022-04-08 13:17:27.601 WARN  (main) [   ] o.e.j.u.s.S.config Trusting all certificates configured for Client@4e1ce44[provider=null,keyStore=null,trustStore=null]
+2022-04-08 13:17:27.601 WARN  (main) [   ] o.e.j.u.s.S.config No Client EndPointIdentificationAlgorithm configured for Client@4e1ce44[provider=null,keyStore=null,trustStore=null]
+2022-04-08 13:17:27.689 WARN  (main) [   ] o.e.j.u.s.S.config Trusting all certificates configured for Client@7a0e7ecd[provider=null,keyStore=null,trustStore=null]
+2022-04-08 13:17:27.689 WARN  (main) [   ] o.e.j.u.s.S.config No Client EndPointIdentificationAlgorithm configured for Client@7a0e7ecd[provider=null,keyStore=null,trustStore=null]
+2022-04-08 13:17:27.717 WARN  (main) [   ] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
+2022-04-08 13:17:27.808 INFO  (main) [   ] o.a.s.c.TransientSolrCoreCacheDefault Allocating transient core cache for max 2147483647 cores with initial capacity of 1024
+2022-04-08 13:17:27.813 INFO  (main) [   ] o.a.s.h.a.MetricsHistoryHandler No .system collection, keeping metrics history in memory.
+2022-04-08 13:17:27.849 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.node' (registry 'solr.node') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 13:17:27.849 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jvm' (registry 'solr.jvm') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 13:17:27.850 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jetty' (registry 'solr.jetty') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 13:17:27.875 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found 4 core definitions underneath C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr
+2022-04-08 13:17:27.875 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Cores are: [reddit_comment_core, reddit_post_core, test_core, twitter_core]
+2022-04-08 13:17:27.911 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 13:17:27.911 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 13:17:27.911 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 13:17:27.927 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 13:17:27.927 WARN  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 13:17:27.927 WARN  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 13:17:27.961 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 13:17:27.964 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 13:17:27.964 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 13:17:28.078 INFO  (main) [   ] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@53ab0286{/solr,file:///C:/Users/Mitali/CE4034-Project/CZ4034-Information-Retrieval/solr-8.11.1/server/solr-webapp/webapp/,AVAILABLE}{C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server/solr-webapp/webapp}
+2022-04-08 13:17:28.101 INFO  (main) [   ] o.e.j.s.AbstractConnector Started ServerConnector@478ee483{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8888}
+2022-04-08 13:17:28.101 INFO  (main) [   ] o.e.j.s.Server Started @2433ms
+2022-04-08 13:17:28.199 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitNorms to be specified in schema, hardcoded behavior is omitNorms=true
+2022-04-08 13:17:28.199 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitTermFreqAndPositions to be specified in schema, hardcoded behavior is omitTermFreqAndPositions=true
+2022-04-08 13:17:28.199 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termOffsets to be specified in schema, hardcoded behavior is termOffsets=false
+2022-04-08 13:17:28.199 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow termPositions to be specified in schema, hardcoded behavior is termPositions=false
+2022-04-08 13:17:28.199 WARN  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.AbstractSpatialPrefixTreeFieldType FieldType SpatialRecursivePrefixTreeFieldType does not allow omitPositions to be specified in schema, hardcoded behavior is omitPositions=true
+2022-04-08 13:17:28.352 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 13:17:28.352 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 13:17:28.352 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 13:17:28.373 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.CoreContainer Creating SolrCore 'test_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core, trusted=true
+2022-04-08 13:17:28.376 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.CoreContainer Creating SolrCore 'reddit_post_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core, trusted=true
+2022-04-08 13:17:28.377 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.CoreContainer Creating SolrCore 'reddit_comment_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core, trusted=true
+2022-04-08 13:17:28.410 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.test_core' (registry 'solr.core.test_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 13:17:28.410 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.reddit_post_core' (registry 'solr.core.reddit_post_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 13:17:28.410 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.reddit_comment_core' (registry 'solr.core.reddit_comment_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 13:17:28.421 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.c.SolrCore [[reddit_comment_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core\data\]
+2022-04-08 13:17:28.421 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.c.SolrCore [[reddit_post_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core\data\]
+2022-04-08 13:17:28.421 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.c.SolrCore [[test_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core\data\]
+2022-04-08 13:17:28.975 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 13:17:28.975 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 13:17:28.975 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 13:17:28.975 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 13:17:28.975 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 13:17:28.975 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 13:17:28.986 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 13:17:28.986 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 13:17:28.986 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 13:17:28.986 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 13:17:28.986 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 13:17:28.986 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 13:17:29.076 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core\conf
+2022-04-08 13:17:29.076 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core\conf
+2022-04-08 13:17:29.085 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 13:17:29.085 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 13:17:29.092 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=test,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 13:17:29.092 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=test,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 13:17:29.094 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\test_core\conf
+2022-04-08 13:17:29.094 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 13:17:29.094 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=_text_,field=tweet,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 13:17:29.101 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 13:17:29.108 INFO  (coreLoadExecutor-13-thread-3) [   x:test_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 13:17:29.108 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 13:17:29.108 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 13:17:29.109 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 13:17:29.109 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 13:17:29.111 INFO  (coreLoadExecutor-13-thread-1) [   x:reddit_comment_core] o.a.s.u.UpdateLog Could not find max version in index or recent updates, using new clock 1729546262005415936
+2022-04-08 13:17:29.111 INFO  (coreLoadExecutor-13-thread-2) [   x:reddit_post_core] o.a.s.u.UpdateLog Could not find max version in index or recent updates, using new clock 1729546262005415936
+2022-04-08 13:17:29.115 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 13:17:29.115 INFO  (searcherExecutor-18-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 13:17:29.115 INFO  (searcherExecutor-18-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 13:17:29.115 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 13:17:29.115 INFO  (searcherExecutor-18-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 13:17:29.115 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 13:17:29.116 INFO  (searcherExecutor-17-thread-1-processing-x:test_core) [   x:test_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 13:17:29.117 INFO  (searcherExecutor-17-thread-1-processing-x:test_core) [   x:test_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 13:17:29.117 INFO  (searcherExecutor-17-thread-1-processing-x:test_core) [   x:test_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 13:17:29.121 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 13:17:29.122 WARN  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
+2022-04-08 13:17:29.128 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.IndexSchema Schema name=default-config
+2022-04-08 13:17:29.129 INFO  (searcherExecutor-18-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.SolrCore [reddit_post_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 13:17:29.129 INFO  (searcherExecutor-17-thread-1-processing-x:test_core) [   x:test_core] o.a.s.c.SolrCore [test_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 13:17:29.129 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.SolrCore [reddit_comment_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 13:17:29.157 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2022-04-08 13:17:29.176 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.CoreContainer Creating SolrCore 'twitter_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core, trusted=true
+2022-04-08 13:17:29.176 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.twitter_core' (registry 'solr.core.twitter_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
+2022-04-08 13:17:29.176 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.c.SolrCore [[twitter_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core\data\]
+2022-04-08 13:17:29.213 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 13:17:29.213 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 13:17:29.214 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 13:17:29.214 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 13:17:29.220 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core\conf
+2022-04-08 13:17:29.220 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 13:17:29.221 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.s.DirectSolrSpellChecker init: {name=direct,field=test,classname=solr.DirectSolrSpellChecker,distanceMeasure=org.apache.lucene.search.spell.LevenshteinDistance,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
+2022-04-08 13:17:29.230 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Registering newSearcher listener for spellchecker: filebased
+2022-04-08 13:17:29.231 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2022-04-08 13:17:29.231 INFO  (coreLoadExecutor-13-thread-2) [   x:twitter_core] o.a.s.u.UpdateLog Could not find max version in index or recent updates, using new clock 1729546262131245056
+2022-04-08 13:17:29.232 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 13:17:29.232 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: direct
+2022-04-08 13:17:29.232 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: filebased
+2022-04-08 13:17:29.235 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.SolrCore [twitter_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 13:17:31.643 INFO  (qtp2101636817-61) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=23
+2022-04-08 13:18:08.248 INFO  (qtp2101636817-30) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} hits=0 status=0 QTime=16
+2022-04-08 13:18:08.249 INFO  (qtp2101636817-30) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=16
+2022-04-08 13:18:08.721 INFO  (qtp2101636817-61) [   x:reddit_comment_core] o.a.s.s.ManagedIndexSchema Upgraded to managed schema at C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core\conf\managed-schema
+2022-04-08 13:18:10.036 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 13:18:10.036 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Building spell index for spell checker: filebased
+2022-04-08 13:18:10.076 INFO  (searcherExecutor-19-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.SolrCore [reddit_comment_core]  Registered new searcher autowarm time: 4 ms
+2022-04-08 13:18:10.080 INFO  (qtp2101636817-61) [   x:reddit_comment_core] o.a.s.u.p.LogUpdateProcessorFactory [reddit_comment_core]  webapp=/solr path=/update params={commit=true}{add=[0 (1729546303544754176), 1 (1729546303576211456), 2 (1729546303577260032), 3 (1729546303577260033), 4 (1729546303578308608), 5 (1729546303579357184), 6 (1729546303580405760), 7 (1729546303582502912), 8 (1729546303583551488), 9 (1729546303584600064), ... (7000 adds)],commit=} 0 1434
+2022-04-08 13:18:22.766 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} hits=0 status=0 QTime=0
+2022-04-08 13:18:22.766 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.S.Request [reddit_post_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 13:18:22.887 INFO  (qtp2101636817-62) [   x:reddit_post_core] o.a.s.s.ManagedIndexSchema Upgraded to managed schema at C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core\conf\managed-schema
+2022-04-08 13:18:23.093 INFO  (searcherExecutor-18-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 13:18:23.093 INFO  (searcherExecutor-18-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Building spell index for spell checker: filebased
+2022-04-08 13:18:23.130 INFO  (searcherExecutor-18-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.SolrCore [reddit_post_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 13:18:23.132 INFO  (qtp2101636817-62) [   x:reddit_post_core] o.a.s.u.p.LogUpdateProcessorFactory [reddit_post_core]  webapp=/solr path=/update params={commit=true}{add=[0 (1729546318397833216), 1 (1729546318402027520), 2 (1729546318402027521), 3 (1729546318402027522), 4 (1729546318402027523), 5 (1729546318402027524), 6 (1729546318402027525), 7 (1729546318403076096), 8 (1729546318403076097), 9 (1729546318403076098), ... (1002 adds)],commit=} 0 306
+2022-04-08 13:18:32.708 INFO  (qtp2101636817-32) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} hits=0 status=0 QTime=0
+2022-04-08 13:18:32.708 INFO  (qtp2101636817-32) [   x:twitter_core] o.a.s.c.S.Request [twitter_core]  webapp=/solr path=/admin/ping params={} status=0 QTime=0
+2022-04-08 13:18:32.909 INFO  (qtp2101636817-29) [   x:twitter_core] o.a.s.s.ManagedIndexSchema Upgraded to managed schema at C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core\conf\managed-schema
+2022-04-08 13:18:33.345 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 13:18:33.345 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Building spell index for spell checker: filebased
+2022-04-08 13:18:33.379 INFO  (searcherExecutor-33-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.SolrCore [twitter_core]  Registered new searcher autowarm time: 0 ms
+2022-04-08 13:18:33.380 INFO  (qtp2101636817-29) [   x:twitter_core] o.a.s.u.p.LogUpdateProcessorFactory [twitter_core]  webapp=/solr path=/update params={commit=true}{add=[0 (1729546328905613312), 1 (1729546328908759040), 2 (1729546328908759041), 3 (1729546328908759042), 4 (1729546328909807616), 5 (1729546328909807617), 6 (1729546328911904768), 7 (1729546328911904769), 8 (1729546328911904770), 9 (1729546328911904771), ... (2214 adds)],commit=} 0 525
+2022-04-08 13:18:40.686 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649423920629} status=0 QTime=0
+2022-04-08 13:18:40.723 INFO  (qtp2101636817-30) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649423920630} status=0 QTime=30
+2022-04-08 13:18:40.752 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649423920630} status=0 QTime=27
+2022-04-08 13:18:43.094 INFO  (qtp2101636817-30) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649423920629} status=0 QTime=0
+2022-04-08 13:18:43.105 INFO  (qtp2101636817-31) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1649423923080} status=0 QTime=7
+2022-04-08 13:18:43.109 INFO  (qtp2101636817-59) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1649423920630&ts=1649423920630} status=503 QTime=0
+2022-04-08 13:18:43.109 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/replication params={wt=json&command=details&_=1649423923080} status=0 QTime=8
+2022-04-08 13:18:43.148 INFO  (qtp2101636817-34) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649423920630} status=0 QTime=51
+2022-04-08 13:18:43.151 INFO  (qtp2101636817-28) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/admin/system params={wt=json&_=1649423923080} status=0 QTime=44
+2022-04-08 13:18:44.555 INFO  (qtp2101636817-67) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649423920629} status=0 QTime=0
+2022-04-08 13:18:44.587 INFO  (qtp2101636817-30) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649423920630} status=0 QTime=30
+2022-04-08 13:18:50.314 INFO  (qtp2101636817-68) [   x:reddit_comment_core] o.a.s.c.PluginBag Going to create a new requestHandler with {type = requestHandler,name = /spell,class = solr.SearchHandler,attributes = {startup=lazy, name=/spell, class=solr.SearchHandler},args = {defaults={spellcheck.dictionary=direct,spellcheck.dictionary=filebased,spellcheck=on,spellcheck.extendedResults=true,spellcheck.count=10,spellcheck.alternativeTermCount=5,spellcheck.maxResultsForSuggest=2,spellcheck.collate=true,spellcheck.collateExtendedResults=true,spellcheck.maxCollationTries=10,spellcheck.maxCollations=5,df=_text_},last-components=[spellcheck]}} 
+2022-04-08 13:18:50.315 ERROR (qtp2101636817-68) [   x:reddit_comment_core] o.a.s.h.RequestHandlerBase java.lang.IllegalArgumentException: All checkers need to use the same Analyzer. => java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78)
+java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.getSpellChecker(SpellCheckComponent.java:616) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.prepare(SpellCheckComponent.java:125) ~[?:?]
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:333) ~[?:?]
 	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:216) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.handleAdmin(HttpSolrCall.java:836) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.handleAdminRequest(HttpSolrCall.java:800) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:545) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2637) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.execute(HttpSolrCall.java:794) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:567) ~[?:?]
 	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:427) ~[?:?]
 	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:357) ~[?:?]
 	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:201) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
@@ -105,25 +198,23 @@ org.apache.solr.common.SolrException: Cannot unload non-existent core [twitter_c
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
-	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:137) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at java.lang.Thread.run(Thread.java:833) [?:?]
-2022-04-08 13:11:24.746 INFO  (qtp2101636817-32) [   x:twitter_core] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={deleteInstanceDir=true&core=twitter_core&deleteDataDir=true&action=UNLOAD&wt=json&deleteIndex=true} status=400 QTime=0
-2022-04-08 13:11:32.238 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=16
-2022-04-08 13:11:32.252 WARN  (qtp2101636817-33) [   x:reddit_post_core] o.a.s.c.CoreContainer Cannot unload non-existent core 'reddit_post_core'
-2022-04-08 13:11:32.252 ERROR (qtp2101636817-33) [   x:reddit_post_core] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_post_core] => org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_post_core]
-	at org.apache.solr.core.CoreContainer.unload(CoreContainer.java:1849)
-org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_post_core]
-	at org.apache.solr.core.CoreContainer.unload(CoreContainer.java:1849) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminOperation.lambda$static$1(CoreAdminOperation.java:108) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminOperation.execute(CoreAdminOperation.java:367) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminHandler$CallInfo.call(CoreAdminHandler.java:397) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminHandler.handleRequestBody(CoreAdminHandler.java:181) ~[?:?]
+2022-04-08 13:18:50.315 INFO  (qtp2101636817-68) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=*:*&indent=true&spellcheck=true&q.op=OR&spellcheck.build=true&_=1649423924541} status=500 QTime=0
+2022-04-08 13:18:50.315 ERROR (qtp2101636817-68) [   x:reddit_comment_core] o.a.s.s.HttpSolrCall java.lang.IllegalArgumentException: All checkers need to use the same Analyzer. => java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78)
+java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.getSpellChecker(SpellCheckComponent.java:616) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.prepare(SpellCheckComponent.java:125) ~[?:?]
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:333) ~[?:?]
 	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:216) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.handleAdmin(HttpSolrCall.java:836) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.handleAdminRequest(HttpSolrCall.java:800) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:545) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2637) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.execute(HttpSolrCall.java:794) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:567) ~[?:?]
 	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:427) ~[?:?]
 	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:357) ~[?:?]
 	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:201) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
@@ -160,25 +251,23 @@ org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_po
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
-	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:137) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at java.lang.Thread.run(Thread.java:833) [?:?]
-2022-04-08 13:11:32.253 INFO  (qtp2101636817-33) [   x:reddit_post_core] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={deleteInstanceDir=true&core=reddit_post_core&deleteDataDir=true&action=UNLOAD&wt=json&deleteIndex=true} status=400 QTime=0
-2022-04-08 13:11:37.519 INFO  (qtp2101636817-34) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=16
-2022-04-08 13:11:37.532 WARN  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.c.CoreContainer Cannot unload non-existent core 'reddit_comment_core'
-2022-04-08 13:11:37.532 ERROR (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_comment_core] => org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_comment_core]
-	at org.apache.solr.core.CoreContainer.unload(CoreContainer.java:1849)
-org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_comment_core]
-	at org.apache.solr.core.CoreContainer.unload(CoreContainer.java:1849) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminOperation.lambda$static$1(CoreAdminOperation.java:108) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminOperation.execute(CoreAdminOperation.java:367) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminHandler$CallInfo.call(CoreAdminHandler.java:397) ~[?:?]
-	at org.apache.solr.handler.admin.CoreAdminHandler.handleRequestBody(CoreAdminHandler.java:181) ~[?:?]
+2022-04-08 13:18:50.347 INFO  (qtp2101636817-30) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1649423920629} status=0 QTime=0
+2022-04-08 13:18:50.353 ERROR (qtp2101636817-68) [   x:reddit_comment_core] o.a.s.h.RequestHandlerBase java.lang.IllegalArgumentException: All checkers need to use the same Analyzer. => java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78)
+java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.getSpellChecker(SpellCheckComponent.java:616) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.prepare(SpellCheckComponent.java:125) ~[?:?]
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:333) ~[?:?]
 	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:216) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.handleAdmin(HttpSolrCall.java:836) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.handleAdminRequest(HttpSolrCall.java:800) ~[?:?]
-	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:545) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2637) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.execute(HttpSolrCall.java:794) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:567) ~[?:?]
 	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:427) ~[?:?]
 	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:357) ~[?:?]
 	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:201) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
@@ -215,103 +304,88 @@ org.apache.solr.common.SolrException: Cannot unload non-existent core [reddit_co
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
-	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:137) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
 	at java.lang.Thread.run(Thread.java:833) [?:?]
-2022-04-08 13:11:37.532 INFO  (qtp2101636817-35) [   x:reddit_comment_core] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={deleteInstanceDir=true&core=reddit_comment_core&deleteDataDir=true&action=UNLOAD&wt=json&deleteIndex=true} status=400 QTime=0
-2022-04-08 13:11:56.274 INFO  (qtp2101636817-29) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=16
-2022-04-08 13:11:56.287 INFO  (qtp2101636817-51) [   x:twitter_core] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={core=twitter_core&action=STATUS&wt=json} status=0 QTime=0
-2022-04-08 13:11:56.338 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.h.a.CoreAdminOperation core create command name=twitter_core&action=CREATE&instanceDir=twitter_core&wt=json
-2022-04-08 13:11:56.345 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
-2022-04-08 13:11:56.346 WARN  (qtp2101636817-54) [   x:twitter_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
-2022-04-08 13:11:56.353 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.s.IndexSchema Schema name=default-config
-2022-04-08 13:11:56.387 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
-2022-04-08 13:11:56.408 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.c.CoreContainer Creating SolrCore 'twitter_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core, trusted=true
-2022-04-08 13:11:56.408 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.twitter_core' (registry 'solr.core.twitter_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
-2022-04-08 13:11:56.408 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.c.SolrCore [[twitter_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core\data\]
-2022-04-08 13:11:56.464 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
-2022-04-08 13:11:56.464 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
-2022-04-08 13:11:56.466 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
-2022-04-08 13:11:56.466 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
-2022-04-08 13:11:56.469 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\twitter_core\conf
-2022-04-08 13:11:56.470 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
-2022-04-08 13:11:56.470 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.s.DirectSolrSpellChecker init: {name=default,field=_text_,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
-2022-04-08 13:11:56.470 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
-2022-04-08 13:11:56.471 INFO  (qtp2101636817-54) [   x:twitter_core] o.a.s.u.UpdateLog Could not find max version in index or recent updates, using new clock 1729545913207095296
-2022-04-08 13:11:56.472 INFO  (searcherExecutor-21-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2022-04-08 13:11:56.472 INFO  (searcherExecutor-21-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
-2022-04-08 13:11:56.473 INFO  (qtp2101636817-54) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={name=twitter_core&action=CREATE&instanceDir=twitter_core&wt=json} status=0 QTime=134
-2022-04-08 13:11:56.474 INFO  (searcherExecutor-21-thread-1-processing-x:twitter_core) [   x:twitter_core] o.a.s.c.SolrCore [twitter_core]  Registered new searcher autowarm time: 0 ms
-2022-04-08 13:12:06.640 INFO  (qtp2101636817-30) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=17
-2022-04-08 13:12:06.653 INFO  (qtp2101636817-28) [   x:reddit_post_core] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={core=reddit_post_core&action=STATUS&wt=json} status=0 QTime=0
-2022-04-08 13:12:06.707 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.h.a.CoreAdminOperation core create command name=reddit_post_core&action=CREATE&instanceDir=reddit_post_core&wt=json
-2022-04-08 13:12:06.712 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
-2022-04-08 13:12:06.713 WARN  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
-2022-04-08 13:12:06.719 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.s.IndexSchema Schema name=default-config
-2022-04-08 13:12:06.749 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
-2022-04-08 13:12:06.770 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.CoreContainer Creating SolrCore 'reddit_post_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core, trusted=true
-2022-04-08 13:12:06.770 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.reddit_post_core' (registry 'solr.core.reddit_post_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
-2022-04-08 13:12:06.770 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.c.SolrCore [[reddit_post_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core\data\]
-2022-04-08 13:12:06.819 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
-2022-04-08 13:12:06.819 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
-2022-04-08 13:12:06.821 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
-2022-04-08 13:12:06.821 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
-2022-04-08 13:12:06.825 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_post_core\conf
-2022-04-08 13:12:06.826 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
-2022-04-08 13:12:06.826 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.s.DirectSolrSpellChecker init: {name=default,field=_text_,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
-2022-04-08 13:12:06.827 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
-2022-04-08 13:12:06.827 INFO  (qtp2101636817-31) [   x:reddit_post_core] o.a.s.u.UpdateLog Could not find max version in index or recent updates, using new clock 1729545924066148352
-2022-04-08 13:12:06.830 INFO  (searcherExecutor-27-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2022-04-08 13:12:06.830 INFO  (searcherExecutor-27-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
-2022-04-08 13:12:06.830 INFO  (qtp2101636817-31) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={name=reddit_post_core&action=CREATE&instanceDir=reddit_post_core&wt=json} status=0 QTime=123
-2022-04-08 13:12:06.831 INFO  (searcherExecutor-27-thread-1-processing-x:reddit_post_core) [   x:reddit_post_core] o.a.s.c.SolrCore [reddit_post_core]  Registered new searcher autowarm time: 0 ms
-2022-04-08 13:12:20.579 INFO  (qtp2101636817-32) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=16
-2022-04-08 13:12:20.593 INFO  (qtp2101636817-34) [   x:reddit_comment_core] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={core=reddit_comment_core&action=STATUS&wt=json} status=0 QTime=0
-2022-04-08 13:12:20.644 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.h.a.CoreAdminOperation core create command name=reddit_comment_core&action=CREATE&instanceDir=reddit_comment_core&wt=json
-2022-04-08 13:12:20.649 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
-2022-04-08 13:12:20.649 WARN  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.c.SolrConfig solrconfig.xml: <jmx> is no longer supported, use solr.xml:/metrics/reporter section instead
-2022-04-08 13:12:20.655 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.s.IndexSchema Schema name=default-config
-2022-04-08 13:12:20.673 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
-2022-04-08 13:12:20.685 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.c.CoreContainer Creating SolrCore 'reddit_comment_core' using configuration from instancedir C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core, trusted=true
-2022-04-08 13:12:20.685 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.reddit_comment_core' (registry 'solr.core.reddit_comment_core') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@4f0f2942
-2022-04-08 13:12:20.685 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.c.SolrCore [[reddit_comment_core] ] Opening new SolrCore at [C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core], dataDir=[C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core\data\]
-2022-04-08 13:12:20.725 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
-2022-04-08 13:12:20.725 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
-2022-04-08 13:12:20.726 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
-2022-04-08 13:12:20.726 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.u.CommitTracker Soft AutoCommit: disabled
-2022-04-08 13:12:20.730 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server\solr\reddit_comment_core\conf
-2022-04-08 13:12:20.730 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
-2022-04-08 13:12:20.730 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.s.DirectSolrSpellChecker init: {name=default,field=_text_,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxQueryFrequency=0.01,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4}
-2022-04-08 13:12:20.731 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
-2022-04-08 13:12:20.731 INFO  (qtp2101636817-33) [   x:reddit_comment_core] o.a.s.u.UpdateLog Could not find max version in index or recent updates, using new clock 1729545938645549056
-2022-04-08 13:12:20.732 INFO  (searcherExecutor-33-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2022-04-08 13:12:20.732 INFO  (searcherExecutor-33-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
-2022-04-08 13:12:20.733 INFO  (qtp2101636817-33) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={name=reddit_comment_core&action=CREATE&instanceDir=reddit_comment_core&wt=json} status=0 QTime=87
-2022-04-08 13:12:20.733 INFO  (searcherExecutor-33-thread-1-processing-x:reddit_comment_core) [   x:reddit_comment_core] o.a.s.c.SolrCore [reddit_comment_core]  Registered new searcher autowarm time: 0 ms
-2022-04-08 13:17:24.027 INFO  (ShutdownMonitor) [   ] o.e.j.s.AbstractConnector Stopped ServerConnector@478ee483{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8888}
-2022-04-08 13:17:24.027 INFO  (ShutdownMonitor) [   ] o.e.j.s.session node0 Stopped scavenging
-2022-04-08 13:17:24.028 INFO  (ShutdownMonitor) [   ] o.a.s.c.CoreContainer Shutting down CoreContainer instance=1123862502
-2022-04-08 13:17:24.031 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.c.SolrCore [test_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@42196ffc
-2022-04-08 13:17:24.031 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.test_core tag=SolrCore@42196ffc
-2022-04-08 13:17:24.031 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.c.SolrCore [twitter_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@6367980c
-2022-04-08 13:17:24.031 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.c.SolrCore [reddit_post_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@22b63b72
-2022-04-08 13:17:24.031 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.c.SolrCore [reddit_comment_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@70ec250a
-2022-04-08 13:17:24.031 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@a56bae1: rootName = null, domain = solr.core.test_core, service url = null, agent id = null] for registry solr.core.test_core/com.codahale.metrics.MetricRegistry@36e0b83e
-2022-04-08 13:17:24.037 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.twitter_core tag=SolrCore@6367980c
-2022-04-08 13:17:24.037 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@173c5d63: rootName = null, domain = solr.core.twitter_core, service url = null, agent id = null] for registry solr.core.twitter_core/com.codahale.metrics.MetricRegistry@4560d897
-2022-04-08 13:17:24.041 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.reddit_post_core tag=SolrCore@22b63b72
-2022-04-08 13:17:24.041 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@4279a4c9: rootName = null, domain = solr.core.reddit_post_core, service url = null, agent id = null] for registry solr.core.reddit_post_core/com.codahale.metrics.MetricRegistry@6774413
-2022-04-08 13:17:24.042 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
-2022-04-08 13:17:24.043 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
-2022-04-08 13:17:24.045 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.reddit_comment_core tag=SolrCore@70ec250a
-2022-04-08 13:17:24.045 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@216c72d8: rootName = null, domain = solr.core.reddit_comment_core, service url = null, agent id = null] for registry solr.core.reddit_comment_core/com.codahale.metrics.MetricRegistry@29177409
-2022-04-08 13:17:24.047 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
-2022-04-08 13:17:24.049 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
-2022-04-08 13:17:24.052 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.node tag=null
-2022-04-08 13:17:24.052 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@6419a0e1: rootName = null, domain = solr.node, service url = null, agent id = null] for registry solr.node/com.codahale.metrics.MetricRegistry@21a00ccf
-2022-04-08 13:17:24.053 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jvm tag=null
-2022-04-08 13:17:24.053 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@149b0577: rootName = null, domain = solr.jvm, service url = null, agent id = null] for registry solr.jvm/com.codahale.metrics.MetricRegistry@5a665281
-2022-04-08 13:17:24.054 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jetty tag=null
-2022-04-08 13:17:24.054 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@5740ff5e: rootName = null, domain = solr.jetty, service url = null, agent id = null] for registry solr.jetty/com.codahale.metrics.MetricRegistry@23177474
-2022-04-08 13:17:24.060 INFO  (ShutdownMonitor) [   ] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@53ab0286{/solr,null,STOPPED}{C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server/solr-webapp/webapp}
+2022-04-08 13:18:50.353 INFO  (qtp2101636817-68) [   x:reddit_comment_core] o.a.s.c.S.Request [reddit_comment_core]  webapp=/solr path=/spell params={q=*:*&indent=true&spellcheck=true&q.op=OR&spellcheck.build=true&_=1649423924541} status=500 QTime=0
+2022-04-08 13:18:50.353 ERROR (qtp2101636817-68) [   x:reddit_comment_core] o.a.s.s.HttpSolrCall java.lang.IllegalArgumentException: All checkers need to use the same Analyzer. => java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78)
+java.lang.IllegalArgumentException: All checkers need to use the same Analyzer.
+	at org.apache.solr.spelling.ConjunctionSolrSpellChecker.addChecker(ConjunctionSolrSpellChecker.java:78) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.getSpellChecker(SpellCheckComponent.java:616) ~[?:?]
+	at org.apache.solr.handler.component.SpellCheckComponent.prepare(SpellCheckComponent.java:125) ~[?:?]
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:333) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:216) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2637) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.execute(HttpSolrCall.java:794) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:567) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:427) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:357) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:201) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1434) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:191) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:177) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:322) ~[jetty-rewrite-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:763) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.44.v20210927.jar:9.4.44.v20210927]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2022-04-08 13:18:50.379 INFO  (qtp2101636817-59) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1649423920630} status=0 QTime=30
+2022-04-08 13:19:27.298 INFO  (ShutdownMonitor) [   ] o.e.j.s.AbstractConnector Stopped ServerConnector@478ee483{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8888}
+2022-04-08 13:19:27.298 INFO  (ShutdownMonitor) [   ] o.e.j.s.session node0 Stopped scavenging
+2022-04-08 13:19:27.299 INFO  (ShutdownMonitor) [   ] o.a.s.c.CoreContainer Shutting down CoreContainer instance=1123862502
+2022-04-08 13:19:27.301 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.c.SolrCore [reddit_post_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@5f5f4de
+2022-04-08 13:19:27.301 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.reddit_post_core tag=SolrCore@5f5f4de
+2022-04-08 13:19:27.301 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.c.SolrCore [reddit_comment_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@2a7d4541
+2022-04-08 13:19:27.301 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.c.SolrCore [test_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@18dbacae
+2022-04-08 13:19:27.301 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.c.SolrCore [twitter_core]  CLOSING SolrCore org.apache.solr.core.SolrCore@76d8cb81
+2022-04-08 13:19:27.301 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@44eb1fbc: rootName = null, domain = solr.core.reddit_post_core, service url = null, agent id = null] for registry solr.core.reddit_post_core/com.codahale.metrics.MetricRegistry@5372eaaa
+2022-04-08 13:19:27.306 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.reddit_comment_core tag=SolrCore@2a7d4541
+2022-04-08 13:19:27.306 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@5f513a7f: rootName = null, domain = solr.core.reddit_comment_core, service url = null, agent id = null] for registry solr.core.reddit_comment_core/com.codahale.metrics.MetricRegistry@4f65abed
+2022-04-08 13:19:27.308 INFO  (coreCloseExecutor-39-thread-1) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 13:19:27.309 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.test_core tag=SolrCore@18dbacae
+2022-04-08 13:19:27.309 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@6f505344: rootName = null, domain = solr.core.test_core, service url = null, agent id = null] for registry solr.core.test_core/com.codahale.metrics.MetricRegistry@17753bb6
+2022-04-08 13:19:27.311 INFO  (coreCloseExecutor-39-thread-2) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 13:19:27.312 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.twitter_core tag=SolrCore@76d8cb81
+2022-04-08 13:19:27.312 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@7d9bb2ec: rootName = null, domain = solr.core.twitter_core, service url = null, agent id = null] for registry solr.core.twitter_core/com.codahale.metrics.MetricRegistry@77b6f05c
+2022-04-08 13:19:27.314 INFO  (coreCloseExecutor-39-thread-3) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 13:19:27.316 INFO  (coreCloseExecutor-39-thread-4) [   ] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2022-04-08 13:19:27.319 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.node tag=null
+2022-04-08 13:19:27.319 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@6419a0e1: rootName = null, domain = solr.node, service url = null, agent id = null] for registry solr.node/com.codahale.metrics.MetricRegistry@21a00ccf
+2022-04-08 13:19:27.320 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jvm tag=null
+2022-04-08 13:19:27.320 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@149b0577: rootName = null, domain = solr.jvm, service url = null, agent id = null] for registry solr.jvm/com.codahale.metrics.MetricRegistry@5a665281
+2022-04-08 13:19:27.321 INFO  (ShutdownMonitor) [   ] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jetty tag=null
+2022-04-08 13:19:27.321 INFO  (ShutdownMonitor) [   ] o.a.s.m.r.SolrJmxReporter Closing reporter [org.apache.solr.metrics.reporters.SolrJmxReporter@5740ff5e: rootName = null, domain = solr.jetty, service url = null, agent id = null] for registry solr.jetty/com.codahale.metrics.MetricRegistry@23177474
+2022-04-08 13:19:27.327 INFO  (ShutdownMonitor) [   ] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@53ab0286{/solr,null,STOPPED}{C:\Users\Mitali\CE4034-Project\CZ4034-Information-Retrieval\solr-8.11.1\server/solr-webapp/webapp}
