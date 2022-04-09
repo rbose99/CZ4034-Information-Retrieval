@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { CircularProgress , Link, CssBaseline, Container, AppBar, Toolbar, TextField, IconButton, Input, Box, Grid, Paper, Avatar,  InputLabel, Select, MenuItem, ListItemText, Button } from '@material-ui/core';
+import { Link, Container, TextField, IconButton, Box, Grid, Paper,  Button } from '@material-ui/core';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Radio from '@mui/material/Radio';
@@ -28,7 +26,6 @@ import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-import { ClassNames } from '@emotion/react';
 
 
 const io = require('socket.io-client');
@@ -297,36 +294,44 @@ function App() {
           
         </Grid>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Grid container item lg={12} xs={12} justify="center">
   <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
     <Tab label="Tweets" {...a11yProps(0)} />
     <Tab label="Reddit Posts" {...a11yProps(1)} />
     <Tab label="Reddit Comments" {...a11yProps(2)} />
   </Tabs>
+  </Grid>
 </Box>
 <TabPanel value={value} index={0}>
+            { tweets.length==0 &&  
+               <Typography variant="subtitle2" color="textPrimary">
+               No results were found for this source.
+             </Typography>
+            }
 
          {
           tweets.map(tweet => (
           <Paper>
             <Grid container item xs={12}>
-              <Grid container item xs={9}>
+              <Grid container item xs={12}>
               <Grid container item xs={12} style={{alignItems: "baseline" }}>
                       <Box mr={1}>
                       <Link target="_blank" href={tweet.user_profile_url}>
-                        <Typography variant="h6" color="textPrimary" >{tweet.user_name}</Typography>
+                        <Typography variant="button" color="textPrimary" >{tweet.user_name}</Typography>
                       </Link>
                       </Box>
                       <Typography variant="body2" color="textPrimary">{tweet.date}</Typography>
-                      <Box my={1}>
-                      <Grid container item xs={12} >
+                      
+                    </Grid>
+                  
+                      <Grid  item xs={9} >
                         <Link target="_blank" href={tweet.url}>
                         <Typography variant="body1" color="textPrimary" align="left">{tweet.text}</Typography>
                         </Link>
                       </Grid>
-                    </Box>
-                    </Grid>
+                   
                     <Grid container item xs={12} style={{alignItems: "center" }}>
-                        <Grid container item xs={11} >
+                        <Grid container item xs={10} >
                           <FavoriteIcon color="warning" />
                           <Box mr={2}>
                             <Typography variant="subtitle2" color="textPrimary">{tweet.likes}</Typography>
@@ -341,7 +346,7 @@ function App() {
                           </Box>
                           
                         </Grid>
-                        <Grid container item xs={1}>
+                        <Grid container item xs={2}>
                             <Box float="right">
                             
                             {tweet.subjectivity == 0 &&
@@ -368,9 +373,16 @@ function App() {
                             <Typography variant="caption">Positive</Typography>
                             </Grid>
                             }
-                            <Grid container item xs={12}>  
-                              {tweet.sarcasm==1 ? <PriorityHighIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
-                            </Grid>
+                            {tweet.sarcasm==1 &&
+                              <Grid container item xs={12}>                             
+                              <PriorityHighIcon color="warning"/>
+                              <Typography variant="caption">Sarcasm detected.</Typography> 
+                              </Grid>
+                              }
+                              {tweet.sarcasm==0 &&
+                              <Grid container item xs={12}>                               
+                              <Typography variant="caption">Sarcasm not detected.</Typography>
+                              </Grid>}
                             </Box>
 
                         </Grid>
@@ -385,27 +397,36 @@ function App() {
 </TabPanel>
 <TabPanel value={value} index={1}>
 {
+           redditPosts.length==0 &&  
+              <Typography variant="subtitle2" color="textPrimary">
+              No results were found for this source.
+            </Typography>
+           }
+           {
           redditPosts.map(redditpost => (
           <Paper>
             <Grid container item xs={12}>
-              <Grid container item xs={9}>
+              <Grid container item xs={12}>
               <Grid container item xs={12} style={{alignItems: "baseline" }}>
                       <Box mr={1}>
                       <Link target="_blank" href={redditpost.user_profile_url}>
-                        <Typography variant="h6" color="textPrimary" >{redditpost.author}</Typography>
+                        <Typography variant="button" color="textPrimary" >{redditpost.author}</Typography>
                       </Link>
                       </Box>
                       <Typography variant="body2" color="textPrimary">{redditpost.date}</Typography>
-                      <Box my={1}>
-                      <Grid container item xs={12} >
-                        <Link target="_blank" href={redditpost.url}>
-                        <Typography variant="body1" color="textPrimary" align="left">{redditpost.text}</Typography>
-                        </Link>
-                      </Grid>
-                    </Box>
+                     
                     </Grid>
+                    
+                      <Grid  item xs={9}  >
+                     
+                        <Link target="_blank" href={redditpost.url}>
+                        <Typography variant="body1" color="textPrimary" style={{ wordWrap: "break-word" }} align="left">{redditpost.text}</Typography>
+                        </Link>
+                       
+                      </Grid>
+            
                     <Grid container item xs={12} style={{alignItems: "center" }}>
-                        <Grid container item xs={11} >
+                        <Grid container item xs={10}>
                           <ThumbsUpDownIcon />
                           <Box mr={2}>
                             <Typography variant="subtitle2" color="textPrimary">{redditpost.likes}</Typography>
@@ -416,7 +437,7 @@ function App() {
                           </Box>
                           
                         </Grid>
-                        <Grid container item xs={1}>
+                        <Grid container item xs={2}>
                             <Box float="right">
                             
                             {redditpost.subjectivity == 0 &&
@@ -443,9 +464,16 @@ function App() {
                             <Typography variant="caption">Positive</Typography>
                             </Grid>
                             }
-                            <Grid container item xs={12}>  
-                              {redditpost.sarcasm==1 ? <PriorityHighIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
-                            </Grid>
+                            {redditpost.sarcasm==1 &&
+                              <Grid container item xs={12}>                             
+                              <PriorityHighIcon color="warning"/>
+                              <Typography variant="caption">Sarcasm detected.</Typography> 
+                              </Grid>
+                              }
+                              {redditpost.sarcasm==0 &&
+                              <Grid container item xs={12}>                               
+                              <Typography variant="caption">Sarcasm not detected.</Typography>
+                              </Grid>}
                             </Box>
 
                         </Grid>
@@ -459,33 +487,40 @@ function App() {
 </TabPanel>
 <TabPanel value={value} index={2}>
 {
+           redditComments.length==0 &&  
+              <Typography variant="subtitle2" color="textPrimary">
+              No results were found for this source.
+            </Typography>
+           }
+{
           redditComments.map(redditcomment => (
           <Paper>
             <Grid container item xs={12}>
-              <Grid container item xs={9}>
+              <Grid container item xs={12}>
               <Grid container item xs={12} style={{alignItems: "baseline" }}>
                       <Box mr={1}>
                       <Link target="_blank" href={redditcomment.user_profile_url}>
-                        <Typography variant="h6" color="textPrimary" >{redditcomment.author}</Typography>
+                        <Typography variant="button" color="textPrimary" >{redditcomment.author}</Typography>
                       </Link>
                       </Box>
                       <Typography variant="body2" color="textPrimary">{redditcomment.date}</Typography>
-                      <Box my={1}>
-                      <Grid container item xs={12} >
+                     
+                    </Grid>
+                  
+                      <Grid item xs={9}  >
                         <Link target="_blank" href={redditcomment.url}>
                         <Typography variant="body1" color="textPrimary" align="left">{redditcomment.text}</Typography>
                         </Link>
                       </Grid>
-                    </Box>
-                    </Grid>
+                   
                     <Grid container item xs={12} style={{alignItems: "center" }}>
-                        <Grid container item xs={11} >
+                        <Grid container item xs={10} >
                           <ThumbsUpDownIcon />
                           <Box mr={2}>
                             <Typography variant="subtitle2" color="textPrimary">{redditcomment.likes}</Typography>
                           </Box>       
                         </Grid>
-                        <Grid container item xs={1}>
+                        <Grid container item xs={2}>
                             <Box float="right">
                             
                             {redditcomment.subjectivity == 0 &&
@@ -512,9 +547,18 @@ function App() {
                             <Typography variant="caption">Positive</Typography>
                             </Grid>
                             }
-                            <Grid container item xs={12}>  
-                              {redditcomment.sarcasm==1 ? <PriorityHighIcon color="warning"/> : <Typography variant="caption">Sarcasm not detected.</Typography>}
-                            </Grid>
+                             
+                              {redditcomment.sarcasm==1 &&
+                              <Grid container item xs={12}>                             
+                              <PriorityHighIcon color="warning"/>
+                              <Typography variant="caption">Sarcasm detected.</Typography> 
+                              </Grid>
+                              }
+                              {redditcomment.sarcasm==0 &&
+                              <Grid container item xs={12}>                               
+                              <Typography variant="caption">Sarcasm not detected.</Typography>
+                              </Grid>}
+              
                             </Box>
 
                         </Grid>
