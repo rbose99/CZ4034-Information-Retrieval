@@ -89,11 +89,11 @@ def performQuery(params):
 def performSingleCoreQuery(params, solr, SOLR_PATH, source):
     results = {}
 
-    if params['filters'] == {'recent':False,'popular':False}:
+    if params['filter'] == {'recent':False,'popular':False}:
         results = solr.search(params['q'], sort=params['sort'] , rows=15)
-    elif params['filters'] == {'recent':True,'popular':False}:
+    elif params['filter'] == {'recent':True,'popular':False}:
         results = solr.search(params['q'], fq="date:[NOW-7DAY/DAY TO NOW]", sort=params['sort'] , rows=15)
-    elif params['filters'] == {'recent':False,'popular':True}:
+    elif params['filter'] == {'recent':False,'popular':True}:
         if source == "reddit posts":
             results = solr.search(params['q'], fq="likes:[3 TO *]", sort=params['sort'] , rows=15)
         else:
