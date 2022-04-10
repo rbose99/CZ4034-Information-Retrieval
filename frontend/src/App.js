@@ -71,15 +71,6 @@ function App() {
     }
   ]);
 
-  const [test, setTest] = React.useState([
-  {
-    data: [
-      {name: "glucose", value: 6, fill: '#57c0e8'},
-      {name: "SpO2", value: 5, fill: "#FF6565"},
-      {name: "Blood Pressure", value: 4, fill: "#FFDA83"}
-    ]
-  }
-]);
 
 
   socket.on('spelling', function(msg) {
@@ -94,37 +85,16 @@ function App() {
 
      console.log(msg)
 
-    // var new_twchart = [
-    //   {
-    //     data: [
-    //       {name: "positive", value: msg.stats.twitter.positive, fill: '#57c0e8'},
-    //       {name: "neutral", value: msg.stats.twitter.neutral, fill: "#FF6565"},
-    //       {name: "negative", value: msg.stats.twitter.negative, fill: "#FFDA83"}
-    //     ]
-    //   }
-    // ]
-    // var new_rpchart = [
-    //   {
-    //     data: [
-    //       {name: "positive", value: msg.stats.reddit_posts.positive, fill: '#57c0e8'},
-    //       {name: "neutral", value: msg.stats.reddit_posts.neutral, fill: "#FF6565"},
-    //       {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
-    //     ]
-    //   }
-    // ]
-    // var new_rcchart = [
-    //   {
-    //     data: [
-    //       {name: "positive", value: msg.stats.reddit_comments.positive, fill: '#57c0e8'},
-    //       {name: "neutral", value: msg.stats.reddit_comments.neutral, fill: "#FF6565"},
-    //       {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
-    //     ]
-    //   }
-    // ]
+    // setRPCharts(...rpChart, msg.stats.reddit_posts);
+    // setTWCharts(...twChart, msg.stats.twitter);
+    // setRCCharts(...rcChart, msg.stats.reddit_comments);
     setRPCharts(msg.stats.reddit_posts);
     setTWCharts(msg.stats.twitter);
     setRCCharts(msg.stats.reddit_comments);
+    
     console.log(twChart);
+    console.log(rpChart);
+    console.log(rcChart);
 
   });
   var searchQuery = React.useRef()
@@ -679,7 +649,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 </TabPanel>
 <TabPanel value={value} index={3}>
 
-<PieChart width={730} height={250}>
+<PieChart width={730} height={280}>
 
         <Pie 
           dataKey="value"

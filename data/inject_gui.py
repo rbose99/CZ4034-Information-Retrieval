@@ -22,7 +22,7 @@ if args.source == "Twitter":
     offset = solr.search("*:*")['response']['numFound']
 
     data = [{"id": offset + index, "text": row["full_text"], "date":row["created_at"], \
-            "likes": row["favorite_count"], "reply_count": row["reply_count"], \
+            "likes": row["favorite_count"], \
             "retweet_count": row["retweet_count"], "url": row["url"], "user_name": row["url"].split("/")[3], \
             "user_profile_url": "https://www.twitter.com/" + row["url"].split("/")[3], \
             "tweet_id": row["url"].split("/")[-1], "subjectivity": row["subjectivity"], \
@@ -44,7 +44,7 @@ elif args.source == "Reddit Posts":
             "likes": row["score"], "num_comments": row["num_comments"], \
             "url": row["full_link"], "author": row["author"], \
             "user_profile_url": "https://www.reddit.com/user/" + str(row["author"]), \
-            "subjectivity": "1", "polarity": "1", "sarcasm": "0"} \
+            "subjectivity": row["subjectivity"], "polarity": row["polarity"], "sarcasm": row["sarcasm"]} \
             for index, row in data.iterrows()]
 
     print(solr.add(data))

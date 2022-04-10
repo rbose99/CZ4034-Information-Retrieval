@@ -85,30 +85,28 @@ def performQuery(params):
 
 
 def create_fq(filters,source):
-    fq=''
+    fq=[]
     
     if filters['popular']:
         if source == 'reddit posts':
-            fq=fq+'likes:[3 TO *]'
+            fq.append('likes:[3 TO *]')
         else:
-            fq=fq+'likes:[100 TO *]'
-    else:
-        fq=fq+'likes:[0 TO *]'
+            fq.append('likes:[100 TO *]')
     
     if filters['recent']:
-        fq=fq+'&date:[NOW-7DAY/DAY TO NOW]'
+        fq.append('date:[NOW-7DAY/DAY TO NOW]')
     
     if filters['nosarcasm']:
-        fq=fq+'&sarcasm:0'
+        fq.append('sarcasm:0')
     
     if filters['opinionated'] and filters['neutral']:
-        fq=fq+''
+        fq=fq
     
     elif filters['opinionated']:
-        fq=fq+'&polarity:1'
+        fq.append('subjectivity:1')
     
     elif filters['neutral']:
-        fq=fq+'&polarity:0'
+        fq.append('subjectivity:0')
 
     return fq
 
@@ -188,19 +186,35 @@ def get_common_suggestions(l1, l2, l3):
 def get_stats(results):
     sources = ["twitter", "reddit_posts", "reddit_comments"]
 
-    stats = {sources[0]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"negative", "value":0, "fill":"#ffda83"}, {"name":"neutral", "value":0, "fill":"#ff6565"}]}],
-            sources[1]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"negative", "value":0, "fill":"#ffda83"}, {"name":"neutral", "value":0, "fill":"#ff6565"}]}],
-            sources[2]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"negative", "value":0, "fill":"#ffda83"}, {"name":"neutral", "value":0, "fill":"#ff6565"}]}]}
+    stats = {sources[0]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"neutral", "value":0, "fill":"#ffda83"}, {"name":"negative", "value":0, "fill":"#ff6565"}]}],
+            sources[1]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"neutral", "value":0, "fill":"#ffda83"}, {"name":"negative", "value":0, "fill":"#ff6565"}]}],
+            sources[2]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"neutral", "value":0, "fill":"#ffda83"}, {"name":"negative", "value":0, "fill":"#ff6565"}]}]}
 
     i = 0
     for res in results: # res is the list of docs
         for doc in res: # doc is each individual doc
-            if doc['polarity'][0] == 1:
-                stats[sources[i]][0]['data'][0]['value'] += 1
-            elif doc['polarity'][0] == 0:
+            if doc['subjectivity'][0] == 0: # neutral
                 stats[sources[i]][0]['data'][1]['value'] += 1
             else:
-                stats[sources[i]][0]['data'][2]['value'] += 1
+                if doc['polarity'][0] == 1 or doc['polarity'][0] == 1.0:
+                    stats[sources[i]][0]['data'][0]['value'] += 1
+                elif doc['polarity'][0] == 0 or doc['polarity'][0] == 0.0:
+                    stats[sources[i]][0]['data'][2]['value'] += 1
+
+            # if not i == 2:
+            #     if doc['polarity'][0] == 1:
+            #         stats[sources[i]][0]['data'][0]['value'] += 1
+            #     elif doc['polarity'][0] == 0:
+            #         stats[sources[i]][0]['data'][2]['value'] += 1
+            #     else:
+            #         stats[sources[i]][0]['data'][1]['value'] += 1
+            # else:
+            #     if doc['polarity'][0] == 1.0:
+            #         stats[sources[i]][0]['data'][0]['value'] += 1
+            #     elif doc['polarity'][0] == 0.0:
+            #         stats[sources[i]][0]['data'][2]['value'] += 1
+            #     else:
+            #         stats[sources[i]][0]['data'][1]['value'] += 1
         i += 1
 
     return stats

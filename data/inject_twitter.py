@@ -10,7 +10,7 @@ solr.ping()
 tweets = pd.read_csv('Twitter_Crawled_Final_Cleaned_labelled.csv')
 
 data = [{"id": index, "text": row["full_text"], "date":row["created_at"], \
-        "likes": row["favorite_count"], "reply_count": row["reply_count"], \
+        "likes": row["favorite_count"], \
         "retweet_count": row["retweet_count"], "url": row["url"], "user_name": row["url"].split("/")[3], \
         "user_profile_url": "https://www.twitter.com/" + row["url"].split("/")[3], \
         "tweet_id": row["url"].split("/")[-1], "subjectivity": row["subjectivity"], \
