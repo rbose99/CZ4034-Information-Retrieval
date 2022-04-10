@@ -38,7 +38,7 @@ function App() {
   const [value, setValue] = React.useState(0);
   const [sortMethod, setSortMethod] = React.useState('score');
   const [sortOrder, setSortOrder] = React.useState(' desc');
-  const [filters, setFilters] = React.useState({'recent':false,'popular':false});
+  const [filters, setFilters] = React.useState({'recent':false,'popular':false, 'nosarcasm':false, 'neutral':false,'opinionated':false});
   const [spellCheck, setSpellCheck] = React.useState([]);
   const [hideSpellCheck, setHideSpellCheck] = React.useState(true);
   const [spellErrorFound, setSpellErrorFound] = React.useState(false);
@@ -270,6 +270,24 @@ function App() {
               <Checkbox checked={filters.popular} color="secondary" onChange={handleFilterChange} name="popular" />
             }
             label="Popular"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={filters.nosarcasm} color="secondary" onChange={handleFilterChange} name="nosarcasm" />
+            }
+            label="No Sarcasm"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={filters.opinionated} color="secondary" onChange={handleFilterChange} name="opinionated" />
+            }
+            label="Opinionated"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={filters.neutral} color="secondary" onChange={handleFilterChange} name="neutral" />
+            }
+            label="Neutral"
           />
       </FormGroup>
     </FormControl>

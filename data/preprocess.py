@@ -3,9 +3,6 @@ import pandas as pd
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, TextClassificationPipeline
 import datetime
 
-path = 'scraped_data.csv'
-df = pd.read_csv(path, encoding="ISO-8859-1")
-
 #load tokenizer for subjectivity,polarity,sarcasm
 tokenizer_subjectivity = AutoTokenizer.from_pretrained('./saved_model_subjectivity')
 tokenizer_polarity = AutoTokenizer.from_pretrained('./saved_model_polarity')
@@ -21,11 +18,7 @@ subjectivity_pipe = TextClassificationPipeline(model=model_subjectivity, tokeniz
 polarity_pipe= TextClassificationPipeline(model=model_polarity, tokenizer=tokenizer_polarity, return_all_scores=False)
 sarcasm_pipe= TextClassificationPipeline(model=model_sarcasm, tokenizer=tokenizer_sarcasm, return_all_scores=False)
 
-df["subjectivity"] = '0'
-df["polarity"] = '0'
-df["sarcasm"] = '0'
-
-def reddit_comments():
+def reddit_comments(df):
     df = df[['body','permalink','score','created_utc','author']]
 
     df['created_utc'] = pd.to_datetime(df['created_utc'], utc=True, unit='s')
@@ -35,15 +28,15 @@ def reddit_comments():
     return df_labelled
 
 
-def tweets():
+def tweets(df):
     df = df[['created_at','favorite_count','full_text','reply_count','retweet_count','url']]
 
     df_labelled = label(df)
     return df_labelled
 
 
-def reddit_posts():
-    df = df[['created_utc','full_link','num_comments','permalink','Title', 'score', 'author']]
+def reddit_posts(df):
+    df = df[['created_utc','full_link','num_comments','permalink','title', 'score', 'author']]
 
     df['created_utc'] = pd.to_datetime(df['created_utc'], utc=True, unit='s')
     df['created_utc'] = df['created_utc'].map(lambda x: x.isoformat())
@@ -54,10 +47,14 @@ def reddit_posts():
 
 
 def label(df):
+    df["subjectivity"] = '0'
+    df["polarity"] = '0'
+    df["sarcasm"] = '0'
+
     # labelling sujectivity and sarcasm
     for index, row in df.iterrows():
-        resSub= subjectivity_pipe(row['body'])
-        resSar= sarcasm_pipe(row['body'])
+        resSub= subjectivity_pipe(row['title'])
+        resSar= sarcasm_pipe(row['title'])
         if(resSub[0]['label'] =='LABEL_0'):
             df.at[index,'subjectivity'] = 0
         elif(resSub[0]['label'] =='LABEL_1'):
@@ -70,7 +67,7 @@ def label(df):
 
     # labelling polarity
     for index, row in df.iterrows():
-        resPol= polarity_pipe(row['body'])
+        resPol= polarity_pipe(row['title'])
         if(row['subjectivity'] == 1):
             if(resPol[0]['label'] =='LABEL_0'):
                 df.at[index,'polarity'] = 0
