@@ -26,7 +26,7 @@ import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-import {Pie, PieChart, ResponsiveContainer} from 'recharts';
+import {Pie, PieChart, ResponsiveContainer, Legend} from 'recharts';
 
 
 const io = require('socket.io-client');
@@ -47,8 +47,8 @@ function App() {
     {
       data: [
         {name: "positive", value: 0, fill: '#57c0e8'},
-        {name: "neutral", value: 0, fill: "#FF6565"},
-        {name: "negative", value: 0, fill: "#FFDA83"}
+        {name: "neutral", value: 0, fill: "#FFDA83"},
+        {name: "negative", value: 0, fill: "#FF6565" }
       ]
     }
   ]);
@@ -56,8 +56,8 @@ function App() {
     {
       data: [
         {name: "positive", value: 0, fill: '#57c0e8'},
-        {name: "neutral", value: 0, fill: "#FF6565"},
-        {name: "negative", value: 0, fill: "#FFDA83"}
+        {name: "neutral", value: 0, fill: "#FFDA83"},
+        {name: "negative", value: 0, fill: "#FF6565"}
       ]
     }
   ]);
@@ -65,8 +65,8 @@ function App() {
     {
       data: [
         {name: "positive", value: 0, fill: '#57c0e8'},
-        {name: "neutral", value: 0, fill: "#FF6565"},
-        {name: "negative", value: 0, fill: "#FFDA83"}
+        {name: "neutral", value: 0, fill: "#FFDA83"},
+        {name: "negative", value: 0, fill: "#FF6565"}
       ]
     }
   ]);
@@ -212,6 +212,19 @@ function App() {
       'aria-controls': `simple-tabpanel-${index}`,
     };
   }
+
+  const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
   
   function SpellCheck(props)  {
     console.log(props.corrections.length)
@@ -670,51 +683,56 @@ function App() {
 
         <Pie 
           dataKey="value"
+          nameKey="name"
           data={ twChart[0].data }
           radius={ 150 }
           hole={ 50 }
-          colors={ ['#43A19E', '#7B43A1', '#F2317A'] }
-          labels={ true }
-          percent={ true }
+          percent={true}
           strokeWidth={ 3 }
           stroke={ '#fff' }
+          labelLine={false}
+          label={renderCustomizedLabel}
         />)
+        <Legend verticalAlign="top" height={36}/>
 
 </PieChart>
-
+<Typography variant="subtitle2" color="textPrimary">Tweets</Typography>
 <PieChart width={730} height={250}>
 
         <Pie 
           dataKey="value"
+          nameKey="name"
           data={ rpChart[0].data }
           radius={ 150 }
           hole={ 50 }
-          colors={ ['#43A19E', '#7B43A1', '#F2317A'] }
-          labels={ true }
+          labelLine={false}
           percent={ true }
           strokeWidth={ 3 }
           stroke={ '#fff' }
+          label={renderCustomizedLabel}
         />)
+         
 
 </PieChart>
-
+<Typography variant="subtitle2" color="textPrimary">Reddit Posts</Typography>
 <PieChart width={730} height={250}>
 
         <Pie 
           dataKey="value"
+          nameKey="name"
           data={ rcChart[0].data }
           radius={ 150 }
           hole={ 50 }
-          colors={ ['#43A19E', '#7B43A1', '#F2317A'] }
-          labels={ true }
+          labelLine={false}
           percent={ true }
           strokeWidth={ 3 }
           stroke={ '#fff' }
+          label={renderCustomizedLabel}
         />)
 
 </PieChart>
+<Typography variant="subtitle2" color="textPrimary">Reddit Comments</Typography>
 
-}
 </TabPanel>
   </Box>
 </Container>
