@@ -10,6 +10,8 @@ import os
 import pandas as pd
 import logging
 
+from time import time
+
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -186,11 +188,6 @@ def on_join(json):
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
 
-    # print(results_tw['response']['docs'])
-    # print(results_rp['response']['docs'])
-    # print(results_rc['response']['docs'])
-
-
 
 @socketio.on('leave')
 def on_leave(json):
@@ -202,12 +199,14 @@ def on_leave(json):
 @socketio.on('query')
 def query(json):
     print('received json: ' + str(json))
+
+    start = time()
     results_spell, results_tw, results_rp, results_rc = performQuery(json['search_params'])
+    print(f"Query time = {(time() - start)*1000} milliseconds")
+
     socketio.emit('results_tw', {'results': results_tw['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
-
-    # print(results_tw['response']['docs'])
 
     socketio.emit('spelling', {'spell_suggestions': results_spell['spell_suggestions'], 'hide_suggestions':results_spell['hide_suggestions'], \
                                 'spell_error_found':results_spell['spell_error_found']}, room = json['client_id'])
@@ -215,71 +214,6 @@ def query(json):
 
 if __name__ == "__main__":
     socketio.run(app)
-
-
-
-
-
-
-
-"""
-def performQuery(params):
-    print(params)
-    
-    if len(params) == 0: # no query was given but the submit button was clicked
-        results_spell = {}
-        results_tw = {}
-        results_rp = {}
-        results_rc = {}
-
-    else:
-        if params['sort']:
-            results_tw = solr_tw.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
-            results_rp = solr_rp.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
-            results_rc = solr_rc.search(params['q'], fq=params['fq'], sort=params['sort'], rows=15)
-        else:
-            results_tw = solr_tw.search(params['q'], fq=params['fq'], rows=15)
-            results_rp = solr_rp.search(params['q'], fq=params['fq'], rows=15)
-            results_rc = solr_rc.search(params['q'], fq=params['fq'], rows=15)
-
-    print("Successfully retrieved ", len(results_tw['response']['docs']), "rows of data.")
-    print("Successfully retrieved ", len(results_rp['response']['docs']), "rows of data.")
-    print("Successfully retrieved ", len(results_rc['response']['docs']), "rows of data.")
-
-    # initialise the spelling components in the response
-    results_spell['hide_suggestions'] = True
-    results_spell['spell_suggestions'] = []
-    results_spell['spell_error_found'] = False
-
-    # perform spell checking using Solr
-    spell_response_tw = requests.get(SOLR_PATH_TW + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
-    spell_response_rp = requests.get(SOLR_PATH_RP + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
-    spell_response_rc = requests.get(SOLR_PATH_RC + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
-
-    tw_suggestions, found_tw = get_suggestions(spell_response_tw, "twitter")
-    rp_suggestions, found_rp = get_suggestions(spell_response_rp, "reddit posts")
-    rc_suggestions, found_rc = get_suggestions(spell_response_rc, "reddit comments")
-
-    if found_tw or found_rp or found_rc:
-        results_spell['hide_suggestions'] = False
-        results_spell['spell_error_found'] = True
-    
-    common_suggestions = get_common_suggestions(tw_suggestions, rp_suggestions, rc_suggestions)
-
-    if len(common_suggestions) == 0:
-        if found_tw:
-            results_spell['spell_suggestions'].append(tw_suggestions[0])
-        if found_rp:
-            results_spell['spell_suggestions'].append(rp_suggestions[0])
-        if found_rc:
-            results_spell['spell_suggestions'].append(rc_suggestions[0])
-    else:
-        results_spell['spell_suggestions'] = common_suggestions[:3] is len(common_suggestions)>3 else common_suggestions
-    
-    return results_spell, results_tw, results_rp, results_rc
-
-"""
-
 
 
 
