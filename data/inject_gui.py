@@ -40,7 +40,7 @@ elif args.source == "Reddit Posts":
 
     offset = solr.search("*:*")['response']['numFound']
 
-    data = [{"id": offset + index, "Title": row["title"], "date": row["created_utc"], \
+    data = [{"id": offset + index, "text": row["title"], "date": row["created_utc"], \
             "likes": row["score"], "num_comments": row["num_comments"], \
             "url": row["full_link"], "author": row["author"], \
             "user_profile_url": "https://www.reddit.com/user/" + str(row["author"]), \

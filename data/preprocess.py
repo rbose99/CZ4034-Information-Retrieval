@@ -24,14 +24,14 @@ def reddit_comments(df):
     df['created_utc'] = pd.to_datetime(df['created_utc'], utc=True, unit='s')
     df['created_utc'] = df['created_utc'].map(lambda x: x.isoformat())
 
-    df_labelled = label(df)
+    df_labelled = label(df, 'body')
     return df_labelled
 
 
 def tweets(df):
     df = df[['created_at','favorite_count','full_text','reply_count','retweet_count','url']]
 
-    df_labelled = label(df)
+    df_labelled = label(df, 'full_text')
     return df_labelled
 
 
@@ -41,20 +41,20 @@ def reddit_posts(df):
     df['created_utc'] = pd.to_datetime(df['created_utc'], utc=True, unit='s')
     df['created_utc'] = df['created_utc'].map(lambda x: x.isoformat())
 
-    df_labelled = label(df)
+    df_labelled = label(df, 'title')
     return df_labelled
 
 
 
-def label(df):
+def label(df, col):
     df["subjectivity"] = '0'
     df["polarity"] = '0'
     df["sarcasm"] = '0'
 
     # labelling sujectivity and sarcasm
     for index, row in df.iterrows():
-        resSub= subjectivity_pipe(row['title'])
-        resSar= sarcasm_pipe(row['title'])
+        resSub = subjectivity_pipe(row[col])
+        resSar = sarcasm_pipe(row[col])
         if(resSub[0]['label'] =='LABEL_0'):
             df.at[index,'subjectivity'] = 0
         elif(resSub[0]['label'] =='LABEL_1'):
@@ -67,7 +67,7 @@ def label(df):
 
     # labelling polarity
     for index, row in df.iterrows():
-        resPol= polarity_pipe(row['title'])
+        resPol= polarity_pipe(row[col])
         if(row['subjectivity'] == 1):
             if(resPol[0]['label'] =='LABEL_0'):
                 df.at[index,'polarity'] = 0

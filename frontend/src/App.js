@@ -26,6 +26,7 @@ import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import {Pie, PieChart, ResponsiveContainer} from 'recharts';
 
 
 const io = require('socket.io-client');
@@ -70,6 +71,17 @@ function App() {
     }
   ]);
 
+  const [test, setTest] = React.useState([
+  {
+    data: [
+      {name: "glucose", value: 6, fill: '#57c0e8'},
+      {name: "SpO2", value: 5, fill: "#FF6565"},
+      {name: "Blood Pressure", value: 4, fill: "#FFDA83"}
+    ]
+  }
+]);
+
+
   socket.on('spelling', function(msg) {
     setHideSpellCheck(msg.hide_suggestions);
     console.log(msg.hide_suggestions)
@@ -79,36 +91,40 @@ function App() {
   });
   
   socket.on('stats', function(msg) {
-    var new_twchart = [
-      {
-        data: [
-          {name: "positive", value: msg.stats.twitter.positive, fill: '#57c0e8'},
-          {name: "neutral", value: msg.stats.twitter.neutral, fill: "#FF6565"},
-          {name: "negative", value: msg.stats.twitter.negative, fill: "#FFDA83"}
-        ]
-      }
-    ]
-    var new_rpchart = [
-      {
-        data: [
-          {name: "positive", value: msg.stats.reddit_posts.positive, fill: '#57c0e8'},
-          {name: "neutral", value: msg.stats.reddit_posts.neutral, fill: "#FF6565"},
-          {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
-        ]
-      }
-    ]
-    var new_rcchart = [
-      {
-        data: [
-          {name: "positive", value: msg.stats.reddit_comments.positive, fill: '#57c0e8'},
-          {name: "neutral", value: msg.stats.reddit_comments.neutral, fill: "#FF6565"},
-          {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
-        ]
-      }
-    ]
-    setRPCharts(new_rpchart);
-    setTWCharts(new_rcchart);
-    setRCCharts(new_twchart);
+
+     console.log(msg)
+
+    // var new_twchart = [
+    //   {
+    //     data: [
+    //       {name: "positive", value: msg.stats.twitter.positive, fill: '#57c0e8'},
+    //       {name: "neutral", value: msg.stats.twitter.neutral, fill: "#FF6565"},
+    //       {name: "negative", value: msg.stats.twitter.negative, fill: "#FFDA83"}
+    //     ]
+    //   }
+    // ]
+    // var new_rpchart = [
+    //   {
+    //     data: [
+    //       {name: "positive", value: msg.stats.reddit_posts.positive, fill: '#57c0e8'},
+    //       {name: "neutral", value: msg.stats.reddit_posts.neutral, fill: "#FF6565"},
+    //       {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
+    //     ]
+    //   }
+    // ]
+    // var new_rcchart = [
+    //   {
+    //     data: [
+    //       {name: "positive", value: msg.stats.reddit_comments.positive, fill: '#57c0e8'},
+    //       {name: "neutral", value: msg.stats.reddit_comments.neutral, fill: "#FF6565"},
+    //       {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
+    //     ]
+    //   }
+    // ]
+    setRPCharts(msg.stats.reddit_posts);
+    setTWCharts(msg.stats.twitter);
+    setRCCharts(msg.stats.reddit_comments);
+    console.log(twChart);
 
   });
   var searchQuery = React.useRef()
@@ -649,41 +665,55 @@ function App() {
 
 </TabPanel>
 <TabPanel value={value} index={3}>
-{twChart.map(s=>
+
+<PieChart width={730} height={250}>
+
         <Pie 
-        dataKey="value" 
-        isAnimationActive={false} 
-        data={s.data} 
-        cx={200} 
-        cy={200} 
-        outerRadius={100} 
-        innerRadius={60}
-        fill="#fff"
-  />)
-}
-{rpChart.map(s=>
+          dataKey="value"
+          data={ twChart[0].data }
+          radius={ 150 }
+          hole={ 50 }
+          colors={ ['#43A19E', '#7B43A1', '#F2317A'] }
+          labels={ true }
+          percent={ true }
+          strokeWidth={ 3 }
+          stroke={ '#fff' }
+        />)
+
+</PieChart>
+
+<PieChart width={730} height={250}>
+
         <Pie 
-        dataKey="value" 
-        isAnimationActive={false} 
-        data={s.data} 
-        cx={200} 
-        cy={200} 
-        outerRadius={100} 
-        innerRadius={60}
-        fill="#fff"
-  />)
-}
-{rcChart.map(s=>
+          dataKey="value"
+          data={ rpChart[0].data }
+          radius={ 150 }
+          hole={ 50 }
+          colors={ ['#43A19E', '#7B43A1', '#F2317A'] }
+          labels={ true }
+          percent={ true }
+          strokeWidth={ 3 }
+          stroke={ '#fff' }
+        />)
+
+</PieChart>
+
+<PieChart width={730} height={250}>
+
         <Pie 
-        dataKey="value" 
-        isAnimationActive={false} 
-        data={s.data} 
-        cx={200} 
-        cy={200} 
-        outerRadius={100} 
-        innerRadius={60}
-        fill="#fff"
-  />)
+          dataKey="value"
+          data={ rcChart[0].data }
+          radius={ 150 }
+          hole={ 50 }
+          colors={ ['#43A19E', '#7B43A1', '#F2317A'] }
+          labels={ true }
+          percent={ true }
+          strokeWidth={ 3 }
+          stroke={ '#fff' }
+        />)
+
+</PieChart>
+
 }
 </TabPanel>
   </Box>

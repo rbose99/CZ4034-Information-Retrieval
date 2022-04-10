@@ -121,7 +121,7 @@ def performSingleCoreQuery(params, solr, SOLR_PATH, source):
 
     print(f"{source} successfully retrieved ", len(results['response']['docs']), "rows of data.")
 
-    spell_response = requests._get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
+    spell_response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
     suggestions, found = get_suggestions(spell_response, params)
 
     return results, suggestions, found
@@ -188,22 +188,22 @@ def get_common_suggestions(l1, l2, l3):
 def get_stats(results):
     sources = ["twitter", "reddit_posts", "reddit_comments"]
 
-    stats = {sources[0]: {"positive": 0, "negative": 0, "neutral": 0},
-            sources[1]: {"positive": 0, "negative": 0, "neutral": 0},
-            sources[2]: {"positive": 0, "negative": 0, "neutral": 0}}
+    stats = {sources[0]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"negative", "value":0, "fill":"#ffda83"}, {"name":"neutral", "value":0, "fill":"#ff6565"}]}],
+            sources[1]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"negative", "value":0, "fill":"#ffda83"}, {"name":"neutral", "value":0, "fill":"#ff6565"}]}],
+            sources[2]: [{"data": [{"name":"positive", "value":0, "fill":"#57c0e8"}, {"name":"negative", "value":0, "fill":"#ffda83"}, {"name":"neutral", "value":0, "fill":"#ff6565"}]}]}
 
     i = 0
     for res in results: # res is the list of docs
         for doc in res: # doc is each individual doc
-            if doc['polarity'] == 1:
-                stats[sources[i]]['positive'] += doc['polarity']
-            elif doc['polarity'] == 0:
-                stats[sources[i]]['negative'] += doc['polarity']
+            if doc['polarity'][0] == 1:
+                stats[sources[i]][0]['data'][0]['value'] += 1
+            elif doc['polarity'][0] == 0:
+                stats[sources[i]][0]['data'][1]['value'] += 1
             else:
-                stats[sources[i]]['neutral'] += 1
-        
-        print(stats)
+                stats[sources[i]][0]['data'][2]['value'] += 1
         i += 1
+
+    return stats
 
 
 @app.route("/")
@@ -225,7 +225,7 @@ def on_join(json):
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
 
-    socketio.emit('stats', {'stats': stats})
+    socketio.emit('stats', {'stats': stats}, room = json['client_id'])
 
 
 @socketio.on('leave')
@@ -252,7 +252,7 @@ def query(json):
     socketio.emit('spelling', {'spell_suggestions': results_spell['spell_suggestions'], 'hide_suggestions':results_spell['hide_suggestions'], \
                                 'spell_error_found':results_spell['spell_error_found']}, room = json['client_id'])
 
-    socketio.emit('stats', {'stats': stats})
+    socketio.emit('stats', {'stats': stats}, room = json['client_id'])
 
 if __name__ == "__main__":
     socketio.run(app)
