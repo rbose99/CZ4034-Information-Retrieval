@@ -19,7 +19,7 @@ if args.source == "Twitter":
     solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
     solr.ping()
 
-    offset = len(solr.search("*:*")['response']['docs'])
+    offset = solr.search("*:*")['response']['numFound']
 
     data = [{"id": offset + index, "text": row["full_text"], "date":row["created_at"], \
             "likes": row["favorite_count"], "reply_count": row["reply_count"], \
@@ -38,9 +38,9 @@ elif args.source == "Reddit Posts":
     solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
     solr.ping()
 
-    offset = len(solr.search("*:*")['response']['docs'])
+    offset = solr.search("*:*")['response']['numFound']
 
-    data = [{"id": offset + index, "text": row["Title"], "date": row["created_utc"], \
+    data = [{"id": offset + index, "Title": row["title"], "date": row["created_utc"], \
             "likes": row["score"], "num_comments": row["num_comments"], \
             "url": row["full_link"], "author": row["author"], \
             "user_profile_url": "https://www.reddit.com/user/" + str(row["author"]), \
@@ -56,7 +56,7 @@ else:
     solr = pysolr.Solr(SOLR_PATH, always_commit=True, results_cls=dict)
     solr.ping()
 
-    offset = len(solr.search("*:*")['response']['docs'])
+    offset = solr.search("*:*")['response']['numFound']
 
     data = [{"id": offset + index, "text": row["body"], "date": row['created_utc'], \
             "likes": row["score"], "author": row["author"], \
