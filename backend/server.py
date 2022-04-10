@@ -186,7 +186,7 @@ def get_common_suggestions(l1, l2, l3):
 
 
 def get_stats(results):
-    sources = ["twitter", "reddit posts", "reddit comments"]
+    sources = ["twitter", "reddit_posts", "reddit_comments"]
 
     stats = {sources[0]: {"positive": 0, "negative": 0, "neutral": 0},
             sources[1]: {"positive": 0, "negative": 0, "neutral": 0},
