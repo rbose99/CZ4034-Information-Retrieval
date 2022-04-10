@@ -87,30 +87,31 @@ def performQuery(params):
 def create_fq(filters,source):
     fq=''
     
-    if(filters['popular']):
-        if(source== 'reddit posts'):
+    if filters['popular']:
+        ifsource == 'reddit posts':
             fq=fq+'likes:[3 TO *]'
         else:
             fq=fq+'likes:[100 TO *]'
     else:
         fq=fq+'likes:[0 TO *]'
     
-    if(filters['recent']):
+    if filters['recent']:
         fq=fq+'&date:[NOW-7DAY/DAY TO NOW]'
     
-    if(filters['nosarcasm']):
+    if filters['nosarcasm']:
         fq=fq+'&sarcasm:0'
     
-    if(filters['opinionated'] and filters['neutral']):
+    if filters['opinionated'] and filters['neutral']:
         fq=fq+''
     
-    elif(filters['opinionated']):
+    elif filters['opinionated']:
         fq=fq+'&polarity:1'
     
-    elif(filters['neutral']):
+    elif filters['neutral']:
         fq=fq+'&polarity:0'
 
     return fq
+
 
 # given a query return the relevant results
 # params = {q:, fq:, sort:}
@@ -218,11 +219,13 @@ def on_join(json):
 
     results_tw, results_rp, results_rc = getAll()
 
+    stats = get_stats([results_tw['response']['docs'], results_rp['response']['docs'], results_rc['response']['docs']])
+
     socketio.emit('results_tw', {'results': results_tw['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
 
-    print("Emitted to client")
+    socketio.emit('stats', {'stats': stats})
 
 
 @socketio.on('leave')
