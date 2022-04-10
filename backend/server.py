@@ -29,6 +29,7 @@ solr_tw.ping()
 solr_rp.ping()
 solr_rc.ping()
 
+
 # retreive all data entries from Solr
 def getAll():
     results_tw = solr_tw.search('*', rows=15)
@@ -57,9 +58,6 @@ def performQuery(params):
         results_tw, tw_suggestions, found_tw = performSingleCoreQuery(params, solr_tw, SOLR_PATH_TW, "twitter")
         results_rp, rp_suggestions, found_rp = performSingleCoreQuery(params, solr_rp, SOLR_PATH_RP, "reddit posts")
         results_rc, rc_suggestions, found_rc = performSingleCoreQuery(params, solr_rc, SOLR_PATH_RC, "reddit comments")
-        print(found_tw)
-        print(found_rp)
-        print(found_rc)
 
         # initialise the spelling components in the response
         results_spell['hide_suggestions'] = True
@@ -86,30 +84,43 @@ def performQuery(params):
     return results_spell, results_tw, results_rp, results_rc
 
 
+def create_fq(filters,source):
+    fq=''
+    
+    if(filters['popular']):
+        if(source== 'reddit posts'):
+            fq=fq+'likes:[3 TO *]'
+        else:
+            fq=fq+'likes:[100 TO *]'
+    else:
+        fq=fq+'likes:[0 TO *]'
+    
+    if(filters['recent']):
+        fq=fq+'&date:[NOW-7DAY/DAY TO NOW]'
+    
+    if(filters['nosarcasm']):
+        fq=fq+'&sarcasm:0'
+    
+    if(filters['opinionated'] and filters['neutral']):
+        fq=fq+''
+    
+    elif(filters['opinionated']):
+        fq=fq+'&polarity:1'
+    
+    elif(filters['neutral']):
+        fq=fq+'&polarity:0'
+
+    return fq
+
 # given a query return the relevant results
 # params = {q:, fq:, sort:}
 def performSingleCoreQuery(params, solr, SOLR_PATH, source):
-    results = {}
-
-    if params['filter'] == {'recent':False,'popular':False}:
-        results = solr.search(params['q'], sort=params['sort'] , rows=15)
-    elif params['filter'] == {'recent':True,'popular':False}:
-        results = solr.search(params['q'], fq="date:[NOW-7DAY/DAY TO NOW]", sort=params['sort'] , rows=15)
-    elif params['filter'] == {'recent':False,'popular':True}:
-        if source == "reddit posts":
-            results = solr.search(params['q'], fq="likes:[3 TO *]", sort=params['sort'] , rows=15)
-        else:
-            results = solr.search(params['q'], fq="likes:[100 TO *]", sort=params['sort'] , rows=15)
-    else:
-        if source == "reddit posts":
-            results = solr.search(params['q'], fq="likes:[3 TO *]&date:[NOW-7DAY/DAY TO NOW]", sort=params['sort'] , rows=15)
-        else:
-            results = solr.search(params['q'], fq="likes:[100 TO *]&date:[NOW-7DAY/DAY TO NOW]", sort=params['sort'] , rows=15)
+    fq = create_fq(params['filter'], source)
+    results = solr.search(params['q'], fq=fq, sort=params['sort'] , rows=15)
 
     print(f"{source} successfully retrieved ", len(results['response']['docs']), "rows of data.")
 
-    spell_response = requests.get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
-
+    spell_response = requests._get(SOLR_PATH + 'spell?' + urlencode({'q':params['q'], 'wt':'json', 'spellcheck.collate':'true', 'spellcheck.count':10, 'spellcheck.maxCollations':10}))
     suggestions, found = get_suggestions(spell_response, params)
 
     return results, suggestions, found
@@ -173,6 +184,27 @@ def get_common_suggestions(l1, l2, l3):
     return final_list
 
 
+def get_stats(results):
+    sources = ["twitter", "reddit posts", "reddit comments"]
+
+    stats = {sources[0]: {"positive": 0, "negative": 0, "neutral": 0},
+            sources[1]: {"positive": 0, "negative": 0, "neutral": 0},
+            sources[2]: {"positive": 0, "negative": 0, "neutral": 0}}
+
+    i = 0
+    for res in results: # res is the list of docs
+        for doc in res: # doc is each individual doc
+            if doc['polarity'] == 1:
+                stats[sources[i]]['positive'] += doc['polarity']
+            elif doc['polarity'] == 0:
+                stats[sources[i]]['negative'] += doc['polarity']
+            else:
+                stats[sources[i]]['neutral'] += 1
+        
+        print(stats)
+        i += 1
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -183,10 +215,14 @@ def on_join(json):
     room = json['client_id']
     join_room(room)
     print(f'Client {json["client_id"]} connected')
+
     results_tw, results_rp, results_rc = getAll()
+
     socketio.emit('results_tw', {'results': results_tw['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
+
+    print("Emitted to client")
 
 
 @socketio.on('leave')
@@ -204,6 +240,8 @@ def query(json):
     results_spell, results_tw, results_rp, results_rc = performQuery(json['search_params'])
     print(f"Query time = {(time() - start)*1000} milliseconds")
 
+    stats = get_stats([results_tw['response']['docs'], results_rp['response']['docs'], results_rc['response']['docs']])
+
     socketio.emit('results_tw', {'results': results_tw['response']['docs']}, room = json['client_id']) # emit to specific users
     socketio.emit('results_rp', {'results': results_rp['response']['docs']}, room = json['client_id'])
     socketio.emit('results_rc', {'results': results_rc['response']['docs']}, room = json['client_id'])
@@ -211,6 +249,7 @@ def query(json):
     socketio.emit('spelling', {'spell_suggestions': results_spell['spell_suggestions'], 'hide_suggestions':results_spell['hide_suggestions'], \
                                 'spell_error_found':results_spell['spell_error_found']}, room = json['client_id'])
 
+    socketio.emit('stats', {'stats': stats})
 
 if __name__ == "__main__":
     socketio.run(app)
