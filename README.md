@@ -31,3 +31,11 @@ npm start
 
 This will launch the web application on port localhost 3000
 
+
+To inject data into Solr change the path to the data csv file in the inject codes which can be found in the data folder and run the codes as follows:
+
+``` 
+python inject_twitter.py
+python inject_reddit_comments.py
+python inject_reddit_posts.py
+```
