@@ -42,6 +42,33 @@ function App() {
   const [spellCheck, setSpellCheck] = React.useState([]);
   const [hideSpellCheck, setHideSpellCheck] = React.useState(true);
   const [spellErrorFound, setSpellErrorFound] = React.useState(false);
+  const [rcChart, setRCCharts] = React.useState([
+    {
+      data: [
+        {name: "positive", value: 0, fill: '#57c0e8'},
+        {name: "neutral", value: 0, fill: "#FF6565"},
+        {name: "negative", value: 0, fill: "#FFDA83"}
+      ]
+    }
+  ]);
+  const [rpChart, setRPCharts] = React.useState([
+    {
+      data: [
+        {name: "positive", value: 0, fill: '#57c0e8'},
+        {name: "neutral", value: 0, fill: "#FF6565"},
+        {name: "negative", value: 0, fill: "#FFDA83"}
+      ]
+    }
+  ]);
+  const [twChart, setTWCharts] = React.useState([
+    {
+      data: [
+        {name: "positive", value: 0, fill: '#57c0e8'},
+        {name: "neutral", value: 0, fill: "#FF6565"},
+        {name: "negative", value: 0, fill: "#FFDA83"}
+      ]
+    }
+  ]);
 
   socket.on('spelling', function(msg) {
     setHideSpellCheck(msg.hide_suggestions);
@@ -51,6 +78,39 @@ function App() {
     setSpellErrorFound(msg.spell_error_found);
   });
   
+  socket.on('stats', function(msg) {
+    var new_twchart = [
+      {
+        data: [
+          {name: "positive", value: msg.stats.twitter.positive, fill: '#57c0e8'},
+          {name: "neutral", value: msg.stats.twitter.neutral, fill: "#FF6565"},
+          {name: "negative", value: msg.stats.twitter.negative, fill: "#FFDA83"}
+        ]
+      }
+    ]
+    var new_rpchart = [
+      {
+        data: [
+          {name: "positive", value: msg.stats.reddit_posts.positive, fill: '#57c0e8'},
+          {name: "neutral", value: msg.stats.reddit_posts.neutral, fill: "#FF6565"},
+          {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
+        ]
+      }
+    ]
+    var new_rcchart = [
+      {
+        data: [
+          {name: "positive", value: msg.stats.reddit_comments.positive, fill: '#57c0e8'},
+          {name: "neutral", value: msg.stats.reddit_comments.neutral, fill: "#FF6565"},
+          {name: "negative", value: msg.stats.reddit_comments.negative, fill: "#FFDA83"}
+        ]
+      }
+    ]
+    setRPCharts(new_rpchart);
+    setTWCharts(new_rcchart);
+    setRCCharts(new_twchart);
+
+  });
   var searchQuery = React.useRef()
   socket.on('connect', function(msg) {
     socket.emit('join', {data: 'Client connected!', client_id: socket.id});
@@ -136,7 +196,7 @@ function App() {
       'aria-controls': `simple-tabpanel-${index}`,
     };
   }
-
+  
   function SpellCheck(props)  {
     console.log(props.corrections.length)
     console.log(spellErrorFound)
@@ -164,6 +224,8 @@ function App() {
     </Grid>
     );
   }
+
+  
 
   SpellCheck.propTypes = {
     /**
@@ -317,6 +379,7 @@ function App() {
     <Tab label="Tweets" {...a11yProps(0)} />
     <Tab label="Reddit Posts" {...a11yProps(1)} />
     <Tab label="Reddit Comments" {...a11yProps(2)} />
+    <Tab label="View Stats" {...a11yProps(3)} />
   </Tabs>
   </Grid>
 </Box>
@@ -357,10 +420,6 @@ function App() {
                           <RepeatIcon color="success" />
                           <Box mr={2}>
                             <Typography variant="subtitle2" color="textPrimary">{tweet.retweet_count}</Typography>
-                          </Box>
-                          <ChatBubbleOutlineIcon />
-                          <Box mr={2}>
-                            <Typography variant="subtitle2" color="textPrimary">{tweet.reply_count}</Typography>
                           </Box>
                           
                         </Grid>
@@ -589,7 +648,44 @@ function App() {
 
 
 </TabPanel>
-        
+<TabPanel value={value} index={3}>
+{twChart.map(s=>
+        <Pie 
+        dataKey="value" 
+        isAnimationActive={false} 
+        data={s.data} 
+        cx={200} 
+        cy={200} 
+        outerRadius={100} 
+        innerRadius={60}
+        fill="#fff"
+  />)
+}
+{rpChart.map(s=>
+        <Pie 
+        dataKey="value" 
+        isAnimationActive={false} 
+        data={s.data} 
+        cx={200} 
+        cy={200} 
+        outerRadius={100} 
+        innerRadius={60}
+        fill="#fff"
+  />)
+}
+{rcChart.map(s=>
+        <Pie 
+        dataKey="value" 
+        isAnimationActive={false} 
+        data={s.data} 
+        cx={200} 
+        cy={200} 
+        outerRadius={100} 
+        innerRadius={60}
+        fill="#fff"
+  />)
+}
+</TabPanel>
   </Box>
 </Container>
 </Container>

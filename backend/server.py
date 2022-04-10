@@ -88,7 +88,7 @@ def create_fq(filters,source):
     fq=''
     
     if filters['popular']:
-        ifsource == 'reddit posts':
+        if source == 'reddit posts':
             fq=fq+'likes:[3 TO *]'
         else:
             fq=fq+'likes:[100 TO *]'
